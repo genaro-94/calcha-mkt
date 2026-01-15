@@ -29,6 +29,20 @@ fetch("comercios.json")
     renderComercios(comercios); // función que ya tengas para mostrar los comercios
   })
   .catch(err => console.error("Error cargando comercios:", err));
+  function renderComercios(comercios) {
+  const container = document.getElementById("app"); // contenedor donde se renderizan
+  container.innerHTML = ""; // limpia antes de dibujar
+
+  comercios.forEach(c => {
+    container.innerHTML += `
+      <div class="comercio-card">
+        <img src="${c.imagen || 'images/default-comercio.jpg'}" class="comercio-img">
+        <h3>${c.nombre}</h3>
+        <p>${c.rubro}</p>
+      </div>
+    `;
+  });
+}
   // ------------------------
   // RENDER GENERAL
   // ------------------------
