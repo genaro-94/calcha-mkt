@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nombre": "Sandwichería Don Pepe",
+    "rubro": "Gastronomía",
+    "descripcion": "Sandwichería local con los mejores sándwiches y menú del día.",
+    "imagen": "images/images-(8).jpeg",
+    "galeria": [],
+    "whatsapp": "3874000001",
+    "estado": "activo",
+    "destacado": true
+  },
+  {
+    "id": 2,
+    "nombre": "Panadería La Quebrada",
+    "rubro": "Panadería",
+    "descripcion": "Pan casero, facturas y repostería artesanal.",
+    "imagen": "",
+    "galeria": [],
+    "whatsapp": "3874000002",
+    "estado": "activo",
+    "destacado": false
+  },
+  {
+    "id": 3,
+    "nombre": "Ferretería El Martillo",
+    "rubro": "Ferretería",
+    "descripcion": "Todo para el hogar, herramientas y materiales.",
+    "imagen": "",
+    "galeria": [],
+    "whatsapp": "3874000003",
+    "estado": "activo",
+    "destacado": false
+  }
+]
