@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       abierto: true,
       permiteDelivery: true,
       whatsapp: "5493870000000",
-      imagen: "images/images-(8).jpeg"
       menu: [
         { nombre: "Hamburguesa completa $3500", precio: 3500 },
         { nombre: "Lomito especial $4200", precio: 4200 },
