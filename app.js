@@ -26,8 +26,8 @@ fetch("comercios.json")
   .then(res => res.json())
   .then(data => {
     comercios = data;
+    renderApp();
   .catch(err => console.error("Error cargando comercios:", err));
-  function renderComercios(comercios) {
   const container = document.getElementById("app"); // contenedor donde se renderizan
   container.innerHTML = ""; // limpia antes de dibujar
 
@@ -424,7 +424,8 @@ function renderInfo() {
     tipoEntrega = null;
     direccionEntrega = "";
   }
- 
+ function renderComercios(comercios) 
+}
   renderApp();
 });
 
