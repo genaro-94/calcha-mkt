@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // HOME
   // ------------------------
   function renderHome() {
+  function renderHome() {
   app.innerHTML = `
     <h1>
       <img src="images/Logo.png" alt="Logo Calcha" style="width:32px; height:32px; vertical-align:middle; margin-right:8px;">
@@ -47,18 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <p>El mercado local en tu mano</p>
     <button id="btn-rubros">☰</button>
     ${
-      menuRubrosAbierto
-        ? `<div class="menu-rubros">
-            <button data-rubro="todos">Todos</button>
-            <button data-rubro="gastronomía">🍔 Gastronomía</button>
-            <button data-rubro="artesanía">🏺 Artesanía</button>
-            <button data-rubro="hotel">🏨 Hotelería</button>
-            <button data-rubro="servicios">🛠️ Servicios</button>
-            <hr>
-            <button id="btn-comercio">➕ Sumá tu comercio</button>
-            <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
-          </div>`
-        : ''
+      menuRubrosAbierto ? 
+      `<div class="menu-rubros">
+        <button data-rubro="todos">Todos</button>
+        <button data-rubro="gastronomía">🍔 Gastronomía</button>
+        <button data-rubro="artesanía">🏺 Artesanía</button>
+        <button data-rubro="hotel">🏨 Hotelería</button>
+        <button data-rubro="servicios">🛠️ Servicios</button>
+        <hr>
+        <button id="btn-comercio">➕ Sumá tu comercio</button>
+        <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
+      </div>` : ''
     }
     <div id="lista-comercios"></div>
   `;
