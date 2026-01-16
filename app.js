@@ -162,7 +162,19 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>`;
     });
-
+{
+  "nombre": "Sandwichería Don Pepe",
+  "rubro": "gastronomía",
+  "descripcion": "Sandwichería local con los mejores sándwiches y menú del día.",
+  "tipoOperacion": "pedido",
+  "whatsapp": "3874000001",
+  "imagen": "images/images-8.jpeg",
+  "galeria": [
+    "images/sandwich1.jpeg",
+    "images/sandwich2.jpeg",
+    "images/sandwich3.jpeg"
+  ]
+}
     const total = carrito.reduce((s, i) => s + i.precio * i.cantidad, 0);
 
     app.innerHTML = `
