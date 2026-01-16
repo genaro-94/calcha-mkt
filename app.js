@@ -46,38 +46,49 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.appendChild(lightboxImg);
   document.body.appendChild(lightbox);
 
-  function abrirLightbox(src) {
+  // ------------------------
+// LIGHTBOX MEJORADO
+// ------------------------
+function abrirLightbox(src) {
   const lightbox = document.getElementById("lightbox");
   const img = document.getElementById("lightbox-img");
 
   img.src = src;
   lightbox.classList.remove("hidden");
 
-  // Añadimos un estado en el historial para que back lo cierre
+  // PUSHSTATE para manejar el botón de back
   history.pushState({ lightbox: true }, "");
 }
 
-// Cerrar lightbox al tocar afuera de la imagen
-document.addEventListener("click", e => {
+// Cerrar lightbox
+function cerrarLightbox() {
   const lightbox = document.getElementById("lightbox");
-  if (e.target.id === "lightbox") {
+  if (!lightbox.classList.contains("hidden")) {
     lightbox.classList.add("hidden");
-    // Al cerrar, eliminamos este estado del historial para no “duplicar back”
-    if (history.state?.lightbox) history.back();
+    // Volvemos atrás en el historial solo si fue pushState del lightbox
+    if (history.state && history.state.lightbox) {
+      history.back();
+    }
+  }
+}
+
+// Cerrar al tocar afuera
+document.addEventListener("click", e => {
+  if (e.target.id === "lightbox") {
+    cerrarLightbox();
   }
 });
 
-// Manejo del botón físico de volver
-window.addEventListener("popstate", (e) => {
+// Manejo del botón físico de back
+window.addEventListener("popstate", e => {
+  // Si hay un lightbox abierto, lo cerramos y cancelamos el popstate “real”
   const lightbox = document.getElementById("lightbox");
-  if (lightbox && !lightbox.classList.contains("hidden")) {
-    // Si el lightbox está abierto, cerrarlo y evitar ir a la vista anterior
+  if (!lightbox.classList.contains("hidden")) {
     lightbox.classList.add("hidden");
-    // Cancelamos el efecto del popstate para que la vista no cambie
-    history.pushState({}, "");
+    // No hacemos nada más, así que la vista del comercio queda visible
   } else {
-    // Si no hay lightbox, comportamiento normal (ya lo tenés en renderApp)
-    renderApp();
+    // Si no hay lightbox abierto, el popstate sigue normal (vuelve a home, etc.)
+    renderApp(); 
   }
 });
 
