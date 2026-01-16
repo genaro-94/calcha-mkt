@@ -206,115 +206,119 @@ document.addEventListener("DOMContentLoaded", () => {
   // PEDIDO (igual que antes)
   // ------------------------
   function renderPedido() {
-    if (!comercioActivo) return renderHome();
+  if (!comercioActivo) return renderHome();
 
-    let menuHTML = "";
-    comercioActivo.menu.forEach((item, i) => {
-      const enCarrito = carrito.find(p => p.nombre === item.nombre);
-      menuHTML += `
-        <div class="item-menu">
-          <span>${item.nombre} - $${item.precio}</span>
-          <div>
-            ${enCarrito ? `<button data-i="${i}" data-a="restar">−</button>
-            <strong>${enCarrito.cantidad}</strong>` : ""}
-            <button data-i="${i}" data-a="sumar">+</button>
-          </div>
-       `;
-    });
-
-    const total = carrito.reduce((s, p) => s + p.precio * p.cantidad, 0);
-
-    app.innerHTML = `
-    <div id="lightbox" class="lightbox hidden">
-  <img id="lightbox-img" src="" alt="">
-</div>
-  <button class="btn-volver">← Volver</button>
-
-  <img src="${comercioActivo.imagen}" class="comercio-img">
-
-  <h2>${comercioActivo.nombre}</h2>
-  <p>${comercioActivo.descripcion}</p>
-
-  ${
-    comercioActivo.galeria && comercioActivo.galeria.length > 0
-      ? `
-        <div class="galeria-comercio">
-  ${comercioActivo.galeria
-    .map(
-      img =>
-        `<img src="${img}" 
-              class="galeria-img" 
-              onclick="abrirLightbox('${img}')">`
-    )
-    .join("")}
-</div>
-      `
-      : ""
-  }
-
-  <div class="menu">${menuHTML}</div>
-
-      <h3>Entrega</h3>
-      <div class="entrega">
-        <button id="retiro" class="${tipoEntrega === "retiro" ? "activo" : ""}">🏠 Retiro</button>
-        ${comercioActivo.permiteDelivery
-          ? `<button id="delivery" class="${tipoEntrega === "delivery" ? "activo" : ""}">🛵 Delivery</button>`
-          : ""}
-      </div>
-
-      ${tipoEntrega === "delivery"
-        ? `<input id="direccion" placeholder="Dirección" value="${direccionEntrega}">`
-        : ""}
-
-      <div class="carrito">
-        <strong>Total: $${total}</strong>
-        <button class="btn-continuar" ${!total || !tipoEntrega ? "disabled" : ""} id="continuar">
-          Continuar
-        </button>
+  // Construir el HTML del menú
+  let menuHTML = "";
+  comercioActivo.menu.forEach((item, i) => {
+    const enCarrito = carrito.find(p => p.nombre === item.nombre);
+    menuHTML += `
+      <div class="item-menu">
+        <span>${item.nombre} - $${item.precio}</span>
+        <div>
+          ${enCarrito ? `<button data-i="${i}" data-a="restar">−</button>
+          <strong>${enCarrito.cantidad}</strong>` : ""}
+          <button data-i="${i}" data-a="sumar">+</button>
+        </div>
       </div>
     `;
+  });
 
-    document.querySelector(".btn-volver").onclick = () => history.back();
+  const total = carrito.reduce((s, p) => s + p.precio * p.cantidad, 0);
 
-    document.querySelectorAll("[data-a]").forEach(b => {
-      b.onclick = () => {
-        const prod = comercioActivo.menu[b.dataset.i];
-        const ex = carrito.find(p => p.nombre === prod.nombre);
-        if (b.dataset.a === "sumar") {
-          if (ex) ex.cantidad++;
-          else carrito.push({ ...prod, cantidad: 1 });
-        }
-        if (b.dataset.a === "restar" && ex) {
-          ex.cantidad--;
-          if (ex.cantidad === 0) carrito = carrito.filter(p => p !== ex);
-        }
-        renderPedido();
-      };
-    });
+  // Render completo de la vista pedido
+  app.innerHTML = `
+    <div id="lightbox" class="lightbox hidden">
+      <img id="lightbox-img" src="" alt="">
+    </div>
 
-    document.getElementById("retiro").onclick = () => {
-      tipoEntrega = "retiro";
-      direccionEntrega = "";
-      renderPedido();
-    };
+    <button class="btn-volver">← Volver</button>
 
-    const btnDel = document.getElementById("delivery");
-    if (btnDel) {
-      btnDel.onclick = () => {
-        tipoEntrega = "delivery";
-        renderPedido();
-      };
+    <img src="${comercioActivo.imagen}" class="comercio-img">
+
+    <h2>${comercioActivo.nombre}</h2>
+    <p>${comercioActivo.descripcion}</p>
+
+    ${
+      comercioActivo.galeria && comercioActivo.galeria.length > 0
+        ? `<div class="galeria-comercio">
+            ${comercioActivo.galeria
+              .map(img => `<img src="${img}" class="galeria-img" onclick="abrirLightbox('${img}')">`)
+              .join("")}
+          </div>`
+        : ""
     }
 
-    const dir = document.getElementById("direccion");
-    if (dir) dir.oninput = e => direccionEntrega = e.target.value;
+    <div class="menu">${menuHTML}</div>
 
-    document.getElementById("continuar").onclick = () => {
-      vistaActual = "confirmar";
-      history.pushState({ vista: "confirmar" }, "", "#confirmar");
-      renderConfirmar();
+    <h3>Entrega</h3>
+    <div class="entrega">
+      <button id="retiro" class="${tipoEntrega === "retiro" ? "activo" : ""}">🏠 Retiro</button>
+      ${
+        comercioActivo.permiteDelivery
+          ? `<button id="delivery" class="${tipoEntrega === "delivery" ? "activo" : ""}">🛵 Delivery</button>`
+          : ""
+      }
+    </div>
+
+    ${
+      tipoEntrega === "delivery"
+        ? `<input id="direccion" placeholder="Dirección" value="${direccionEntrega}">`
+        : ""
+    }
+
+    <div class="carrito">
+      <strong>Total: $${total}</strong>
+      <button class="btn-continuar" ${!total || !tipoEntrega ? "disabled" : ""} id="continuar">
+        Continuar
+      </button>
+    </div>
+  `;
+
+  // ------------------------
+  // Eventos
+  // ------------------------
+  document.querySelector(".btn-volver").onclick = () => history.back();
+
+  document.querySelectorAll("[data-a]").forEach(b => {
+    b.onclick = () => {
+      const prod = comercioActivo.menu[b.dataset.i];
+      const ex = carrito.find(p => p.nombre === prod.nombre);
+      if (b.dataset.a === "sumar") {
+        if (ex) ex.cantidad++;
+        else carrito.push({ ...prod, cantidad: 1 });
+      }
+      if (b.dataset.a === "restar" && ex) {
+        ex.cantidad--;
+        if (ex.cantidad === 0) carrito = carrito.filter(p => p !== ex);
+      }
+      renderPedido();
+    };
+  });
+
+  document.getElementById("retiro").onclick = () => {
+    tipoEntrega = "retiro";
+    direccionEntrega = "";
+    renderPedido();
+  };
+
+  const btnDel = document.getElementById("delivery");
+  if (btnDel) {
+    btnDel.onclick = () => {
+      tipoEntrega = "delivery";
+      renderPedido();
     };
   }
+
+  const dir = document.getElementById("direccion");
+  if (dir) dir.oninput = e => direccionEntrega = e.target.value;
+
+  document.getElementById("continuar").onclick = () => {
+    vistaActual = "confirmar";
+    history.pushState({ vista: "confirmar" }, "", "#confirmar");
+    renderConfirmar();
+  };
+      }
 
   // ------------------------
   // CONFIRMAR (igual que antes)
