@@ -78,6 +78,9 @@ const WHATSAPP_ADMIN = "5493875181644";
           <button data-rubro="artesanía">🏺 Artesanía</button>
           <button data-rubro="hotel">🏨 Hotelería</button>
           <button data-rubro="servicios">🛠️ Servicios</button>
+          <button class="btn btn-sumar" onclick="sumarMiComercio()">
+  ➕ Sumar mi comercio
+</button>
           <hr>
           <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
         </div>` : ""}
