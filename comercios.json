@@ -71,7 +71,7 @@
     "rubro": "hotelería",
     "descripcion": "un hermoso lugar para descansar en el centro de cafayate.",
     "imagen": "images/sanjo.jpg",
-    "tipoOperacion": "reserva",
+    "tipoOperacion": "pedido",
     "permiteDelivery": false,
     "menu": [
       { "nombre": "hab. simple", "precio": 25000 },
