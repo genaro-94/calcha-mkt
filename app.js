@@ -150,10 +150,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // PEDIDO
   // ------------------------
   function renderPedido() {
-    let menuHTML = "";
-    comercioActivo.menu.forEach((item, i) => {
-      const enCarrito = carrito.find(p => p.nombre === item.nombre);
-      menuHTML += `
+  // ------------------------
+  // Menú del comercio
+  // ------------------------
+  let menuHTML = "";
+  comercioActivo.menu.forEach((item, i) => {
+    const enCarrito = carrito.find(p => p.nombre === item.nombre);
+    menuHTML += `
       <div class="item-menu">
         <span>${item.nombre} - $${item.precio}</span>
         <div style="display:flex; align-items:center; gap:6px;">
@@ -161,58 +164,91 @@ document.addEventListener("DOMContentLoaded", () => {
           <button data-i="${i}" data-accion="sumar">+</button>
         </div>
       </div>`;
-    });
-{
-  "nombre": "Sandwichería Don Pepe",
-  "rubro": "gastronomía",
-  "descripcion": "Sandwichería local con los mejores sándwiches y menú del día.",
-  "tipoOperacion": "pedido",
-  "whatsapp": "3874000001",
-  "imagen": "images/images-8.jpeg",
-  "galeria": [
-    "images/sandwich1.jpeg",
-    "images/sandwich2.jpeg",
-    "images/sandwich3.jpeg"
-  ]
-}
-    const total = carrito.reduce((s, i) => s + i.precio * i.cantidad, 0);
+  });
 
-    app.innerHTML = `
-      <button class="btn-volver">← Volver</button>
-      <h2>${comercioActivo.nombre}</h2>
-      <div class="entrega">
-        <button class="${tipoEntrega === "retiro" ? "activo" : ""}" id="retiro">🏪 Retiro</button>
-        ${comercioActivo.permiteDelivery ? `<button class="${tipoEntrega === "delivery" ? "activo" : ""}" id="delivery">🛵 Delivery</button>` : ""}
-      </div>
-      <div class="menu">${menuHTML}</div>
-      <div class="carrito">
-        <strong>Total: $${total}</strong>
-        <button class="btn-continuar" id="continuar" ${!total || !tipoEntrega ? "disabled" : ""}>Continuar</button>
+  // ------------------------
+  // Galería de imágenes del comercio
+  // ------------------------
+  let galeriaHTML = '';
+  if (comercioActivo.galeria && comercioActivo.galeria.length > 0) {
+    galeriaHTML = `
+      <div class="galeria-comercio">
+        ${comercioActivo.galeria.map(img => `
+          <img src="${img}" alt="${comercioActivo.nombre}" class="galeria-img">
+        `).join('')}
       </div>
     `;
-
-    document.querySelector(".btn-volver").onclick = volverHome;
-
-    document.querySelectorAll(".item-menu button").forEach(b => {
-      b.onclick = () => {
-        const producto = comercioActivo.menu[b.dataset.i];
-        const existente = carrito.find(p => p.nombre === producto.nombre);
-        if (b.dataset.accion === "sumar") {
-          if (existente) existente.cantidad++;
-          else carrito.push({ ...producto, cantidad: 1 });
-        }
-        if (b.dataset.accion === "restar" && existente) {
-          existente.cantidad--;
-          if (existente.cantidad === 0) carrito = carrito.filter(p => p.nombre !== producto.nombre);
-        }
-        renderPedido();
-      };
-    });
-
-    document.getElementById("retiro").onclick = () => { tipoEntrega = "retiro"; renderPedido(); };
-    if (comercioActivo.permiteDelivery) document.getElementById("delivery").onclick = () => { tipoEntrega = "delivery"; renderPedido(); };
-    document.getElementById("continuar").onclick = renderConfirmacionPedido;
   }
+
+  // ------------------------
+  // Calcular total del carrito
+  // ------------------------
+  const total = carrito.reduce((s, i) => s + i.precio * i.cantidad, 0);
+
+  // ------------------------
+  // Render HTML completo
+  // ------------------------
+  app.innerHTML = `
+    <button class="btn-volver">← Volver</button>
+    <h2>${comercioActivo.nombre}</h2>
+
+    ${galeriaHTML}  <!-- Galería aquí -->
+
+    <div class="entrega">
+      <button class="${tipoEntrega === "retiro" ? "activo" : ""}" id="retiro">🏪 Retiro</button>
+      ${comercioActivo.permiteDelivery ? `<button class="${tipoEntrega === "delivery" ? "activo" : ""}" id="delivery">🛵 Delivery</button>` : ""}
+    </div>
+
+    <div class="menu">${menuHTML}</div>
+
+    <div class="carrito">
+      <strong>Total: $${total}</strong>
+      <button class="btn-continuar" id="continuar" ${!total || !tipoEntrega ? "disabled" : ""}>Continuar</button>
+    </div>
+  `;
+
+  // ------------------------
+  // Event listeners
+  // ------------------------
+  document.querySelector(".btn-volver").onclick = volverHome;
+
+  // Botones de menú +/-
+  document.querySelectorAll(".item-menu button").forEach(b => {
+    b.onclick = () => {
+      const producto = comercioActivo.menu[b.dataset.i];
+      const existente = carrito.find(p => p.nombre === producto.nombre);
+      if (b.dataset.accion === "sumar") {
+        if (existente) existente.cantidad++;
+        else carrito.push({ ...producto, cantidad: 1 });
+      }
+      if (b.dataset.accion === "restar" && existente) {
+        existente.cantidad--;
+        if (existente.cantidad === 0) carrito = carrito.filter(p => p.nombre !== producto.nombre);
+      }
+      renderPedido();
+    };
+  });
+
+  // Botones de entrega
+  document.getElementById("retiro").onclick = () => { tipoEntrega = "retiro"; renderPedido(); };
+  if (comercioActivo.permiteDelivery) document.getElementById("delivery").onclick = () => { tipoEntrega = "delivery"; renderPedido(); };
+
+  // Continuar
+  document.getElementById("continuar").onclick = renderConfirmacionPedido;
+
+  // ------------------------
+  // Lightbox para galería
+  // ------------------------
+  document.querySelectorAll(".galeria-img").forEach(img => {
+    img.onclick = () => {
+      const overlay = document.createElement("div");
+      overlay.className = "overlay";
+      overlay.innerHTML = `<img src="${img.src}" class="overlay-img">`;
+      overlay.onclick = () => overlay.remove();
+      document.body.appendChild(overlay);
+    };
+  });
+}
 
   // ------------------------
   // CONFIRMACIÓN PEDIDO
