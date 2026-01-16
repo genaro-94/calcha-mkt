@@ -78,9 +78,10 @@
       { "nombre": "hab. triple", "precio": 55000 },
       { "nombre": "hab. cuadruple", "precio": 70000 }
     ],
-    "galeria":["images/hab1.jpg",
-"images/hab2.jpg",
-    "images/hab3.jpg"],
+    "galeria":[
+      "images/hab1.jpg",
+      "images/hab2.jpg",
+      "images/hab3.jpg"],
     "whatsapp": "3874000003",
     "estado": "activo",
     "destacado": false
