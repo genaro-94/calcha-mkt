@@ -158,6 +158,9 @@ if (btnSumar) {
     comercioActivo.menu.forEach((item, i) => {
       const enCarrito = carrito.find(p => p.nombre === item.nombre);
       menuHTML += `
+      <div style="background:red;color:white;padding:10px">
+  GALERIA TEST
+</div>
         <div class="item-menu">
           <span>${item.nombre} - $${item.precio}</span>
           <div>
