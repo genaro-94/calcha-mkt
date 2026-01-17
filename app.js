@@ -130,7 +130,7 @@ window.addEventListener("popstate", e => {
   // HOME
   // ------------------------
 
-  function renderHome() {
+function renderHome() {
   vistaActual = "home";
   history.replaceState({ vista: "home" }, "", "#home");
 
@@ -141,6 +141,7 @@ window.addEventListener("popstate", e => {
     </h1>
     <p class="subtitulo">El mercado local en tu mano</p>
 
+    <!-- Botón rubros -->
     <button id="btn-rubros">☰</button>
 
     ${
@@ -149,7 +150,7 @@ window.addEventListener("popstate", e => {
             <button data-rubro="todos">Todos</button>
             <button data-rubro="gastronomía">🍔 Gastronomía</button>
             <button data-rubro="artesanía">🏺 Artesanía</button>
-            <button data-rubro="turismo">⛰️ turismo</button>
+            <button data-rubro="turismo">⛰️ Turismo</button>
             <button data-rubro="servicios">🛠️ Servicios</button>
           </div>
 
@@ -160,14 +161,19 @@ window.addEventListener("popstate", e => {
         : ""
     }
 
-<-- Barra de búsqueda nueva -->
-<div class="buscador">
-  <input type="text" id="input-busqueda" placeholder="🔍 Buscar comercio..." autocomplete="off">
-  <div id="resultados-busqueda" class="resultados"></div>
-</div>
+    <!-- Barra de búsqueda -->
+    <div class="buscador">
+      <input type="text" id="input-busqueda" placeholder="🔍 Buscar comercio..." autocomplete="off">
+      <div id="resultados-busqueda" class="resultados"></div>
+    </div>
+
+    <!-- Lista de comercios -->
     <div id="lista-comercios"></div>
   `;
 
+  // ------------------------
+  // Botones generales del home
+  // ------------------------
   const btnSumar = document.getElementById("btn-sumar-comercio");
   if (btnSumar) btnSumar.onclick = sumarMiComercio;
 
@@ -193,32 +199,13 @@ window.addEventListener("popstate", e => {
     };
   });
 
-  const buscador = document.getElementById("buscador");
-  buscador.oninput = () => renderListaComercios(buscador.value);
-
-  // Renderizar lista al cargar
-  renderListaComercios("");
-}
-
-// Función separada para renderizar la lista de comercios filtrados
-function renderListaComercios(busqueda = "") {
+  // ------------------------
+  // Renderizar lista de comercios
+  // ------------------------
   const lista = document.getElementById("lista-comercios");
-  lista.innerHTML = "";
-
-  // Filtrado por rubro
-  let filtrados = rubroActivo === "todos"
+  const filtrados = rubroActivo === "todos"
     ? comercios
     : comercios.filter(c => c.rubro === rubroActivo);
-
-  // Filtrado por búsqueda (nombre, descripción, rubro)
-  if (busqueda.trim() !== "") {
-    const term = busqueda.toLowerCase();
-    filtrados = filtrados.filter(c =>
-      c.nombre.toLowerCase().includes(term) ||
-      c.descripcion.toLowerCase().includes(term) ||
-      c.rubro.toLowerCase().includes(term)
-    );
-  }
 
   filtrados.forEach(c => {
     const card = document.createElement("div");
@@ -262,8 +249,52 @@ function renderListaComercios(busqueda = "") {
 
     lista.appendChild(card);
   });
-}    
 
+  // ------------------------
+  // Autocomplete / Búsqueda
+  // ------------------------
+  const inputBusqueda = document.getElementById("input-busqueda");
+  const resultados = document.getElementById("resultados-busqueda");
+
+  if (inputBusqueda) {
+    inputBusqueda.oninput = () => {
+      const texto = inputBusqueda.value.trim().toLowerCase();
+      resultados.innerHTML = "";
+
+      if (texto === "") return;
+
+      const filtrados = comercios.filter(c =>
+        c.nombre.toLowerCase().includes(texto) ||
+        c.descripcion.toLowerCase().includes(texto) ||
+        c.rubro.toLowerCase().includes(texto)
+      );
+
+      filtrados.forEach(c => {
+        const div = document.createElement("div");
+        const regex = new RegExp(`(${texto})`, "gi");
+        div.innerHTML = c.nombre.replace(regex, "<span class='resultado-highlight'>$1</span>");
+        div.onclick = () => {
+          comercioActivo = c;
+          carrito = [];
+          tipoEntrega = null;
+          direccionEntrega = "";
+          vistaActual = c.tipoOperacion === "reserva" ? "reserva" :
+                       c.tipoOperacion === "info" ? "info" : "pedido";
+          history.pushState({ vista: vistaActual, comercioId: c.id }, "", `#${vistaActual}`);
+          renderApp();
+        };
+        resultados.appendChild(div);
+      });
+    };
+
+    // Cerrar resultados si haces click fuera
+    document.addEventListener("click", e => {
+      if (!e.target.closest(".buscador")) {
+        resultados.innerHTML = "";
+      }
+    });
+  }
+}
 
   // ------------------------
   // PEDIDO
