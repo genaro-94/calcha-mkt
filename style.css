@@ -570,3 +570,17 @@ input:focus {
   color: #5a3b1e;
   text-align: center;
 }
+.rubros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.rubros-grid button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #f3f3f3;
+  font-weight: bold;
+}
