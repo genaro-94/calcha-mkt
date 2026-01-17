@@ -164,7 +164,7 @@ function renderHome() {
     <!-- Barra de búsqueda -->
     <div class="buscador">
       <input type="text" id="input-busqueda" placeholder="🔍 Buscar comercio..." autocomplete="off">
-      <div id="resultados-busqueda" class="resultados"></div>
+      <div id="resultados-busqueda" class="resultados-scroll"></div>
     </div>
 
     <!-- Lista de comercios -->
@@ -251,7 +251,7 @@ function renderHome() {
   });
 
   // ------------------------
-  // Autocomplete / Búsqueda
+  // Autocomplete / Búsqueda con scroll tipo TikTok/Instagram
   // ------------------------
   const inputBusqueda = document.getElementById("input-busqueda");
   const resultados = document.getElementById("resultados-busqueda");
@@ -272,7 +272,8 @@ function renderHome() {
       filtrados.forEach(c => {
         const div = document.createElement("div");
         const regex = new RegExp(`(${texto})`, "gi");
-        div.innerHTML = c.nombre.replace(regex, "<span class='resultado-highlight'>$1</span>");
+        div.innerHTML = `<strong>${c.nombre.replace(regex, "<span class='resultado-highlight'>$1</span>")}</strong> <small>${c.rubro}</small>`;
+        div.className = "resultado-item";
         div.onclick = () => {
           comercioActivo = c;
           carrito = [];
@@ -295,6 +296,7 @@ function renderHome() {
     });
   }
 }
+
 
   // ------------------------
   // PEDIDO
