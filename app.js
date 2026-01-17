@@ -166,7 +166,37 @@ function renderHome() {
       <input type="text" id="input-busqueda" placeholder="🔍 Buscar comercio..." autocomplete="off">
       <div id="resultados-busqueda" class="resultados-scroll"></div>
     </div>
+<section class="rubros-grid">
+  <button class="rubro-btn" data-rubro="gastronomia">
+    <span class="icon">🍽️</span>
+    <span class="text">Gastronomía</span>
+  </button>
 
+  <button class="rubro-btn" data-rubro="turismo">
+    <span class="icon">🏨⛰️</span>
+    <span class="text">Turismo</span>
+  </button>
+
+  <button class="rubro-btn" data-rubro="almacen">
+    <span class="icon">🛒</span>
+    <span class="text">Almacén</span>
+  </button>
+
+  <button class="rubro-btn" data-rubro="servicios">
+    <span class="icon">🛠️</span>
+    <span class="text">Servicios</span>
+  </button>
+
+  <button class="rubro-btn" data-rubro="ropa">
+    <span class="icon">🛍️</span>
+    <span class="text">Ropa</span>
+  </button>
+
+  <button class="rubro-btn" data-rubro="artesanias">
+    <span class="icon">🎨</span>
+    <span class="text">Artesanías</span>
+  </button>
+</section>
     <!-- Lista de comercios -->
     <div id="lista-comercios"></div>
   `;
