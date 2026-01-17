@@ -129,117 +129,139 @@ window.addEventListener("popstate", e => {
   // ------------------------
   // HOME
   // ------------------------
+
   function renderHome() {
-    vistaActual = "home";
-    history.replaceState({ vista: "home" }, "", "#home");
+  vistaActual = "home";
+  history.replaceState({ vista: "home" }, "", "#home");
 
-    app.innerHTML = `
-      <h1>
-        <img src="images/Logo.png" style="width:32px;vertical-align:middle;margin-right:8px;">
-        CALCHA
-      </h1>
-      <p class="subtitulo">El mercado local en tu mano</p>
+  app.innerHTML = `
+    <h1>
+      <img src="images/Logo.png" style="width:32px;vertical-align:middle;margin-right:8px;">
+      CALCHA
+    </h1>
+    <p class="subtitulo">El mercado local en tu mano</p>
 
-      <button id="btn-rubros">☰</button>
+    <button id="btn-rubros">☰</button>
 
-      ${
-        menuRubrosAbierto
-          ? `<div class="menu-rubros">
-              <button data-rubro="todos">Todos</button>
-              <button data-rubro="gastronomía">🍔 Gastronomía</button>
-              <button data-rubro="artesanía">🏺 Artesanía</button>
-              <button data-rubro="turismo">⛰️ turismo</button>
-              <button data-rubro="servicios">🛠️ Servicios</button>
-            </div>
+    ${
+      menuRubrosAbierto
+        ? `<div class="menu-rubros">
+            <button data-rubro="todos">Todos</button>
+            <button data-rubro="gastronomía">🍔 Gastronomía</button>
+            <button data-rubro="artesanía">🏺 Artesanía</button>
+            <button data-rubro="turismo">⛰️ turismo</button>
+            <button data-rubro="servicios">🛠️ Servicios</button>
+          </div>
 
-            <div class="acciones">
-              <button id="btn-info" class="btn-menu">
-                ℹ️ ¿Qué es Calcha?
-              </button>
-
-              <button id="btn-sumar-comercio" class="btn-menu">
-                ➕ Sumar mi comercio
-              </button>
-            </div>`
-          : ""
-      }
-
-      <div id="lista-comercios"></div>
-    `;
-
-    const btnSumar = document.getElementById("btn-sumar-comercio");
-    if (btnSumar) btnSumar.onclick = sumarMiComercio;
-
-    document.getElementById("btn-rubros").onclick = () => {
-      menuRubrosAbierto = !menuRubrosAbierto;
-      renderHome();
-    };
-
-    const btnInfo = document.getElementById("btn-info");
-    if (btnInfo) {
-      btnInfo.onclick = () => {
-        vistaActual = "info";
-        history.pushState({ vista: "info" }, "", "#info");
-        renderInfo();
-      };
+          <div class="acciones">
+            <button id="btn-info" class="btn-menu">ℹ️ ¿Qué es Calcha?</button>
+            <button id="btn-sumar-comercio" class="btn-menu">➕ Sumar mi comercio</button>
+          </div>`
+        : ""
     }
 
-    document.querySelectorAll("[data-rubro]").forEach(b => {
-      b.onclick = () => {
-        rubroActivo = b.dataset.rubro;
-        menuRubrosAbierto = false;
-        renderHome();
-      };
-    });
+    <!-- Barra de búsqueda -->
+    <input type="text" id="buscador" placeholder="🔍 Buscar comercio..." style="margin:12px 0; padding:10px; border-radius:12px; border:1.5px solid #d67d3e; width:100%; font-size:14px;">
 
-    const lista = document.getElementById("lista-comercios");
-    const filtrados = rubroActivo === "todos"
-      ? comercios
-      : comercios.filter(c => c.rubro === rubroActivo);
+    <div id="lista-comercios"></div>
+  `;
 
-    filtrados.forEach(c => {
-      const card = document.createElement("div");
-      card.className = "card-comercio";
-      card.innerHTML = `
-        <img src="${c.imagen}" class="comercio-img">
-        <h3>${c.nombre}</h3>
-        <p>${c.descripcion}</p>
-        <button>Ver</button>
-      `;
+  const btnSumar = document.getElementById("btn-sumar-comercio");
+  if (btnSumar) btnSumar.onclick = sumarMiComercio;
 
-      card.querySelector("button").onclick = () => {
-        comercioActivo = c;
-        carrito = [];
-        tipoEntrega = null;
-        direccionEntrega = "";
+  document.getElementById("btn-rubros").onclick = () => {
+    menuRubrosAbierto = !menuRubrosAbierto;
+    renderHome();
+  };
 
-        switch(c.tipoOperacion) {
-          case "pedido":
-            vistaActual = "pedido";
-            history.pushState({ vista: "pedido", comercioId: c.id }, "", "#pedido");
-            renderPedido();
-            break;
-          case "reserva":
-            vistaActual = "reserva";
-            history.pushState({ vista: "reserva", comercioId: c.id }, "", "#reserva");
-            renderReserva();
-            break;
-          case "info":
-            vistaActual = "info";
-            history.pushState({ vista: "info", comercioId: c.id }, "", "#info");
-            renderInfoComercio();
-            break;
-          case "mixto":
-            vistaActual = "pedido";
-            history.pushState({ vista: "pedido", comercioId: c.id }, "", "#pedido");
-            renderPedido();
-            break;
-        }
-      };
-
-      lista.appendChild(card);
-    });
+  const btnInfo = document.getElementById("btn-info");
+  if (btnInfo) {
+    btnInfo.onclick = () => {
+      vistaActual = "info";
+      history.pushState({ vista: "info" }, "", "#info");
+      renderInfo();
+    };
   }
+
+  document.querySelectorAll("[data-rubro]").forEach(b => {
+    b.onclick = () => {
+      rubroActivo = b.dataset.rubro;
+      menuRubrosAbierto = false;
+      renderHome();
+    };
+  });
+
+  const buscador = document.getElementById("buscador");
+  buscador.oninput = () => renderListaComercios(buscador.value);
+
+  // Renderizar lista al cargar
+  renderListaComercios("");
+}
+
+// Función separada para renderizar la lista de comercios filtrados
+function renderListaComercios(busqueda = "") {
+  const lista = document.getElementById("lista-comercios");
+  lista.innerHTML = "";
+
+  // Filtrado por rubro
+  let filtrados = rubroActivo === "todos"
+    ? comercios
+    : comercios.filter(c => c.rubro === rubroActivo);
+
+  // Filtrado por búsqueda (nombre, descripción, rubro)
+  if (busqueda.trim() !== "") {
+    const term = busqueda.toLowerCase();
+    filtrados = filtrados.filter(c =>
+      c.nombre.toLowerCase().includes(term) ||
+      c.descripcion.toLowerCase().includes(term) ||
+      c.rubro.toLowerCase().includes(term)
+    );
+  }
+
+  filtrados.forEach(c => {
+    const card = document.createElement("div");
+    card.className = "card-comercio";
+    card.innerHTML = `
+      <img src="${c.imagen}" class="comercio-img">
+      <h3>${c.nombre}</h3>
+      <p>${c.descripcion}</p>
+      <button>Ver</button>
+    `;
+
+    card.querySelector("button").onclick = () => {
+      comercioActivo = c;
+      carrito = [];
+      tipoEntrega = null;
+      direccionEntrega = "";
+
+      switch(c.tipoOperacion) {
+        case "pedido":
+          vistaActual = "pedido";
+          history.pushState({ vista: "pedido", comercioId: c.id }, "", "#pedido");
+          renderPedido();
+          break;
+        case "reserva":
+          vistaActual = "reserva";
+          history.pushState({ vista: "reserva", comercioId: c.id }, "", "#reserva");
+          renderReserva();
+          break;
+        case "info":
+          vistaActual = "info";
+          history.pushState({ vista: "info", comercioId: c.id }, "", "#info");
+          renderInfoComercio();
+          break;
+        case "mixto":
+          vistaActual = "pedido";
+          history.pushState({ vista: "pedido", comercioId: c.id }, "", "#pedido");
+          renderPedido();
+          break;
+      }
+    };
+
+    lista.appendChild(card);
+  });
+}    
+
 
   // ------------------------
   // PEDIDO
