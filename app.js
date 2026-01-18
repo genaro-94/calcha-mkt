@@ -78,20 +78,7 @@ document.addEventListener("click", e => {
     cerrarLightbox();
   }
 });
-window.addEventListener("popstate", (e) => {
-  const estado = e.state || {};
 
-  vistaActual = estado.vista || "home";
-  rubroActivo = estado.rubro || "todos";
-
-  if (estado.comercioId) {
-    comercioActivo = comercios.find(c => c.id === estado.comercioId);
-  } else {
-    comercioActivo = null;
-  }
-
-  renderApp();
-});
   // ------------------------
   // HISTORIAL
   // ------------------------
