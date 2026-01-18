@@ -343,8 +343,20 @@ function irARubro(rubro) {
     if (!comercioActivo) return renderHome();
 
   let menuHTML = "";
+let categoriaActual = "";
+
 comercioActivo.menu.forEach((item, i) => {
+  if (item.categoria !== categoriaActual) {
+    categoriaActual = item.categoria;
+    menuHTML += `
+      <div class="menu-categoria">
+        ${categoriaActual}
+      </div>
+    `;
+  }
+
   const enCarrito = carrito.find(p => p.nombre === item.nombre);
+
   menuHTML += `
     <div class="item-menu">
       <span>${item.nombre} - $${item.precio}</span>
@@ -356,7 +368,6 @@ comercioActivo.menu.forEach((item, i) => {
     </div>
   `;
 });
-
     const total = carrito.reduce((s, p) => s + p.precio * p.cantidad, 0);
 
     app.innerHTML = `
