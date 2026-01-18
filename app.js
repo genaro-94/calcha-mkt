@@ -35,17 +35,31 @@ document.addEventListener("DOMContentLoaded", () => {
   let comercios = [];
 
   // ------------------------
-  // LIGHTBOX GLOBAL
-  // ------------------------
-  // Agregar al body un solo lightbox
-  const lightbox = document.createElement("div");
-  lightbox.id = "lightbox";
-  lightbox.className = "lightbox hidden";
-  const lightboxImg = document.createElement("img");
-  lightboxImg.id = "lightbox-img";
-  lightbox.appendChild(lightboxImg);
-  document.body.appendChild(lightbox);
+// ------------------------
+// LIGHTBOX GLOBAL
+// ------------------------
 
+// Agregar al body un solo lightbox
+const lightbox = document.createElement("div");
+lightbox.id = "lightbox";
+lightbox.className = "lightbox hidden";
+
+const lightboxImg = document.createElement("img");
+lightboxImg.id = "lightbox-img";
+
+lightbox.appendChild(lightboxImg);
+document.body.appendChild(lightbox);
+
+// ------------------------
+// LIGHTBOX - BACK BUTTON
+// ------------------------
+window.addEventListener("popstate", (e) => {
+  // Si el lightbox está abierto, lo cerramos y NO navegamos
+  if (!lightbox.classList.contains("hidden")) {
+    lightbox.classList.add("hidden");
+    return; // ⛔ frena la navegación de la app
+  }
+});
   // ------------------------
 // LIGHTBOX MEJORADO
 // ------------------------
