@@ -362,7 +362,8 @@ const filtrados = rubroActivo === "todos"
 
     lista.appendChild(card);
   });
-
+// Mostrar deliverys en su sección sin sobreescribir el home
+renderDeliverys("delivery-section");
   // ------------------------
   // Autocomplete / Búsqueda con scroll tipo TikTok/Instagram
   // ------------------------
