@@ -730,3 +730,32 @@ input:focus {
   font-size: 14px;
   color: #666;
 }
+.ubicaciones {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.ubi-btn {
+  background: #f4e8d8;
+  border: 1px solid #e0cbb0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #5a3e2b;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ubi-btn:hover {
+  background: #ecdcc5;
+}
+
+.ubi-btn.active {
+  background: #c26b2e;
+  color: #fff;
+  border-color: #c26b2e;
+   }
