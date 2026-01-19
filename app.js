@@ -94,32 +94,46 @@ window.cerrarLightbox = cerrarLightbox;
   // ------------------------
   // HISTORIAL
   // ------------------------
+window.addEventListener("popstate", (e) => {
+  const estado = e.state || {};
 
-  window.addEventListener("popstate", (e) => {
-    const estado = e.state || { vista: "home" };
-    
-if (estado && estado.lightbox) {
-  cerrarLightbox();
-  return;
-}
-    vistaActual = estado.vista || "home";
+  // 1️⃣ Lightbox: prioridad absoluta
+  if (estado.lightbox) {
+    cerrarLightbox();
+    return;
+  }
 
-    if (vistaActual === "home") {
-      rubroActivo = "todos";
-      comercioActivo = null;
-    }
-
-    if (estado.comercioId) {
-      comercioActivo = comercios.find(c => c.id === estado.comercioId);
-    }
-if (estado.ubicacion !== undefined) {
-  ubicacionActiva = estado.ubicacion;
-}
-
-if (estado.rubro !== undefined) {
-  rubroActivo = estado.rubro;
-}
+  // 2️⃣ Menú: solo cerrar, NO navegar
+  if (estado.menu) {
+    menuRubrosAbierto = false;
     renderApp();
+    return;
+  }
+
+  // 3️⃣ Navegación normal
+  vistaActual = estado.vista || "home";
+
+  if (vistaActual === "home") {
+    rubroActivo = "todos";
+    comercioActivo = null;
+  }
+
+  if (estado.ubicacion !== undefined) {
+    ubicacionActiva = estado.ubicacion;
+  }
+
+  if (estado.rubro !== undefined) {
+    rubroActivo = estado.rubro;
+  }
+
+  if (estado.comercioId) {
+    comercioActivo = comercios.find(c => c.id === estado.comercioId);
+  } else {
+    comercioActivo = null;
+  }
+
+  renderApp();
+});renderApp();
   });
   function renderApp() {
     if (vistaActual === "home") renderHome();  
@@ -170,8 +184,9 @@ function volverHome() {
 
 function renderHome() {
   vistaActual = "home";
+  if (!history.state || !history.state.vista) {
   history.replaceState({ vista: "home" }, "", "#home");
-
+}
   app.innerHTML = `
     <h1>
       <img src="images/Logo.png" style="width:32px;vertical-align:middle;margin-right:8px;">
@@ -240,9 +255,15 @@ renderSelectorUbicacion();
   if (btnSumar) btnSumar.onclick = sumarMiComercio;
 
   document.getElementById("btn-rubros").onclick = () => {
-    menuRubrosAbierto = !menuRubrosAbierto;
-    renderHome();
-  };
+  if (!menuRubrosAbierto) {
+    menuRubrosAbierto = true;
+    history.pushState({ menu: true }, "");
+  } else {
+    menuRubrosAbierto = false;
+    history.back();
+  }
+  renderHome();
+};
 
   const btnInfo = document.getElementById("btn-info");
   if (btnInfo) {
