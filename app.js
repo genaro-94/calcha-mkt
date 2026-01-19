@@ -250,22 +250,10 @@ renderSelectorUbicacion();
   // ------------------------
   // Botones generales del home
   // ------------------------
-  const btnSumar = document.getElementById("btn-sumar-comercio");
-  if (btnSumar) btnSumar.onclick = sumarMiComercio;
-
   document.getElementById("btn-rubros").onclick = () => {
     menuRubrosAbierto = !menuRubrosAbierto;
     renderHome();
   };
-
-  const btnInfo = document.getElementById("btn-info");
-  if (btnInfo) {
-    btnInfo.onclick = () => {
-      vistaActual = "info";
-      history.pushState({ vista: "info" }, "", "#info");
-      renderInfo();
-    };
-  }
 
   document.querySelectorAll("[data-rubro]").forEach(b => {
   b.onclick = () => {
