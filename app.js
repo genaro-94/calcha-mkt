@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let vistaActual = "home"; 
   let ubicacionActiva = null;
-  let rubroActivo = null;
   let comercioActivo = null;
   let carrito = [];
   let tipoEntrega = null;
