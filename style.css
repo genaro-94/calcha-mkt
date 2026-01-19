@@ -759,3 +759,26 @@ input:focus {
   color: #fff;
   border-color: #c26b2e;
    }
+.btn-home {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #8b5a2b;
+  color: white;
+  font-size: 24px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.btn-home:active {
+  transform: scale(0.95);
+}
