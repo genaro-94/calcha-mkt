@@ -353,6 +353,16 @@ function irARubro(rubro) {
 
   renderApp();
 }
+  function obtenerComerciosVisibles() {
+  let lista = comercios;
+
+  // Filtro por rubro
+  if (rubroActivo && rubroActivo !== "todos") {
+    lista = lista.filter(c => c.rubro === rubroActivo);
+  }
+
+  return lista;
+  }
   // ------------------------
   // PEDIDO
   // ------------------------
