@@ -137,7 +137,7 @@ function volverHome() {
   comercioActivo = null;
   menuRubrosAbierto = false;
 
-  renderApp();
+  window.renderApp(); 
 }
 
   // ------------------------
