@@ -195,6 +195,20 @@ function renderHome() {
     `
     : ""
     }
+    `;
+  // Botón "Sumar mi comercio"
+const btnSumar = document.getElementById("btn-sumar-comercio");
+if (btnSumar) btnSumar.onclick = sumarMiComercio;
+
+// Botón "¿Qué es Calcha?"
+const btnInfo = document.getElementById("btn-info");
+if (btnInfo) {
+  btnInfo.onclick = () => {
+    vistaActual = "info"; // cambia la vista
+    history.pushState({ vista: "info" }, "", "#info"); // actualiza el historial
+    renderInfo(); // renderiza la vista info
+  };
+}
  <div id="selector-ubicacion"></div>
     <!-- Barra de búsqueda -->
     <div class="buscador">
