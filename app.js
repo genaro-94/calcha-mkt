@@ -553,8 +553,6 @@ function activarBusqueda() {
 // LIGHTBOX COMPLETO
 // =========================
 
-let lightbox; // variable global para manipular el lightbox
-
 function crearLightbox() {
   if (document.getElementById("lightbox")) return;
 
