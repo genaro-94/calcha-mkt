@@ -563,17 +563,6 @@ function cerrarLightbox() {
   lightbox.classList.add("hidden");
 }
 
-document.addEventListener("click", e => {
-  if (e.target.id === "lightbox") {
-    cerrarLightbox();
-    if (history.state && history.state.lightbox) {
-      history.back();
-    }
-  }
-});
-
-
-
 // Click afuera
 document.addEventListener("click", e => {
   if (e.target.id === "lightbox") {
