@@ -126,6 +126,7 @@ if (estado.rubro !== undefined) {
   });
   function renderApp() {
     if (vistaActual === "home") renderHome();  
+    if (vistaActual === "menu") renderMenu();
     if (vistaActual === "pedido") renderPedido();
     if (vistaActual === "confirmar") renderConfirmar();
     if (vistaActual === "info") renderInfo();
@@ -166,7 +167,30 @@ function volverHome() {
   window.renderApp(); 
 }
 
+function renderMenu() {
+  vistaActual = "menu";
 
+  app.innerHTML = `
+    <button class="btn-volver">← Volver</button>
+    <button class="btn-home">🏠 Home</button>
+
+    <div class="menu-pantalla">
+      <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
+      <button id="btn-sumar">➕ Quiero sumar mi comercio</button>
+    </div>
+  `;
+
+  document.querySelector(".btn-volver").onclick = () => history.back();
+  document.querySelector(".btn-home").onclick = volverHome;
+
+  document.getElementById("btn-info").onclick = () => {
+    vistaActual = "info";
+    history.pushState({ vista: "info" }, "", "#info");
+    renderInfo();
+  };
+
+  document.getElementById("btn-sumar").onclick = sumarMiComercio;
+}
   // ------------------------
   // HOME
   // ------------------------
@@ -185,18 +209,7 @@ function renderHome() {
     <!-- Botón rubros -->
     <button id="btn-rubros">☰</button>
 
-${
-  menuRubrosAbierto
-    ? `
-      <div class="menu-overlay" id="menu-overlay">
-        <div class="acciones">
-          <button id="btn-info" class="btn-menu">ℹ️ ¿Qué es Calcha?</button>
-          <button id="btn-sumar-comercio" class="btn-menu">➕ Sumar mi comercio</button>
-        </div>
-      </div>
-    `
-    : ""
-}
+
  <div id="selector-ubicacion"></div>
     <!-- Barra de búsqueda -->
     <div class="buscador">
@@ -237,7 +250,6 @@ ${
     <!-- Lista de comercios -->
     <div id="lista-comercios"></div>
   `;
-  if (menuRubrosAbierto) {
   const btnSumar = document.getElementById("btn-sumar-comercio");
   if (btnSumar) btnSumar.onclick = sumarMiComercio;
 
@@ -253,21 +265,15 @@ renderSelectorUbicacion();
   // Botones generales del home
   // ------------------------
   // 1️⃣ Botón hamburguesa
-document.getElementById("btn-rubros").onclick = () => {
-  menuRubrosAbierto = !menuRubrosAbierto;
+  document.getElementById("btn-rubros").onclick = () => {
+  vistaActual = "menu";
+  history.pushState({ vista: "menu" }, "", "#menu");
+  renderMenu();
+};
   renderHome();
 };
 
-// 2️⃣ Overlay (solo si existe)
-const overlay = document.getElementById("menu-overlay");
-if (overlay) {
-  overlay.onclick = (e) => {
-    if (!e.target.closest(".acciones")) {
-      menuRubrosAbierto = false;
-      renderHome();
-    }
-  };
-}
+
 
 // 3️⃣ Botones de rubro
 document.querySelectorAll("[data-rubro]").forEach(b => {
