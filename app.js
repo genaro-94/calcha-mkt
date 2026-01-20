@@ -350,7 +350,54 @@ function renderInfoComercio() {
 
 function renderPedido() {
   if (!comercioActivo) return volverHome();
-  app.innerHTML = `<button onclick="history.back()">←</button><h2>${comercioActivo.nombre}</h2>`;
+
+  app.innerHTML = `
+    <button class="btn-volver">←</button>
+
+    <h2>${comercioActivo.nombre}</h2>
+    <p class="subtitulo">${comercioActivo.descripcion || ""}</p>
+
+    ${comercioActivo.galeria?.length ? `
+      <div class="galeria-comercio">
+        ${comercioActivo.galeria.map(img =>
+          `<img src="${img}" onclick="abrirLightbox('${img}')">`
+        ).join("")}
+      </div>
+    ` : ""}
+
+    ${comercioActivo.menu?.length ? `
+      <section class="menu">
+        ${comercioActivo.menu.map(p => `
+          <div class="item-menu">
+            <div>
+              <strong>${p.nombre}</strong>
+              <span>$${p.precio}</span>
+            </div>
+            <div class="controles">
+              <button onclick="restarProducto('${p.id}')">−</button>
+              <span>${cantidadEnCarrito(p.id)}</span>
+              <button onclick="sumarProducto('${p.id}')">+</button>
+            </div>
+          </div>
+        `).join("")}
+      </section>
+    ` : `<p class="subtitulo">Este comercio no tiene menú cargado.</p>`}
+
+    <section class="entrega">
+      <button onclick="setTipoEntrega('retiro')">Retiro</button>
+      <button onclick="setTipoEntrega('delivery')">Delivery</button>
+    </section>
+
+    <div class="total">
+      Total: $${calcularTotal()}
+    </div>
+
+    <button class="btn-confirmar" onclick="continuarPedido()">
+      Continuar pedido
+    </button>
+  `;
+
+  document.querySelector(".btn-volver").onclick = () => history.back();
 }
 
 function renderConfirmar() {
