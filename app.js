@@ -274,7 +274,7 @@ function renderSelectorUbicacion() {
   const cont = document.getElementById("selector-ubicacion");
   cont.innerHTML = `
       <div class="ubicaciones">
-      <button class="ubi-btn" data-ubi="cafayate">📍 Cafayate</button>
+      <button class="ubi-btn" data-ubi="cafayate">📍 cafayate</button>
       <button class="ubi-btn" data-ubi="santa maria">📍 Santa María</button>
       <button class="ubi-btn" data-ubi="amaicha">📍 Amaicha</button>
     </div>
