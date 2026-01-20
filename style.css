@@ -13,7 +13,7 @@
 ========================= */
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   background: radial-gradient(circle at top, #f8efe4, #e9dcc9);
   color: #2a2a2a;
 }
@@ -25,19 +25,21 @@ body {
 }
 
 /* =========================
-   TITULOS
+   TEXTOS
 ========================= */
+
+h1 {
+  font-size: 26px;
+}
 
 h2 {
   font-size: 23px;
-  margin-bottom: 4px;
-  letter-spacing: 0.3px;
+  margin-bottom: 6px;
 }
 
 h3 {
-  font-size: 15px;
-  margin: 18px 0 10px;
-  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 6px;
 }
 
 .subtitulo {
@@ -47,18 +49,18 @@ h3 {
 }
 
 /* =========================
-   BOTONES GENERALES
+   BOTONES
 ========================= */
 
 button {
-  font-family: inherit;
   border: none;
   border-radius: 14px;
   padding: 13px 14px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: #fff;
+  transition: transform 0.15s ease;
 }
 
 button:active {
@@ -70,34 +72,100 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* =========================
-   BOTÓN VOLVER
-========================= */
-
 .btn-volver {
   background: none;
   padding: 0;
-  font-size: 14px;
-  color: #7a3e12;
   margin-bottom: 14px;
+  color: #7a3e12;
+}
+
+.btn-home {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #8b5a2b;
+  color: white;
+  font-size: 24px;
+  z-index: 1000;
 }
 
 /* =========================
-   TARJETAS DE COMERCIOS
+   RUBROS
+========================= */
+
+.rubros-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.rubro-btn {
+  background: #fff;
+  border: 1px solid #e5d5c3;
+  border-radius: 14px;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.rubro-btn .icon {
+  font-size: 26px;
+}
+
+.rubro-btn .text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a3b1e;
+}
+
+/* =========================
+   UBICACIONES
+========================= */
+
+.ubicaciones {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+.ubi-btn {
+  background: #f4e8d8;
+  border: 1px solid #e0cbb0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+.ubi-btn.active {
+  background: #c26b2e;
+  color: #fff;
+}
+
+/* =========================
+   COMERCIOS
 ========================= */
 
 .card-comercio {
-  background: linear-gradient(180deg, #ffffff, #faf6f0);
+  background: linear-gradient(180deg, #fff, #faf6f0);
   border-radius: 18px;
   padding: 16px;
   margin-bottom: 16px;
   box-shadow: 0 12px 26px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.04);
 }
 
-.card-comercio h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
+.card-comercio img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 8px;
 }
 
 .card-comercio p {
@@ -113,35 +181,58 @@ button:disabled {
 }
 
 /* =========================
-   ENTREGA
+   BUSCADOR
 ========================= */
 
-.entrega {
-  display: flex;
-  gap: 10px;
+.buscador {
+  position: relative;
+  margin: 14px 0;
 }
 
-.entrega button {
-  flex: 1;
+.buscador input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1.8px solid #d8c1a6;
+}
+
+#resultados-busqueda {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background: #fff;
-  border: 2px solid #d67d3e;
-  color: #7a3e12;
+  border-radius: 0 0 14px 14px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 100;
 }
 
-.entrega button.activo {
-  background: linear-gradient(135deg, #a14a1a, #d67d3e);
-  color: #fff;
-  border-color: transparent;
+#resultados-busqueda div {
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#resultados-busqueda div:hover {
+  background: rgba(193, 68, 14, 0.1);
 }
 
 /* =========================
-   MENÚ / PRODUCTOS
+   MENÚ / PEDIDO
 ========================= */
 
 .menu {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.menu-categoria {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 20px 0 10px;
+  color: #8b5a2b;
 }
 
 .item-menu {
@@ -151,15 +242,6 @@ button:disabled {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-}
-
-.item-menu span {
-  font-size: 14px;
-}
-
-.item-menu strong {
-  font-size: 14px;
 }
 
 .item-menu button {
@@ -169,6 +251,26 @@ button:disabled {
   background: #d67d3e;
   color: #fff;
   padding: 0;
+}
+
+/* =========================
+   ENTREGA
+========================= */
+
+.entrega {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.entrega button {
+  flex: 1;
+  border: 2px solid #d67d3e;
+}
+
+.entrega button.activo {
+  background: linear-gradient(135deg, #a14a1a, #d67d3e);
+  color: #fff;
 }
 
 /* =========================
@@ -184,19 +286,6 @@ button:disabled {
   align-items: center;
 }
 
-.carrito strong {
-  font-size: 16px;
-}
-
-/* =========================
-   BOTÓN CONTINUAR
-========================= */
-
-.btn-continuar {
-  background: linear-gradient(135deg, #a14a1a, #d67d3e);
-  color: #fff;
-}
-
 /* =========================
    CONFIRMACIÓN
 ========================= */
@@ -205,198 +294,24 @@ button:disabled {
   background: #fff;
   border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
-}
-
-.item-confirmacion {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  padding: 6px 0;
-  border-bottom: 1px dashed rgba(0,0,0,0.1);
-}
-
-.item-confirmacion:last-child {
-  border-bottom: none;
 }
 
 /* =========================
-   INPUTS
+   GALERÍA / LIGHTBOX
 ========================= */
-
-input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 14px;
-  border: 1.8px solid #d8c1a6;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-input:focus {
-  outline: none;
-  border-color: #d67d3e;
-  background: #fffdf8;
-}
-
-/* =========================
-   BOTÓN CONFIRMAR
-========================= */
-
-.btn-confirmar {
-  margin-top: 18px;
-  width: 100%;
-  background: linear-gradient(135deg, #2a9d8f, #21867a);
-  color: #fff;
-}
-
-/* =========================
-   ANIMACIONES
-========================= */
-
-.card-comercio,
-.item-menu,
-.resumen {
-  animation: appear 0.35s ease;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   FILTROS POR RUBRO
-========================= */
-
-.filtros {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  margin: 14px 0 18px;
-}
-
-.filtros button {
-  white-space: nowrap;
-  padding: 10px 14px;
-  font-size: 13px;
-  background: #fff;
-  border: 1.8px solid #d67d3e;
-  color: #7a3e12;
-  border-radius: 999px;
-}
-
-.filtros button.activo {
-  background: linear-gradient(135deg, #a14a1a, #d67d3e);
-  color: #fff;
-  border-color: transparent;
-}
-
-.comercio-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 8px;
-  margin: 10px;
-  width: 200px;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-}
-
-.comercio-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 6px;
-}
 
 .galeria-comercio {
   display: flex;
-  overflow-x: auto;
   gap: 8px;
+  overflow-x: auto;
   margin: 12px 0;
-}
-
-.galeria-comercio::-webkit-scrollbar {
-  height: 6px;
-}
-
-.galeria-comercio::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 3px;
 }
 
 .galeria-img {
   height: 100px;
   border-radius: 8px;
-  object-fit: cover;
   cursor: pointer;
-  transition: transform 0.2s;
 }
-
-.galeria-img:hover {
-  transform: scale(1.05);
-}
-
-/* =========================
-   BOTONES ESPECIALES
-========================= */
-
-.btn-sumar {
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  background: linear-gradient(135deg, #7b2d26, #a03c2c);
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 14px;
-  font-weight: bold;
-}
-
-.btn-sumar {
-  margin-top: 0;
-}
-
-/* Botón sumar comercio dentro del menú */
-.btn-menu {
-  width: 100%;
-  margin-top: 10px;
-  padding: 12px 14px;
-  font-size: 14px;
-  font-weight: 600;
-  background: #fff;
-  border: 1.8px dashed #c1440e;
-  color: #7a3e12;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-menu:active {
-  transform: scale(0.97);
-}
-
-.btn-menu:hover {
-  background: rgba(193, 68, 14, 0.06);
-}
-
-.acciones {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* =========================
-   LIGHTBOX ESTILO INSTAGRAM
-========================= */
 
 .lightbox {
   position: fixed;
@@ -412,373 +327,8 @@ input:focus {
   max-width: 95%;
   max-height: 90%;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
-  cursor: pointer;
-  transition: transform 0.25s ease;
-}
-
-.lightbox img:hover {
-  transform: scale(1.02);
 }
 
 .hidden {
   display: none;
-                               }
-/* =========================
-   BUSCADOR AUTOCOMPLETE
-========================= */
-.buscador {
-  margin: 12px 0;
-  position: relative;
-}
-
-#input-busqueda {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1.8px solid #d8c1a6;
-  font-size: 14px;
-}
-
-#resultados-busqueda {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 1.8px solid #d8c1a6;
-  border-top: none;
-  border-radius: 0 0 14px 14px;
-  max-height: 180px;
-  overflow-y: auto;
-  z-index: 999;
-}
-
-#resultados-busqueda div {
-  padding: 10px 14px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#resultados-busqueda div:hover {
-  background: rgba(193, 68, 14, 0.1);
-}
-
-.resultado-highlight {
-  font-weight: 600;
-  color: #a14a1a;
-}
-/* =========================
-   BARRA DE BÚSQUEDA
-========================= */
-.buscador {
-  position: relative;
-  margin: 12px 0;
-}
-
-.buscador input {
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1.8px solid #d67d3e;
-  font-size: 14px;
-  outline: none;
-}
-
-.buscador input:focus {
-  border-color: #a14a1a;
-  background: #fffdf8;
-}
-
-/* Contenedor de resultados con scroll interno */
-.resultados-scroll {
-  position: absolute;
-  top: 44px; /* altura del input + margen */
-  left: 0;
-  right: 0;
-  max-height: 220px; /* altura máxima del listado */
-  background: #fff;
-  border: 1.5px solid #d67d3e;
-  border-radius: 12px;
-  overflow-y: auto;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  z-index: 100;
-}
-
-/* Cada resultado */
-.resultado-item {
-  padding: 10px 14px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  transition: background 0.15s;
-}
-
-.resultado-item:hover {
-  background: rgba(193, 68, 14, 0.08);
-}
-
-/* Nombre resaltado en la búsqueda */
-.resultado-highlight {
-  background: #ffeb3b33; /* amarillo semi-transparente */
-  border-radius: 4px;
-  padding: 0 2px;
-}
-
-/* Nombre y rubro */
-.resultado-item strong {
-  font-size: 14px;
-  color: #2a2a2a;
-}
-
-.resultado-item small {
-  font-size: 12px;
-  color: #7a3e12;
-     }
-.rubros-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 12px 16px;
-}
-
-.rubro-btn {
-  background: #fff;
-  border: 1px solid #e5d5c3;
-  border-radius: 14px;
-  padding: 14px 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-.rubro-btn:active {
-  transform: scale(0.97);
-}
-
-.rubro-btn .icon {
-  font-size: 26px;
-}
-
-.rubro-btn .text {
-  font-size: 14px;
-  font-weight: 600;
-  color: #5a3b1e;
-  text-align: center;
-}
-.menu-categoria {
-  margin: 20px 0 10px;
-  font-weight: bold;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #8b5a2b;
-  position: relative;
-  text-align: center;
-}
-
-.menu-categoria::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #d8c2a3;
-  z-index: -1;
-}
-
-.menu-categoria {
-  background: #f4e8d8;
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 12px;
-}
-/* =========================
-   BUSCADOR
-========================= */
-
-.buscador {
-  position: relative;
-  margin: 10px;
-}
-
-.buscador input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-}
-
-/* Resultados del buscador */
-.resultados-busqueda {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  max-height: 260px;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.resultado-item {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-}
-
-.resultado-item:last-child {
-  border-bottom: none;
-}
-
-.resultado-item:hover {
-  background: #f4f4f4;
-}
-
-.resultado-item strong {
-  display: block;
-  font-size: 15px;
-}
-
-.resultado-item span {
-  font-size: 13px;
-  color: #777;
-}
-/* =========================
-   RUBROS VISIBLES HOME
-========================= */
-
-.rubros-home {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px;
-}
-
-.rubro-btn {
-  min-width: 110px;
-  padding: 10px;
-  background: #f4e8d8;
-  border-radius: 14px;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid #e0d2bf;
-  flex-shrink: 0;
-}
-
-.rubro-btn img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-bottom: 6px;
-}
-
-.rubro-btn span {
-  display: block;
-  font-size: 13px;
-  font-weight: bold;
-  color: #6b3f1d;
-}
-
-.rubro-btn.activo {
-  background: #8b5a2b;
-}
-
-.rubro-btn.activo span {
-  color: #fff;
-}
-/* =========================
-   COMERCIOS
-========================= */
-
-.lista-comercios {
-  padding: 10px;
-}
-
-.card-comercio {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-
-.card-comercio img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.card-comercio .info {
-  padding: 12px;
-}
-
-.card-comercio h3 {
-  margin: 0 0 4px;
-  font-size: 17px;
-}
-
-.card-comercio p {
-  margin: 0;
-  font-size: 14px;
-  color: #666;
-}
-.ubicaciones {
-  display: flex;
-  gap: 10px;
-  margin: 16px 0 10px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
-
-.ubi-btn {
-  background: #f4e8d8;
-  border: 1px solid #e0cbb0;
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 14px;
-  color: #5a3e2b;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.ubi-btn:hover {
-  background: #ecdcc5;
-}
-
-.ubi-btn.active {
-  background: #c26b2e;
-  color: #fff;
-  border-color: #c26b2e;
-   }
-.btn-home {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  width: 52px;
-  height: 52px;
-
-  border-radius: 50%;
-  border: none;
-
-  background: #8b5a2b;
-  color: white;
-  font-size: 24px;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.btn-home:active {
-  transform: scale(0.95);
 }
