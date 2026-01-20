@@ -62,8 +62,6 @@ window.renderApp = renderApp;
 // =========================
 // HISTORIAL / BACK FÍSICO
 // =========================
-
-function manejarBackButton() {
 function manejarBackButton() {
   window.addEventListener("popstate", e => {
     const s = e.state || { vista: "home" };
