@@ -379,14 +379,9 @@ z-index: 1000;
 
 
 /* LOGO */
-.logo-fijo {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-
-  height: 32px !important;   /* 👈 tamaño típico de app */
-  width: auto !important;
-  max-width: 32px !important;
-
-  z-index: 999;
+.logo-calcha {
+  display: block;
+  height: 40px;
+  width: auto;
+  margin: 40px 0 6px 12px; 
 }
