@@ -352,13 +352,15 @@ function renderReserva() {
     <h2>${comercioActivo.nombre}</h2>
     <p>${comercioActivo.descripcion}</p>
 
-    ${
-      comercioActivo.galeria && comercioActivo.galeria.length > 0
-        ? `<div class="galeria-comercio">
-            ${comercioActivo.galeria.map(img => `<img src="${img}" class="galeria-img">`).join("")}
-          </div>`
-        : ""
-    }
+   ${comercioActivo.galerias
+  ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
+      <h3>${categoria}</h3>
+      <div class="galeria-comercio">
+        ${fotos.map(img => `<img src="${img}" class="galeria-img">`).join("")}
+      </div>
+    `).join("")
+  : ""
+   }
 
     <button onclick="window.open('${urlReserva}','_blank')">📅 Reservar</button>
     <button onclick="window.open('https://wa.me/54${comercioActivo.whatsapp}','_blank')">💬 Contactar</button>
@@ -381,13 +383,15 @@ function renderInfoComercio() {
     <h2>${comercioActivo.nombre}</h2>
     <p>${comercioActivo.descripcion}</p>
 
-    ${
-      comercioActivo.galeria && comercioActivo.galeria.length > 0
-        ? `<div class="galeria-comercio">
-            ${comercioActivo.galeria.map(img => `<img src="${img}" class="galeria-img">`).join("")}
-          </div>`
-        : ""
-    }
+${comercioActivo.galerias
+  ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
+      <h3>${categoria}</h3>
+      <div class="galeria-comercio">
+        ${fotos.map(img => `<img src="${img}" class="galeria-img">`).join("")}
+      </div>
+    `).join("")
+  : ""
+}
 
     <button onclick="window.open('https://wa.me/54${comercioActivo.whatsapp}','_blank')">💬 Contactar</button>
   `;
@@ -445,13 +449,15 @@ comercioActivo.menu.forEach((item, i) => {
       <h2>${comercioActivo.nombre}</h2>
       <p>${comercioActivo.descripcion}</p>
 
-      ${
-        comercioActivo.galeria && comercioActivo.galeria.length > 0
-          ? `<div class="galeria-comercio">
-              ${comercioActivo.galeria.map(img => `<img src="${img}" class="galeria-img">`).join("")}
-            </div>`
-          : ""
-      }
+${comercioActivo.galerias
+  ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
+      <h3>${categoria}</h3>
+      <div class="galeria-comercio">
+        ${fotos.map(img => `<img src="${img}" class="galeria-img">`).join("")}
+      </div>
+    `).join("")
+  : ""
+}
 
       <div class="menu">${menuHTML}</div>
 
