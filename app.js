@@ -33,7 +33,6 @@ const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 document.addEventListener("DOMContentLoaded", () => {
   app = document.getElementById("app");
 
-  crearLightbox();
   cargarComercios();
   manejarBackButton();
 
