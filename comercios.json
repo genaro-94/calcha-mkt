@@ -36,7 +36,8 @@
     "images/fritas.png",
     "images/lomo.jpg",
     "images/mila.jpeg"
-  ],
+  ]
+  },
   "whatsapp": "3874000001",
   "estado": "activo",
   "destacado": true
@@ -87,7 +88,7 @@
       { "nombre": "Martillo", "precio": 1200 },
       { "nombre": "Taladro eléctrico", "precio": 5500 },
       { "nombre": "Clavos x 1kg", "precio": 450 }
-    ]
+    ],
     "galerias": [],
     "whatsapp": "3874000003",
     "estado": "activo",
@@ -109,7 +110,8 @@
     "images/hab1.jpg",
     "images/hab2.jpg",
     "images/hab3.jpg"
-  ],
+  ]
+  },
   "whatsapp": "3874000003",
   "estado": "activo",
   "destacado": false
