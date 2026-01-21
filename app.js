@@ -156,6 +156,10 @@ function renderHome() {
   <span class="icon">🎨👟🍔</span>
   <span class="text">Todos</span>
 </button>
+<button class="rubro-btn" data-rubro="motodelivery">
+  <span class="icon">🛵</span>
+  <span class="text">Moto Delivery</span>
+</button>
 </section>
 
     <div id="lista-comercios"
