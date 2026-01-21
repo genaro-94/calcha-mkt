@@ -103,7 +103,9 @@
   "tipoOperacion": "reserva",
   "permiteDelivery": false,
   "menu": [],
-  "galerias": [
+  "galerias": {
+    "habitaciones":
+    [
     "images/hab1.jpg",
     "images/hab2.jpg",
     "images/hab3.jpg"
