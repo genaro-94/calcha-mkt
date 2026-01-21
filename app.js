@@ -723,8 +723,6 @@ function activarBusqueda() {
 // LIGHTBOX COMPLETO
 // =========================
 
-let fotosActuales = [];
-let indiceFoto = 0;
 let lightboxDiv = null;
 
 // Abrir imagen en lightbox
