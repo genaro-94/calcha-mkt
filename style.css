@@ -417,14 +417,15 @@ z-index: 1000;
   border-radius: 8px;
 }
 
-
 /* LOGO */
 .logo-calcha {
-  width: 40px;      /* ajustado a tu tamaño deseado */
-  height: 40px;     /* para que sea cuadrado */
-  position: fixed;  /* fijo en pantalla */
-  top: 10px;
-  left: 10px;
-  z-index: 2000;
-  transition: opacity 0.3s ease;  /* para efecto suave al desaparecer */
+  width: 52px;             /* igual que el botón */
+  height: 52px;
+  position: fixed;          /* fijo en pantalla */
+  top: 20px;                /* alineado con el botón */
+  right: 20px;              /* a la derecha, junto al botón */
+  z-index: 1001;            /* un poco más alto que el botón */
+  border-radius: 50%;       /* opcional, si querés que sea circular */
+  object-fit: cover;        /* que mantenga proporción */
+  cursor: pointer;          /* opcional */
 }
