@@ -742,7 +742,9 @@ function abrirLightbox(src) {
     lightboxDiv.onclick = e => {
       if (e.target === lightboxDiv) cerrarLightbox();
     };
-  }
+  lightboxDiv.querySelector(".lightbox-img").onclick = e => {
+  e.stopPropagation();
+};
 
   const img = lightboxDiv.querySelector(".lightbox-img");
   img.src = src;
