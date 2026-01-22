@@ -418,9 +418,8 @@ z-index: 1000;
 
 /* Logo arriba a la derecha, tamaño igual al botón */
 .logo-calcha {
-  height: 40px;          /* igual que tu backup */
+  height: 65px;          /* igual que tu backup */
   width: auto;           /* mantiene proporción */
-  position: fixed;       /* lo mantiene fijo en pantalla */
   top: 8px;              /* distancia desde arriba */
   left: 8px;            /* distancia desde la derecha */
   z-index: 1000;         /* que quede encima de todo */
