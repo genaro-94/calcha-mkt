@@ -70,7 +70,9 @@
     "images/llama2.jpg",
     "images/llama3.jpg",
     "images/llama4.jpg"]
-    },
+    , "galeriasVideo": [
+    "images/corre.mp4",
+  ],
     "whatsapp": "3875181644",
     "estado": "activo",
     "destacado": false
@@ -132,22 +134,14 @@
 },
 {
   "id": 6,
-  "nombre": "Artesanías Greco",
+  "nombre": "Artesanías del Valle",
   "rubro": "artesanias",
   "ubicacion": "amaicha",
-  "descripcion": "Trabajos en cerámica fabricados y pintados a mano",
-  "imagen": "images/artesanias.jpeg",
+  "descripcion": "Artesanías de todo tipo hechas a mano, decorativas y utilitarias.",
+  "imagen": "images/artesanias .jpeg",
   "tipoOperacion": "info",
   "menu": [],
-  "galerias": [
-    "images/ocarina1.jpeg",
-    "images/ocarina2.jpeg",
-    "images/llamita1.jpeg",
-    "images/llamita2.jpeg"
-  ],
-  "galeriasVideo": [
-    "images/corre.mp4"
-  ],
+  "galerias": [],
   "whatsapp": "3868404422",
   "estado": "activo",
   "destacado": false
