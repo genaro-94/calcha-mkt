@@ -735,7 +735,7 @@ function abrirLightbox(src, fotos) {
   if (!lightboxDiv) {
     lightboxDiv = document.createElement("div");
     lightboxDiv.id = "lightbox";
-    lightboxDiv.className = "lightbox hidden"; 
+    lightboxDiv.className = "lightbox hidden";
     lightboxDiv.innerHTML = `
       <button class="lightbox-close">✖️</button>
       <button class="lightbox-prev">◀️</button>
@@ -751,6 +751,25 @@ function abrirLightbox(src, fotos) {
     lightboxDiv.addEventListener("click", e => {
       if (e.target === lightboxDiv) cerrarLightbox();
     });
+
+    // Navegación
+    lightboxDiv.querySelector(".lightbox-prev").onclick = fotoAnterior;
+    lightboxDiv.querySelector(".lightbox-next").onclick = fotoSiguiente;
+  }
+
+  const img = lightboxDiv.querySelector("#lightbox-img");
+
+  // ⬇️ CLAVE: ocultar mientras carga
+  lightboxDiv.classList.add("hidden");
+  img.src = "";
+
+  img.onload = () => {
+    lightboxDiv.classList.remove("hidden");
+  };
+
+  // Cargar imagen
+  img.src = src;
+}
 
     // Navegar foto anterior
     lightboxDiv.querySelector(".lightbox-prev").onclick = e => {
