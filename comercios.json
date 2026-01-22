@@ -1,48 +1,26 @@
 [
   {
-  "id": 1,
-  "nombre": "Sandwichería Don Pepe",
-  "ubicacion": "cafayate",
-  "rubro": "gastronomia",
-  "descripcion": "Sandwichería local con los mejores sándwiches y menú del día.",
-  "imagen": "images/mila.jpeg",
-  "tipoOperacion": "pedido",
-  "permiteDelivery": true,
-  "menu": [
-    {
-      "categoria": "Sándwiches",
-      "nombre": "Hamburguesa clásica",
-      "precio": 700
+    "id": 1,
+    "nombre": "Sandwichería Don Pepe",
+    "ubicacion": "cafayate",
+    "rubro": "gastronomia",
+    "descripcion": "Sandwichería local con los mejores sándwiches y menú del día.",
+    "imagen": "images/mila.jpeg",
+    "tipoOperacion": "pedido",
+    "permiteDelivery": true,
+    "menu": [
+      { "categoria": "Sándwiches", "nombre": "Hamburguesa clásica", "precio": 700 },
+      { "categoria": "Sándwiches", "nombre": "Lomito completo", "precio": 850 },
+      { "categoria": "Guarniciones", "nombre": "Papas fritas", "precio": 400 },
+      { "categoria": "Bebidas", "nombre": "Gaseosa 500ml", "precio": 250 }
+    ],
+    "galerias": {
+      "platos": ["images/fritas.png", "images/lomo.jpg", "images/mila.jpeg"]
     },
-    {
-      "categoria": "Sándwiches",
-      "nombre": "Lomito completo",
-      "precio": 850
-    },
-    {
-      "categoria": "Guarniciones",
-      "nombre": "Papas fritas",
-      "precio": 400
-    },
-    {
-      "categoria": "Bebidas",
-      "nombre": "Gaseosa 500ml",
-      "precio": 250
-    }
-  ],
-  "galerias": {
-    "platos": 
-    [
-    "images/fritas.png",
-    "images/lomo.jpg",
-    "images/mila.jpeg"
-  ]
+    "whatsapp": "3874000001",
+    "estado": "activo",
+    "destacado": true
   },
-  "whatsapp": "3874000001",
-  "estado": "activo",
-  "destacado": true
-}
-    ,
   {
     "id": 2,
     "nombre": "Artesanias Greco",
@@ -54,22 +32,13 @@
     "permiteDelivery": false,
     "menu": [
       { "categoria": "ceramica", "nombre": "ocarinas chicas", "precio": 10000 },
-       { "categoria": "ceramica",
-         "nombre": "ocarinas medianas",
-       "precio": 15000},
-      { "categoria": "ceramica","nombre": "llamitas portasahumerios", "precio": 8000 }
+      { "categoria": "ceramica", "nombre": "ocarinas medianas", "precio": 15000 },
+      { "categoria": "ceramica", "nombre": "llamitas portasahumerios", "precio": 8000 }
     ],
     "galerias": {
-      "ocarinas": [ "images/Oca1.jpg",
-    "images/oca2.jpg",
-    "images/oca3.jpg",
-    "images/ocam1.jpg",
-    "images/ocam2.jpg"],
-    "llamitas": [  
-    "images/llama1.jpg",
-    "images/llama2.jpg",
-    "images/llama3.jpg",
-    "images/llama4.jpg" ],
+      "ocarinas": ["images/Oca1.jpg","images/oca2.jpg","images/oca3.jpg","images/ocam1.jpg","images/ocam2.jpg"],
+      "llamitas": ["images/llama1.jpg","images/llama2.jpg","images/llama3.jpg","images/llama4.jpg"]
+    },
     "whatsapp": "3875181644",
     "estado": "activo",
     "destacado": false
@@ -94,95 +63,88 @@
     "destacado": false
   },
   {
-  "id": 4,
-  "nombre": "Hospedaje San Jorge",
-  "ubicacion": "cafayate",
-  "rubro": "turismo",
-  "descripcion": "Un hermoso lugar para descansar en el centro de Cafayate.",
-  "imagen": "images/sanjo.jpg",
-  "tipoOperacion": "reserva",
-  "permiteDelivery": false,
-  "menu": [],
-  "galerias": {
-    "habitaciones":
-    [
-    "images/hab1.jpg",
-    "images/hab2.jpg",
-    "images/hab3.jpg"
-  ]
-  },
-  "whatsapp": "3874000003",
-  "estado": "activo",
-  "destacado": false
+    "id": 4,
+    "nombre": "Hospedaje San Jorge",
+    "ubicacion": "cafayate",
+    "rubro": "turismo",
+    "descripcion": "Un hermoso lugar para descansar en el centro de Cafayate.",
+    "imagen": "images/sanjo.jpg",
+    "tipoOperacion": "reserva",
+    "permiteDelivery": false,
+    "menu": [],
+    "galerias": { "habitaciones": ["images/hab1.jpg","images/hab2.jpg","images/hab3.jpg"] },
+    "whatsapp": "3874000003",
+    "estado": "activo",
+    "destacado": false
   },
   {
-  "id": 5,
-  "nombre": "local ropa",
-  "rubro": "ropa",
-  "ubicacion": "cafayate",
-  "descripcion": "tienda de ropa",
-  "imagen": "images/buzo.jpeg",
-  "tipoOperacion": "pedido",
-  "menu": [],
-  "galerias": [],
-  "whatsapp": "3872535433",
-  "estado": "activo",
-  "destacado": false
-},
-{
-  "id": 6,
-  "nombre": "Artesanías del Valle",
-  "rubro": "artesanias",
-  "ubicacion": "amaicha",
-  "descripcion": "Artesanías de todo tipo hechas a mano, decorativas y utilitarias.",
-  "imagen": "images/artesanias .jpeg",
-  "tipoOperacion": "info",
-  "menu": [],
-  "galerias": [],
-  "whatsapp": "3868404422",
-  "estado": "activo",
-  "destacado": false
-},
-{
-  "id": 20,
-  "nombre": "genaro",
-  "rubro": "motodelivery",
-  "ubicacion": "cafayate",
-  "descripcion": "Zona: centro . Horarios: 10 a 14 hs y 18 a 23 hs.",
-  "imagen": "images/bici.jpg",
-  "tipoOperacion": "info",
-  "menu": [],
-  "galerias": {},
-  "whatsapp": "3874001122",
-  "estado": "activo",
-  "destacado": true
-},
-{
-  "id": 21,
-  "nombre": "Moto Express Santa María",
-  "rubro": "motodelivery",
-  "ubicacion": "santa maria",
-  "descripcion": "Zona: Santa María. Disponible todos los días de 9 a 22 hs.",
-  "imagen": "images/moto-santamaria.jpg",
-  "tipoOperacion": "info",
-  "menu": [],
-  "galerias": {},
-  "whatsapp": "3868409988",
-  "estado": "activo",
-  "destacado": false
-},
-{
-  "id": 22,
-  "nombre": "Delivery El Valle",
-  "rubro": "motodelivery",
-  "ubicacion": "amaicha",
-  "descripcion": "Zona: Amaicha del Valle. Horarios flexibles, coordinar por WhatsApp.",
-  "imagen": "images/moto-amaicha.jpg",
-  "tipoOperacion": "info",
-  "menu": [],
-  "galerias": {},
-  "whatsapp": "3868405566",
-  "estado": "activo",
-  "destacado": false
-}
+    "id": 5,
+    "nombre": "local ropa",
+    "rubro": "ropa",
+    "ubicacion": "cafayate",
+    "descripcion": "tienda de ropa",
+    "imagen": "images/buzo.jpeg",
+    "tipoOperacion": "pedido",
+    "menu": [],
+    "galerias": [],
+    "whatsapp": "3872535433",
+    "estado": "activo",
+    "destacado": false
+  },
+  {
+    "id": 6,
+    "nombre": "Artesanías del Valle",
+    "rubro": "artesanias",
+    "ubicacion": "amaicha",
+    "descripcion": "Artesanías de todo tipo hechas a mano, decorativas y utilitarias.",
+    "imagen": "images/artesanias .jpeg",
+    "tipoOperacion": "info",
+    "menu": [],
+    "galerias": [],
+    "whatsapp": "3868404422",
+    "estado": "activo",
+    "destacado": false
+  },
+  {
+    "id": 20,
+    "nombre": "genaro",
+    "rubro": "motodelivery",
+    "ubicacion": "cafayate",
+    "descripcion": "Zona: centro . Horarios: 10 a 14 hs y 18 a 23 hs.",
+    "imagen": "images/bici.jpg",
+    "tipoOperacion": "info",
+    "menu": [],
+    "galerias": {},
+    "whatsapp": "3874001122",
+    "estado": "activo",
+    "destacado": true
+  },
+  {
+    "id": 21,
+    "nombre": "Moto Express Santa María",
+    "rubro": "motodelivery",
+    "ubicacion": "santa maria",
+    "descripcion": "Zona: Santa María. Disponible todos los días de 9 a 22 hs.",
+    "imagen": "images/moto-santamaria.jpg",
+    "tipoOperacion": "info",
+    "menu": [],
+    "galerias": {},
+    "whatsapp": "3868409988",
+    "estado": "activo",
+    "destacado": false
+  },
+  {
+    "id": 22,
+    "nombre": "Delivery El Valle",
+    "rubro": "motodelivery",
+    "ubicacion": "amaicha",
+    "descripcion": "Zona: Amaicha del Valle. Horarios flexibles, coordinar por WhatsApp.",
+    "imagen": "images/moto-amaicha.jpg",
+    "tipoOperacion": "info",
+    "menu": [],
+    "galerias": {},
+    "whatsapp": "3868405566",
+    "estado": "activo",
+    "destacado": false
+  }
 ]
