@@ -108,37 +108,43 @@ z-index: 1000;
 }
 
 /* =========================
-   RUBROS
-========================= */
-.rubros {
+   CONTENEDOR DE RUBROS
+   ========================= */
+.rubros-grid {
   display: flex;
-  flex-wrap: nowrap;           /* 🔴 CLAVE: no permite bajar */
+  flex-wrap: nowrap;              /* 🔴 no baja de fila */
   gap: 12px;
 
   overflow-x: auto;
   padding: 12px 6px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
-.rubros::-webkit-scrollbar {
-  display: none;
+.rubros-grid::-webkit-scrollbar {
+  display: none;                  /* limpio */
 }
-.rubro {
-  flex: 0 0 auto;              /* 🔴 CLAVE: no se estira ni encoge */
 
-  width: 130px;                /* parecido al tamaño anterior */
-  height: 95px;                /* más cuadrado */
+/* =========================
+   BOTÓN / CARD DE RUBRO
+   ========================= */
+.rubro-btn {
+  flex: 0 0 auto;                 /* 🔴 no se estira */
 
-  background: #fff;
+  width: 130px;                   /* tamaño similar al anterior */
+  height: 95px;                   /* más cuadrado */
+
+  background: #ffffff;
   border-radius: 18px;
+  border: none;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
 
   text-align: center;
   font-weight: 600;
@@ -151,10 +157,28 @@ z-index: 1000;
   scroll-snap-align: start;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.rubro:active {
+
+/* feedback táctil */
+.rubro-btn:active {
   transform: scale(0.96);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-   }
+}
+
+/* =========================
+   ICONOS
+   ========================= */
+.rubro-btn .icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* =========================
+   TEXTO
+   ========================= */
+.rubro-btn .text {
+  font-size: 13px;
+  line-height: 1.1;
+}
 
 /* =========================
    UBICACIONES
