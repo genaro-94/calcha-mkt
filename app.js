@@ -201,7 +201,7 @@ if (mensajeRubro) {
 function renderMenu() {
   app.innerHTML = `
     <button class="btn-volver">←</button>
-    <button class="btn-home">🏠</button>
+    
 
     <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
     <button id="btn-sumar">➕ Sumar comercio</button>
