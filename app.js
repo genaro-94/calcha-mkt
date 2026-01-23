@@ -903,6 +903,12 @@ function activarGaleria() {
 // =========================
 
 function sumarMiComercio() {
-  const msg = encodeURIComponent("Hola! Quiero sumar mi comercio a Calcha");
+  const msg = encodeURIComponent("¡Hola! 👋  
+Quiero sumar mi comercio o servicio a Calcha 🏔️  
+
+Nombre / Rubro / Ubicación:  
+WhatsApp:  
+
+Gracias, espero su respuesta. 😊");
   window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, "_blank");
     }
