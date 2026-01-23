@@ -860,6 +860,7 @@ function abrirLightbox(src, fotos = []) {
 
   actualizarLightbox();
   lightboxDiv.style.display = "flex";
+history.pushState({ ...history.state, lightbox: true }, "", "");
 }
 
 function moverLightbox(dir) {
@@ -879,6 +880,9 @@ function actualizarLightbox() {
 function cerrarLightbox() {
   if (lightboxDiv) {
     lightboxDiv.style.display = "none";
+  if (history.state?.lightbox) {
+      history.back();
+    }
   }
 }
 // Activar click en galería
