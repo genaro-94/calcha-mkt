@@ -14,7 +14,15 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-background-color: #EFE4D4;
+body {
+  background: linear-gradient(
+    180deg,
+    #f6efe7 0%,
+    #e8d5b7 40%,
+    #c97b3a 100%
+  );
+  font-family: "Inter", sans-serif;
+}
 
 }
 
