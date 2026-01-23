@@ -512,7 +512,7 @@ function renderReserva() {
     `https://wa.me/54${comercioActivo.whatsapp}?text=${encodeURIComponent("Hola, quiero reservar")}`;
 
   app.innerHTML = `
-    <button class="btn-volver">← Volver</button>
+    <button class="btn-volver">←</button>
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
     <p>${comercioActivo.descripcion}</p>
@@ -571,7 +571,7 @@ function renderPedido() {
   const total = carrito.reduce((s, p) => s + p.precio * p.cantidad, 0);
 
   app.innerHTML = `
-    <button class="btn-volver">← Volver</button>
+    <button class="btn-volver">←</button>
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
     <p>${comercioActivo.descripcion}</p>
