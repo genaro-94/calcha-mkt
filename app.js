@@ -726,35 +726,33 @@ function renderPedido() {
     document.querySelector(".btn-volver").onclick = () => history.back();
   }
 
-function renderLinksComercio(comercio) {
-  if (!comercio.links) return "";
-
+function renderLinksComercio(c) {
   let html = `<div class="comercio-links">`;
 
-  if (comercio.links.maps) {
+  if (c.maps) {
     html += `
-      <a href="${comercio.links.maps}" target="_blank" class="icon-link">
+      <a href="${c.maps}" target="_blank" class="icon-link">
         <img src="images/mapslogo.png" alt="Cómo llegar">
       </a>`;
   }
 
-  if (comercio.links.instagram) {
+  if (c.instagram) {
     html += `
-      <a href="${comercio.links.instagram}" target="_blank" class="icon-link">
+      <a href="${c.instagram}" target="_blank" class="icon-link">
         <img src="images/instagramlogo.png" alt="Instagram">
       </a>`;
   }
 
-  if (comercio.links.facebook) {
+  if (c.facebook) {
     html += `
-      <a href="${comercio.links.facebook}" target="_blank" class="icon-link">
+      <a href="${c.facebook}" target="_blank" class="icon-link">
         <img src="images/facebooklogo.png" alt="Facebook">
       </a>`;
   }
 
-  if (comercio.links.whatsapp) {
+  if (c.whatsapp) {
     html += `
-      <a href="${comercio.links.whatsapp}" target="_blank" class="icon-link">
+      <a href="https://wa.me/54${c.whatsapp}" target="_blank" class="icon-link">
         <img src="images/whatsapplogo.png" alt="WhatsApp">
       </a>`;
   }
