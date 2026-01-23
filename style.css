@@ -41,16 +41,22 @@ h3 {
 }
 
 .titulo {
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 700;
   text-align: center;
+  letter-spacing: 1px;
+  color: #6b3f1d; /* marrón cálido tipo cerro */
+  margin-bottom: 4px;
 }
 
 .subtitulo {
   font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 18px;
   text-align: center;
+  color: #8b5a2b; /* marrón más suave */
+  opacity: 0.85;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  margin-bottom: 18px;
 }
 
 /* =========================
