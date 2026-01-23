@@ -837,10 +837,7 @@ function abrirLightbox(src, fotos = []) {
     `;
     document.body.appendChild(lightboxDiv);
 
-    lightboxDiv.querySelector(".lightbox-close").onclick = () => {
-      cerrarLightbox();
-      history.back(); // 🔹 IMPORTANTE: hacer back al cerrar manualmente
-    };
+    lightboxDiv.querySelector(".lightbox-close").onclick = cerrarLightbox;
 
     lightboxDiv.querySelector(".lightbox-prev").onclick = e => {
       e.stopPropagation();
@@ -853,10 +850,7 @@ function abrirLightbox(src, fotos = []) {
     };
 
     lightboxDiv.onclick = e => {
-      if (e.target === lightboxDiv) {
-        cerrarLightbox();
-        history.back(); // 🔹 cerrar clic afuera también hace back
-      }
+      if (e.target === lightboxDiv) cerrarLightbox();
     };
 
     lightboxDiv.querySelector(".lightbox-img").onclick = e => {
@@ -866,7 +860,6 @@ function abrirLightbox(src, fotos = []) {
 
   actualizarLightbox();
   lightboxDiv.style.display = "flex";
-  history.pushState({ ...history.state, lightbox: true }, "", "");
 }
 
 function moverLightbox(dir) {
@@ -886,11 +879,6 @@ function actualizarLightbox() {
 function cerrarLightbox() {
   if (lightboxDiv) {
     lightboxDiv.style.display = "none";
-  if (history.state?.lightbox) {
-      const newState = { ...history.state };
-      delete newState.lightbox;
-      history.replaceState(newState, "");
-    }
   }
 }
 // Activar click en galería
@@ -907,7 +895,7 @@ function activarGaleria() {
       };
     });
   });
-}
+  }
 
 
 // =========================
