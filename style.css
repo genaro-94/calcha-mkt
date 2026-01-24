@@ -121,7 +121,8 @@ z-index: 1000;
   display: flex;
   flex-wrap: nowrap;              /* 🔴 no baja de fila */
   gap: 12px;
-
+cursor: grab;
+   
   overflow-x: auto;
   padding: 12px 6px;
   margin-bottom: 12px;
@@ -190,11 +191,11 @@ z-index: 1000;
   );
 }
 .rubro-btn img {
-  width: 100%;
-  height: 100%;
+  width: 60px;
+  height: 48px;
   object-fit: cover;
   display: block;
-   
+}  
 .accion-btn img {
   width: 20px;
   height: 20px;
