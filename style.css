@@ -141,7 +141,7 @@ cursor: grab;
 .rubro-btn {
   width: 125px;
   height: 75px;
-
+  flex-shrink: 0;
   padding: 0;              /* 👈 sin aire */
   overflow: hidden;
 
