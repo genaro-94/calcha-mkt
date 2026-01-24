@@ -214,7 +214,7 @@ cursor: grab;
 }
 .acciones-fijas {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   padding: 6px 4px 10px;
 }
 
