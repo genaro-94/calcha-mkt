@@ -188,21 +188,20 @@ z-index: 1000;
     rgba(214,122,69,0.95)
   );
 }
-/* =========================
-   ICONOS
-   ========================= */
-.rubro-btn .icon {
-  font-size: 22px;
-  line-height: 1;
+.rubro-btn img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.accion-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 /* =========================
    TEXTO
    ========================= */
-.rubro-btn .text {
-  font-size: 13px;
-  line-height: 1.1;
-}
 .rubros-grid {
   cursor: grab;
 }
