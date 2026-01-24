@@ -142,7 +142,7 @@ cursor: grab;
   padding: 0;
   overflow: hidden;
 
-  width: 130px;                   /* tamaño similar al anterior */
+  width: 100px;                   /* tamaño similar al anterior */
   height: 95px;                   /* más cuadrado */
 
   background: #ffffff;
