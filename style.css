@@ -26,9 +26,10 @@ body {
 
 
 #app {
-  padding: 0;
+  max-width: 430px;
+  margin: auto;
+  padding: 1px 1px;
 }
-
 /* =========================
    TEXTOS
 ========================= */
