@@ -138,7 +138,8 @@ z-index: 1000;
    BOTÓN / CARD DE RUBRO
    ========================= */
 .rubro-btn {
-  flex: 0 0 auto;                 /* 🔴 no se estira */
+  padding: 0;
+  overflow: hidden;
 
   width: 130px;                   /* tamaño similar al anterior */
   height: 95px;                   /* más cuadrado */
@@ -188,11 +189,12 @@ z-index: 1000;
     rgba(214,122,69,0.95)
   );
 }
-.rubro-btn img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
+rubro-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+   
 .accion-btn img {
   width: 20px;
   height: 20px;
