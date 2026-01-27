@@ -369,7 +369,10 @@ function volverHome() {
   renderHome();
 
   // 🔹 aseguramos scroll arriba
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  app.scrollTo({
+  top: 0,
+  behavior: "smooth"
+});
 }
 
 
