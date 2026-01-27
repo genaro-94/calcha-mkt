@@ -348,11 +348,25 @@ function activarUbicaciones() {
 // BOTÓN HOME
 // =========================
 document.addEventListener("click", (e) => {
-  if (e.target.closest(".btn-home")) {
-    volverHome();
-  }
-});
+  if (!e.target.closest(".btn-home")) return;
 
+  const estoyEnHome = vistaActual === "home";
+  const hayFiltros =
+    rubroActivo !== "todos" ||
+    ubicacionActiva !== null;
+
+  if (estoyEnHome && !hayFiltros) {
+    // 👉 solo subir al inicio
+    app.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    return;
+  }
+
+  // 👉 comportamiento normal
+  volverHome();
+});
 function volverHome() {
   // 🔹 reset total del estado
   vistaActual = "home";
