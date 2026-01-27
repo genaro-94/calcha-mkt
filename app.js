@@ -234,6 +234,7 @@ function renderListaComercios() {
 card.className = "card-comercio";
 
 card.innerHTML = `
+${c.destacado ? `<span class="badge-destacado">👑 Destacado</span>` : ""}
   <img src="${c.imagen}" alt="${c.nombre}">
   <div class="info">
     <h3>${c.nombre}</h3>
