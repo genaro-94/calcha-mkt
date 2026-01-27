@@ -9,7 +9,7 @@
 
 let vistaActual = "home";
 let ubicacionActiva = null;
-let rubroActivo = "home";
+let rubroActivo = "todos";
 let comercioActivo = null;
 
 let carrito = [];
@@ -35,11 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarComercios();
   manejarBackButton();
 
-  // ⬇️ estado base único
   history.replaceState({ vista: "home" }, "", "#home");
-
-  vistaActual = "home";
-  renderHome();
+  renderApp();
 });
 
 
@@ -105,7 +102,6 @@ function cargarComercios() {
         }
         return c;
       });
-      rubroActivo = "home";
       renderHome();
     });
 }
@@ -237,7 +233,6 @@ function renderListaComercios() {
 card.className = "card-comercio";
 
 card.innerHTML = `
-${c.destacado ? `<span class="badge-destacado">👑 Destacado</span>` : ""}
   <img src="${c.imagen}" alt="${c.nombre}">
   <div class="info">
     <h3>${c.nombre}</h3>
@@ -276,77 +271,38 @@ ${c.destacado ? `<span class="badge-destacado">👑 Destacado</span>` : ""}
 function activarRubros() {
   document.querySelectorAll("[data-rubro]").forEach(b => {
     b.onclick = () => {
-      const rubro = b.dataset.rubro;
-
-      // Si vengo desde HOME → creo nivel nuevo
-      if (vistaActual === "home") {
-        history.pushState(
-          { vista: "rubro", rubro },
-          "",
-          `#rubro-${rubro}`
-        );
-      } 
-      // Si ya estoy en un rubro → reemplazo (NO acumulo)
-      else {
-        history.replaceState(
-          { vista: "rubro", rubro },
-          "",
-          `#rubro-${rubro}`
-        );
-      }
-
-      vistaActual = "rubro";
-      rubroActivo = rubro;
-
-      renderApp();
+      rubroActivo = b.dataset.rubro;
+      history.pushState(
+        { vista: "home", rubro: rubroActivo },
+        "",
+        "#rubro-" + rubroActivo
+      );
+      renderHome();
     };
   });
 }
+
 function obtenerComerciosVisibles() {
-  let lista = [...comercios];
+  let lista = comercios;
 
-  // =========================
-  // HOME → SOLO DESTACADOS
-  // =========================
-  if (rubroActivo === "home") {
-    lista = lista.filter(c => c.destacado === true);
-  }
-
-  // =========================
-  // DELIVERY
-  // =========================
-  else if (rubroActivo === "motodelivery") {
-    lista = lista.filter(c => c.rubro === "motodelivery");
-  }
-
-  // =========================
-  // TODOS
-  // =========================
-  else if (rubroActivo === "todos") {
+  // 1️⃣ Ocultar moto delivery en el home general
+  if (!rubroActivo || rubroActivo === "todos") {
     lista = lista.filter(c => c.rubro !== "motodelivery");
   }
 
-  // =========================
-  // RUBRO ESPECÍFICO
-  // =========================
-  else {
+  // 2️⃣ Filtrar por rubro
+  if (rubroActivo && rubroActivo !== "todos") {
     lista = lista.filter(c => c.rubro === rubroActivo);
   }
 
-  // =========================
-  // UBICACIÓN
-  // =========================
+  // 3️⃣ Filtrar por ubicación (CLAVE)
   if (ubicacionActiva) {
     lista = lista.filter(c => c.ubicacion === ubicacionActiva);
   }
 
-  // =========================
-  // DESTACADOS PRIMERO
-  // =========================
-  lista.sort((a, b) => (b.destacado === true) - (a.destacado === true));
-
   return lista;
 }
+
 // =========================
 // UBICACIÓN
 // =========================
@@ -364,11 +320,11 @@ function renderSelectorUbicacion() {
 
 function setUbicacion(ubi) {
   ubicacionActiva = ubi;
-  history.replaceState(
-  { vista: "home", ubicacion: ubi },
-  "",
-  "#home"
-);
+  history.pushState(
+    { vista: "home", ubicacion: ubi },
+    "",
+    "#ubicacion-" + ubi
+  );
   renderHome();
 }
 
@@ -383,8 +339,10 @@ function activarUbicaciones() {
 // =========================
 // BOTÓN HOME
 // =========================
+
 function volverHome() {
   if (vistaActual === "home") {
+    // 👉 ya estás en home → subir arriba
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -392,20 +350,16 @@ function volverHome() {
     return;
   }
 
-
+  // 👉 no estás en home → volver a home
   vistaActual = "home";
-  rubroActivo = "home";
+  rubroActivo = "todos";
   ubicacionActiva = null;
   comercioActivo = null;
 
-  history.replaceState(
-    { vista: "home" },
-    "",
-    "#home"
-  );
-
+  history.pushState({ vista: "home" }, "", "#home");
   renderHome();
 }
+
 
 // =========================
 // INFO
@@ -757,7 +711,7 @@ function renderPedido() {
     if (tipoEntrega === "delivery") msg += `\nDirección: ${direccionEntrega}`;
 
     app.innerHTML = `
-      <button class="btn-volver">←</button>
+      <button class="btn-volver">← Volver</button>
       <h2>Confirmar pedido</h2>
 
       <div class="resumen">${resumen}</div>
@@ -920,6 +874,16 @@ function actualizarLightbox() {
   lightboxDiv.querySelector(".lightbox-img").src = lightboxFotos[lightboxIndex];
 }
 
+function cerrarLightbox() {
+  if (lightboxDiv) {
+    lightboxDiv.style.display = "none";
+
+    // 🔹 Volver al estado anterior en el historial si estaba abierto
+    if (history.state?.lightbox) {
+      history.back();
+    }
+  }
+}
 
 // =========================
 // ACTIVAR GALERÍA
