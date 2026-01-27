@@ -8,9 +8,8 @@
 // =========================
 
 let vistaActual = "home";
-let modoListado = "home"; 
 let ubicacionActiva = null;
-let rubroActivo = "todos";
+let rubroActivo = "home";
 let comercioActivo = null;
 
 let carrito = [];
@@ -103,6 +102,7 @@ function cargarComercios() {
         }
         return c;
       });
+      rubroActivo = "home";
       renderHome();
     });
 }
@@ -114,13 +114,13 @@ function cargarComercios() {
 
 function renderHome() {
   vistaActual = "home";
-rubroActivo = "todos";
+
   app.innerHTML = `
   <div class="home-header">
       <img src="images/Logo.png" alt="Calcha" class="logo-calcha">
     <div class="header-logo">
-      <img src="images/calcha1.png" alt="Calcha Market" />
-    </div>
+  <img src="images/calcha1.png" alt="Calcha Market" />
+</div>
     <button id="btn-menu">☰</button>
 
     <div id="selector-ubicacion"></div>
@@ -129,48 +129,56 @@ rubroActivo = "todos";
       <input id="input-busqueda" placeholder="🔍 Buscar comercio">
       <div id="resultados-busqueda"></div>
     </div>
+<section class="acciones-fijas">
+  <button class="accion-btn" data-rubro="todos">
+    <img src="images/todos.png" alt="Todos">
+  </button>
 
-    <section class="acciones-fijas">
-      <button class="accion-btn" data-rubro="todos">
-        <img src="images/todos.png" alt="Todos">
-      </button>
+  <button class="accion-btn" data-rubro="motodelivery">
+    <img src="images/delivery.png" alt="Delivery y envíos">
+  </button>
+</section>
 
-      <button class="accion-btn" data-rubro="motodelivery">
-        <img src="images/delivery.png" alt="Delivery y envíos">
-      </button>
-    </section>
+<div class="rubros-wrapper">
+  <section class="rubros-grid">
 
-    <div class="rubros-wrapper">
-      <section class="rubros-grid">
-        <button class="rubro-btn" data-rubro="gastronomia">
-          <img src="images/gastronomia.png" alt="Gastronomía">
-        </button>
+    <button class="rubro-btn" data-rubro="gastronomia">
+      <img src="images/gastronomia.png" alt="Gastronomía">
+    </button>
 
-        <button class="rubro-btn" data-rubro="turismo">
-          <img src="images/turismo.png" alt="Turismo">
-        </button>
+    <button class="rubro-btn" data-rubro="turismo">
+      <img src="images/turismo.png" alt="Turismo">
+    </button>
 
-        <button class="rubro-btn" data-rubro="almacen">
-          <img src="images/almacen.png" alt="Almacén">
-        </button>
+    <button class="rubro-btn" data-rubro="almacen">
+      <img src="images/almacen.png" alt="Almacén">
+    </button>
 
-        <button class="rubro-btn" data-rubro="servicios">
-          <img src="images/servicios.png" alt="Servicios">
-        </button>
+    <button class="rubro-btn" data-rubro="servicios">
+      <img src="images/servicios.png" alt="Servicios">
+    </button>
 
-        <button class="rubro-btn" data-rubro="ropa">
-          <img src="images/ropa.png" alt="Ropa y accesorios">
-        </button>
-      </section>
-    </div>
+    <button class="rubro-btn" data-rubro="ropa">
+      <img src="images/ropa.png" alt="Ropa y accesorios">
+    </button>
+  </section>
+</div>
 
-    <div id="mensaje-rubro" class="mensaje-rubro"></div>
-    <div id="lista-comercios" class="lista-comercios"></div>
+<div id="mensaje-rubro" class="mensaje-rubro"></div>
+    <div id="lista-comercios"
+    class="lista-comercios"></div>
   `;
+const mensajeRubro = document.getElementById("mensaje-rubro");
 
-  const mensajeRubro = document.getElementById("mensaje-rubro");
-  if (mensajeRubro) mensajeRubro.innerHTML = "";
+if (mensajeRubro) {
+  mensajeRubro.innerHTML = "";
 
+  if (rubroActivo === "motodelivery") {
+    mensajeRubro.innerText =
+      `🛵 deliverys y servicios de paqueteria particulares – coordiná directo con el conductor
+📦 Para mayor tranquilidad, sugerimos solicitar la ubicación en tiempo real por WhatsApp`;
+  }
+}
   document.getElementById("btn-menu").onclick = () => {
     vistaActual = "menu";
     history.pushState({ vista: "menu" }, "", "#menu");
@@ -178,30 +186,14 @@ rubroActivo = "todos";
   };
 
   renderSelectorUbicacion();
+  renderListaComercios();
   activarBusqueda();
   activarRubros();
   activarUbicaciones();
+  ; 
   activarGaleria();
-
-  // =========================
-  // 👉 SOLO DESTACADOS EN HOME
-  // =========================
-// =========================
-// 👉 SOLO DESTACADOS EN HOME
-// =========================
-const comerciosOriginal = comercios;
-
-if (rubroActivo === "todos") {
-  const destacados = comercios.filter(c => c.destacado);
-  window.comercios = destacados.length ? destacados : comerciosOriginal;
-} else {
-  window.comercios = comerciosOriginal;
 }
 
-renderListaComercios();
-
-// Restauramos lista completa
-window.comercios = comerciosOriginal;
 
 // =========================
 // MENÚ
@@ -242,7 +234,6 @@ function renderListaComercios() {
 card.className = "card-comercio";
 
 card.innerHTML = `
-  ${c.destacado ? `<span class="badge-destacado">⭐ Destacado</span>` : ""}
   <img src="${c.imagen}" alt="${c.nombre}">
   <div class="info">
     <h3>${c.nombre}</h3>
@@ -282,11 +273,13 @@ function activarRubros() {
   document.querySelectorAll("[data-rubro]").forEach(b => {
     b.onclick = () => {
       rubroActivo = b.dataset.rubro;
+
       history.pushState(
         { vista: "home", rubro: rubroActivo },
         "",
         "#rubro-" + rubroActivo
       );
+
       renderHome();
     };
   });
@@ -296,38 +289,47 @@ function obtenerComerciosVisibles() {
   let lista = [...comercios];
 
   // =========================
-  // HOME → solo destacados
+  // HOME → SOLO DESTACADOS
   // =========================
-  if (modoListado === "home") {
-    return lista.filter(c => c.destacado);
+  if (rubroActivo === "home") {
+    lista = lista.filter(c => c.destacado === true);
   }
 
-  
-  if (modoListado === "delivery") {
+  // =========================
+  // DELIVERY
+  // =========================
+  else if (rubroActivo === "motodelivery") {
     lista = lista.filter(c => c.rubro === "motodelivery");
   }
 
-  
-  if (modoListado === "rubro") {
-    lista = lista.filter(c => c.rubro === rubroActivo);
-  }
-
-
-  if (modoListado === "todos") {
+  // =========================
+  // TODOS
+  // =========================
+  else if (rubroActivo === "todos") {
     lista = lista.filter(c => c.rubro !== "motodelivery");
   }
 
+  // =========================
+  // RUBRO ESPECÍFICO
+  // =========================
+  else {
+    lista = lista.filter(c => c.rubro === rubroActivo);
+  }
 
+  // =========================
+  // UBICACIÓN
+  // =========================
   if (ubicacionActiva) {
     lista = lista.filter(c => c.ubicacion === ubicacionActiva);
   }
 
-  /
+  // =========================
+  // DESTACADOS PRIMERO
+  // =========================
   lista.sort((a, b) => (b.destacado === true) - (a.destacado === true));
 
   return lista;
 }
-
 // =========================
 // UBICACIÓN
 // =========================
@@ -377,7 +379,7 @@ function volverHome() {
 
   // 👉 no estás en home → volver a home
   vistaActual = "home";
-  rubroActivo = "todos";
+  rubroActivo = "home";
   ubicacionActiva = null;
   comercioActivo = null;
 
@@ -736,7 +738,7 @@ function renderPedido() {
     if (tipoEntrega === "delivery") msg += `\nDirección: ${direccionEntrega}`;
 
     app.innerHTML = `
-      <button class="btn-volver">←</button>
+      <button class="btn-volver">← Volver</button>
       <h2>Confirmar pedido</h2>
 
       <div class="resumen">${resumen}</div>
