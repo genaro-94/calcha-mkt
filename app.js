@@ -513,7 +513,10 @@ function renderInfoComercio() {
     activarGaleria();
   }
 
-  document.querySelector(".btn-volver").onclick = () => history.back();
+  document.querySelector(".btn-volver").onclick = () => {
+  vistaActual = "home";
+  renderHome();
+};
 }
 
 function renderReserva() {
