@@ -35,8 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarComercios();
   manejarBackButton();
 
+  // ⬇️ estado base único
   history.replaceState({ vista: "home" }, "", "#home");
-  renderApp();
+
+  vistaActual = "home";
+  renderHome();
 });
 
 
