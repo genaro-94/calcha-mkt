@@ -201,8 +201,6 @@ if (mensajeRubro) {
   activarBusqueda();
   activarRubros();
   activarUbicaciones();
-  ; 
-  activarGaleria();
 }
 
 
@@ -252,23 +250,24 @@ function renderDestacados() {
         <img src="${c.imagen}">
         <h3>${c.nombre}</h3>
         <p>${c.descripcion}</p>
-        <button>Ver</button>
       `;
 
-      card.querySelector("button").onclick = () => {
-        comercioActivo = c;
-        vistaActual =
-          c.tipoOperacion === "reserva" ? "reserva" :
-          c.tipoOperacion === "info" ? "infoComercio" :
-          "pedido";
+card.onclick = () => {
+  comercioActivo = c;
 
-        history.pushState(
-          { vista: vistaActual, comercioId: c.id },
-          "",
-          "#" + vistaActual
-        );
-        renderApp();
-      };
+  vistaActual =
+    c.tipoOperacion === "reserva" ? "reserva" :
+    c.tipoOperacion === "info" ? "infoComercio" :
+    "pedido";
+
+  history.pushState(
+    { vista: vistaActual, comercioId: c.id },
+    "",
+    "#" + vistaActual
+  );
+
+  renderApp();
+};
 
       cont.appendChild(card);
     });
@@ -288,28 +287,28 @@ card.innerHTML = `
   <div class="info">
     <h3>${c.nombre}</h3>
     <p>${c.descripcion}</p>
-    <button>Ver</button>
   </div>
 `;
 
-    card.querySelector("button").onclick = () => {
-      comercioActivo = c;
-      carrito = [];
-      tipoEntrega = null;
-      direccionEntrega = "";
+card.onclick = () => {
+  comercioActivo = c;
+  carrito = [];
+  tipoEntrega = null;
+  direccionEntrega = "";
 
-      vistaActual = c.tipoOperacion === "reserva" ? "reserva" :
-                    c.tipoOperacion === "info" ? "infoComercio" : "pedido";
+  vistaActual =
+    c.tipoOperacion === "reserva" ? "reserva" :
+    c.tipoOperacion === "info" ? "infoComercio" :
+    "pedido";
 
-      history.pushState(
-        { vista: vistaActual, comercioId: c.id },
-        "",
-        "#" + vistaActual
-      );
+  history.pushState(
+    { vista: vistaActual, comercioId: c.id },
+    "",
+    "#" + vistaActual
+  );
 
-      renderApp();
-    };
-
+  renderApp();
+};
     lista.appendChild(card);
   });
 }
