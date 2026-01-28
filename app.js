@@ -610,15 +610,25 @@ btnTerminos.addEventListener("click", () => {
 function renderInfoComercio() {
   if (!comercioActivo) return volverHome();
 
+  // Determinar el enlace de consulta
+  let enlaceConsulta = "";
+  if (comercioActivo.urlReserva) {
+    enlaceConsulta = comercioActivo.urlReserva;
+  } else if (comercioActivo.whatsapp) {
+    // WhatsApp con mensaje predefinido
+    const msg = encodeURIComponent(`Hola, quiero consultar sobre ${comercioActivo.nombre}`);
+    enlaceConsulta = `https://wa.me/${comercioActivo.whatsapp}?text=${msg}`;
+  }
+
   app.innerHTML = `
     <button class="btn-volver">←</button>
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
+    ${enlaceConsulta ? `<button class="btn-reservar" onclick="window.open('${enlaceConsulta}','_blank')">Consultar 💬</button>` : ''}
     <p>${comercioActivo.descripcion}</p>
-
     ${renderLinksComercio(comercioActivo)}
-  ${comercioActivo.urlReserva ? `<button class="btn-reservar" onclick="window.open('${comercioActivo.urlReserva}','_blank')">Consultar 💬</button>` : ''}
- `;
+  `;
+
   // Insertar galerías
   if (comercioActivo.galerias) {
     Object.entries(comercioActivo.galerias).forEach(([categoria, fotos]) => {
@@ -637,7 +647,8 @@ function renderInfoComercio() {
     activarGaleria();
   }
 
-  document.querySelector(".btn-volver").onclick = ()=> history.back();
+  // Botón volver
+  document.querySelector(".btn-volver").onclick = () => history.back();
 }
 
 function renderReserva() {
