@@ -172,7 +172,7 @@ function renderHome() {
 </div>
 
 <div id="mensaje-rubro" class="mensaje-rubro"></div>
-<h3 class="titulo-destacados">⭐ Comercios destacados</h3>
+<h3 class="titulo-destacados">⭐ Destacados</h3>
 <div id="destacados" class="lista-comercios"></div>
 <hr>
     <div id="lista-comercios"
@@ -602,7 +602,7 @@ function renderReserva() {
 
   app.innerHTML = `
     <button class="btn-volver">←</button>
-    ${comercioActivo.destacado ? `<div class="badge-destacado">⭐ Destacado</div>` : ""}
+    ${comercioActivo.destacado ? `<div class="badge-destacado">          ⭐</div>` : ""}
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
     <p>${comercioActivo.descripcion}</p>
@@ -786,7 +786,7 @@ function renderPedido() {
     if (tipoEntrega === "delivery") msg += `\nDirección: ${direccionEntrega}`;
 
     app.innerHTML = `
-      <button class="btn-volver">← Volver</button>
+      <button class="btn-volver">←</button>
       <h2>Confirmar pedido</h2>
 
       <div class="resumen">${resumen}</div>
