@@ -128,7 +128,7 @@ function renderHome() {
     <div class="header-logo">
   <img src="images/calcha1.png" alt="Calcha Market" />
 </div>
-    <button id="btn-menu">☰</button>
+    <button id="btn-menu">ℹ️</button>
 
     <div id="selector-ubicacion"></div>
 
