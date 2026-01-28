@@ -24,7 +24,7 @@
   {
     "id": 2,
     "nombre": "Artesanias Greco",
-    "rubro": "artesanias",
+    "rubro": "turismo",
     "ubicacion": "cafayate",
     "descripcion": "Trabajos en ceramica fabricados y pintados a mano.",
     "imagen": "images/Harry.jpeg",
@@ -98,7 +98,7 @@
   {
     "id": 6,
     "nombre": "Artesanías del Valle",
-    "rubro": "artesanias",
+    "rubro": "turismo",
     "ubicacion": "amaicha",
     "descripcion": "Artesanías de todo tipo hechas a mano, decorativas y utilitarias.",
     "imagen": "images/artesanias .jpeg",
