@@ -261,12 +261,17 @@ cursor: grab;
 ========================= */
 
 .card-comercio {
+   cursor: pointer;
    position: relative;
   background: linear-gradient(180deg, #fff, #faf6f0);
   border-radius: 18px;
   padding: 16px;
   margin-bottom: 16px;
   box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+   transition: 
+    transform 0.15s ease,
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .card-comercio img {
@@ -285,15 +290,16 @@ cursor: grab;
   margin-bottom: 12px;
    }
 .card-comercio p {
-  font-size: 13px;
-  opacity: 0.75;
+line-height: 1.4;
   margin-bottom: 12px;
 }
 
-.card-comercio button {
-  width: 100%;
-  background: linear-gradient(135deg, #a14a1a, #d67d3e);
-  color: #fff;
+.card-comercio:active {
+  transform: scale(0.98);
+}
+
+.card-comercio:hover {
+  filter: brightness(1.03);
 }
 .badge-destacado {
   position: absolute;
@@ -308,6 +314,27 @@ cursor: grab;
   font-weight: 600;
 
   z-index: 2;
+}
+
+#destacados {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+#destacados::-webkit-scrollbar {
+  display: none;
+}
+
+/* cada card */
+#destacados .card-comercio {
+  min-width: 260px;
+  max-width: 260px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 .comercio-links {
   position: fixed;          
