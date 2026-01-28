@@ -251,7 +251,15 @@ function renderDestacados() {
         <h3>${c.nombre}</h3>
         <p>${c.descripcion}</p>
       `;
+const estado = estadoComercio(c);
 
+card.innerHTML += `
+  <div class="estado ${estado}">
+    ${estado === "abierto" ? "🟢 Abierto" :
+      estado === "cierra-pronto" ? "🟠 Cierra pronto" :
+      "🔴 Cerrado"}
+  </div>
+`;
 card.onclick = () => {
   comercioActivo = c;
 
@@ -289,7 +297,15 @@ card.innerHTML = `
     <p>${c.descripcion}</p>
   </div>
 `;
+const estado = estadoComercio(c);
 
+card.innerHTML += `
+  <div class="estado ${estado}">
+    ${estado === "abierto" ? "🟢 Abierto" :
+      estado === "cierra-pronto" ? "🟠 Cierra pronto" :
+      "🔴 Cerrado"}
+  </div>
+`;
 card.onclick = () => {
   comercioActivo = c;
   carrito = [];
@@ -312,8 +328,37 @@ card.onclick = () => {
     lista.appendChild(card);
   });
 }
+// =========================
+// horarios
+// =========================
+function estadoComercio(comercio) {
+  const ahora = new Date();
+  const dia = ["dom","lun","mar","mie","jue","vie","sab"][ahora.getDay()];
+  const horaActual = ahora.getHours() * 60 + ahora.getMinutes();
 
+  const tramos = comercio.horarios?.[dia];
+  if (!tramos || tramos.length === 0) return "cerrado";
 
+  for (const tramo of tramos) {
+    let [inicio, fin] = tramo.split("-");
+    let [hi, mi] = inicio.split(":").map(Number);
+    let [hf, mf] = fin.split(":").map(Number);
+
+    let inicioMin = hi * 60 + mi;
+    let finMin = hf * 60 + mf;
+
+    // cruza medianoche
+    if (finMin < inicioMin) finMin += 1440;
+
+    if (horaActual >= inicioMin && horaActual <= finMin) {
+      // cierra pronto?
+      if (finMin - horaActual <= 30) return "cierra-pronto";
+      return "abierto";
+    }
+  }
+
+  return "cerrado";
+}
 // =========================
 // FILTROS
 // =========================
