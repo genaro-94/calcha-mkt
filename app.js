@@ -172,7 +172,7 @@ function renderHome() {
 </div>
 
 <div id="mensaje-rubro" class="mensaje-rubro"></div>
-<h3 class="titulo-destacados">⭐ Destacados</h3>
+<h3 class="titulo-destacados">👑 Destacados</h3>
 <div id="destacados" class="lista-comercios"></div>
 <hr>
     <div id="lista-comercios"
@@ -246,7 +246,7 @@ function renderDestacados() {
       card.className = "card-comercio";
 
       card.innerHTML = `
-        <div class="badge-destacado">⭐ Destacado</div>
+        <div class="badge-destacado">👑 Destacado</div>
         <img src="${c.imagen}">
         <h3>${c.nombre}</h3>
         <p>${c.descripcion}</p>
