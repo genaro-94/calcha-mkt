@@ -161,6 +161,13 @@
     {
     "id": 7,
     "nombre": "Vivero Plantas son amores",
+    "lun": ["11:00-15:30"],
+    "mar": ["11:00-15:30"],
+    "mie": ["11:00-15:30"],
+    "jue": ["11:00-15:30"],
+    "vie": ["11:00-15:30"],
+    "sab": ["11:00-15:30"],
+    "dom": ["11:00-15:30"],
     "ubicacion": ["cafayate", "amaicha"],
     "rubro": "vivero",
     "descripcion": "suculentas por mato y menor, tambien tenemos algunas variedades de ornamentales de interior.",
