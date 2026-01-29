@@ -676,6 +676,7 @@ function renderReserva() {
 // =========================
 // PEDIDO / CONFIRMAR
 // =========================
+
 function renderPedido() {
   if (!comercioActivo) return renderHome();
 
@@ -717,24 +718,14 @@ function renderPedido() {
 
     ${renderLinksComercio(comercioActivo)}
 
-    ${comercioActivo.galerias
-      ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
-          <h3>${categoria}</h3>
-          <div class="galeria-comercio">
-            ${fotos.map(img =>
-              `<img src="${img}" class="galeria-img" data-fotos='${JSON.stringify(fotos)}'>`
-            ).join("")}
-          </div>
-        `).join("")
-      : ""
-    }
+    ${renderGalerias(comercioActivo.galerias)}
 
     <div class="menu">${menuHTML}</div>
 
     <h3>Entrega</h3>
     <div class="entrega">
       <button id="retiro" class="${tipoEntrega === "retiro" ? "activo" : ""}">
-        🏠 Retiro personalmente 
+        🏠 Retiro personalmente
       </button>
       ${comercioActivo.permiteDelivery ? `
         <button id="delivery" class="${tipoEntrega === "delivery" ? "activo" : ""}">
@@ -758,10 +749,8 @@ function renderPedido() {
     </div>
   `;
 
-  document.querySelectorAll(".galeria-img").forEach(img => {
-    img.onclick = () =>
-      abrirLightbox(img.src, JSON.parse(img.dataset.fotos));
-  });
+  // activar galería mixta
+  activarGaleria();
 
   document.querySelector(".btn-volver").onclick = () => history.back();
 
@@ -782,107 +771,7 @@ function renderPedido() {
 
       renderPedido();
     };
-function renderPedido() {
-  if (!comercioActivo) return renderHome();
-
-  let menuHTML = "";
-  let categoriaActual = "";
-
-  comercioActivo.menu.forEach((item, i) => {
-    if (item.categoria !== categoriaActual) {
-      categoriaActual = item.categoria;
-      menuHTML += `<div class="menu-categoria">${categoriaActual}</div>`;
-    }
-
-    const enCarrito = carrito.find(p => p.nombre === item.nombre);
-
-    menuHTML += `
-function renderPedido() {
-  if (!comercioActivo) return renderHome();
-
-  let menuHTML = "";
-  let categoriaActual = "";
-
-  comercioActivo.menu.forEach((item, i) => {
-    if (item.categoria !== categoriaActual) {
-      categoriaActual = item.categoria;
-      menuHTML += `<div class="menu-categoria">${categoriaActual}</div>`;
-    }
-
-    const enCarrito = carrito.find(p => p.nombre === item.nombre);
-
-    menuHTML += `
-      <div class="item-menu">
-        <span>${item.nombre} - $${item.precio}</span>
-        <div>
-          ${enCarrito ? `
-            <button data-i="${i}" data-a="restar">−</button>
-            <strong>${enCarrito.cantidad}</strong>
-          ` : ""}
-          <button data-i="${i}" data-a="sumar">+</button>
-        </div>
-      </div>
-    `;
   });
-
-  const total = carrito.reduce(
-    (s, p) => s + p.precio * p.cantidad,
-    0
-  );
-
-  app.innerHTML = `
-    <button class="btn-volver">←</button>
-    <img src="${comercioActivo.imagen}" class="comercio-portada">
-    <h2>${comercioActivo.nombre}</h2>
-    <p>${comercioActivo.descripcion}</p>
-
-    ${renderLinksComercio(comercioActivo)}
-
-    ${comercioActivo.galerias
-      ? Object.entries(comercioActivo.galerias).map(([categoria, items]) => `
-          <h3>${categoria}</h3>
-          <div class="galeria-comercio">
-            ${items.map(src => {
-              const esVideo = /\.(mp4|webm|ogg)$/i.test(src);
-              return esVideo
-                ? `<video 
-                     src="${src}" 
-                     class="galeria-media" 
-                     muted 
-                     playsinline
-                     data-items='${JSON.stringify(items)}'>
-                   </video>`
-                : `<img 
-                     src="${src}" 
-                     class="galeria-media" 
-                     data-items='${JSON.stringify(items)}'>`;
-            }).join("")}
-          </div>
-        `).join("")
-      : ""
-    }
-
-    <div class="menu-lista">
-      ${menuHTML}
-    </div>
-
-    <div class="pedido-total">
-      Total: $${total}
-    </div>
-
-    <button id="continuar">Continuar</button>
-  `;
-
-  // activar galería (img + video)
-  document.querySelectorAll(".galeria-media").forEach(el => {
-    el.onclick = () =>
-      abrirLightbox(
-        el.src,
-        JSON.parse(el.dataset.items)
-      );
-  });
-
-  document.querySelector(".btn-volver").onclick = () => history.back();
 
   document.getElementById("retiro").onclick = () => {
     tipoEntrega = "retiro";
@@ -906,7 +795,8 @@ function renderPedido() {
     history.pushState({ vista: "confirmar" }, "", "#confirmar");
     renderConfirmar();
   };
-      }
+}
+
   // ------------------------
   // CONFIRMAR
   // ------------------------
