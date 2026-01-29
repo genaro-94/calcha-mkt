@@ -165,10 +165,10 @@
     "rubro": "vivero",
     "descripcion": "suculentas por mato y menor, tambien tenemos algunas variedades de ornamentales de interior.",
     "imagen": "images/sucu7.jpg",
-    "tipoOperacion": "reserva",
+    "tipoOperacion": "info",
     "permiteDelivery": false,
     "menu": [],
-    "galerias": { "habitaciones": ["images/sucus.jpg","images/sucus1.jpg","images/sucus2.jpg","images/sucus3.jpg","images/sucus4.jpg","images/sucus5.jpg","images/sucus6.jpg"] },
+    "galerias": { "habitaciones": ["images/sucu.jpg","images/sucus1.jpg","images/sucus2.jpg","images/sucus3.jpg","images/sucus4.jpg","images/sucus5.jpg","images/sucus6.jpg"] },
     "whatsapp": "3875181644",
     "estado": "activo",
     "destacado": true
