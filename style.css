@@ -598,14 +598,16 @@ margin-bottom: 18px;
 }
 /* contenedor común para img y video */
 .galeria-item {
+  width: 120px;
   height: 140px;
-  min-width: 120px;
+  flex-shrink: 0;
+
   border-radius: 14px;
+  overflow: hidden;
+
   scroll-snap-align: start;
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  overflow: hidden;
   cursor: pointer;
-  flex-shrink: 0;
 }
 
 /* imagen */
