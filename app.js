@@ -628,20 +628,38 @@ function renderInfoComercio() {
     <button class="btn-volver">←</button>
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
-
     ${enlaceConsulta
       ? `<button class="btn-reservar" onclick="window.open('${enlaceConsulta}','_blank')">Consultar 💬</button>`
       : ""}
-
     <p>${comercioActivo.descripcion}</p>
-
     ${renderLinksComercio(comercioActivo)}
-
-    ${renderGalerias(comercioActivo.galerias)}
   `;
 
-  // activar lightbox (imagenes y futuros videos)
-  activarGaleria();
+  // Insertar galerías
+  if (comercioActivo.galerias) {
+    Object.entries(comercioActivo.galerias).forEach(([categoria, fotos]) => {
+      const galeriaHTML = `
+        <h3>${categoria}</h3>
+        <div class="galeria-comercio">
+          ${fotos
+            .map(
+              img =>
+                `<img src="${img}" class="galeria-img" data-fotos='${JSON.stringify(
+                  fotos
+                )}'>`
+            )
+            .join("")}
+        </div>
+      `;
+      app.insertAdjacentHTML("beforeend", galeriaHTML);
+    });
+
+  
+    document.querySelectorAll(".galeria-img").forEach(img => {
+      img.onclick = () =>
+        abrirLightbox(img.src, JSON.parse(img.dataset.fotos));
+    });
+  } 
 
   document.querySelector(".btn-volver").onclick = () => history.back();
 }
@@ -663,20 +681,32 @@ function renderReserva() {
 
     ${renderLinksComercio(comercioActivo)}
 
-    ${renderGalerias(comercioActivo.galerias)}
+    ${comercioActivo.galerias
+      ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
+          <h3>${categoria}</h3>
+          <div class="galeria-comercio">
+            ${fotos.map(img =>
+              `<img src="${img}" class="galeria-img" data-fotos='${JSON.stringify(fotos)}'>`
+            ).join("")}
+          </div>
+        `).join("")
+      : ""
+    }
 
     <button onclick="window.open('${urlReserva}','_blank')">📅 Reservar</button>
   `;
 
-  // activar galería (imagenes hoy, mixta mañana)
-  activarGaleria();
+  document.querySelectorAll(".galeria-img").forEach(img => {
+    img.onclick = () =>
+      abrirLightbox(img.src, JSON.parse(img.dataset.fotos));
+  });
 
   document.querySelector(".btn-volver").onclick = () => history.back();
 }
+
 // =========================
 // PEDIDO / CONFIRMAR
 // =========================
-
 function renderPedido() {
   if (!comercioActivo) return renderHome();
 
@@ -718,14 +748,24 @@ function renderPedido() {
 
     ${renderLinksComercio(comercioActivo)}
 
-    ${renderGalerias(comercioActivo.galerias)}
+    ${comercioActivo.galerias
+      ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
+          <h3>${categoria}</h3>
+          <div class="galeria-comercio">
+            ${fotos.map(img =>
+              `<img src="${img}" class="galeria-img" data-fotos='${JSON.stringify(fotos)}'>`
+            ).join("")}
+          </div>
+        `).join("")
+      : ""
+    }
 
     <div class="menu">${menuHTML}</div>
 
     <h3>Entrega</h3>
     <div class="entrega">
       <button id="retiro" class="${tipoEntrega === "retiro" ? "activo" : ""}">
-        🏠 Retiro personalmente
+        🏠 Retiro personalmente 
       </button>
       ${comercioActivo.permiteDelivery ? `
         <button id="delivery" class="${tipoEntrega === "delivery" ? "activo" : ""}">
@@ -749,8 +789,10 @@ function renderPedido() {
     </div>
   `;
 
-  // activar galería mixta
-  activarGaleria();
+  document.querySelectorAll(".galeria-img").forEach(img => {
+    img.onclick = () =>
+      abrirLightbox(img.src, JSON.parse(img.dataset.fotos));
+  });
 
   document.querySelector(".btn-volver").onclick = () => history.back();
 
@@ -796,7 +838,6 @@ function renderPedido() {
     renderConfirmar();
   };
 }
-
   // ------------------------
   // CONFIRMAR
   // ------------------------
@@ -1019,47 +1060,6 @@ function cerrarLightbox(volverHistorial = true) {
     history.back();
   }
 }
-function renderGalerias(galerias) {
-  if (!galerias) return "";
-
-  let html = "";
-
-  Object.entries(galerias).forEach(([categoria, items]) => {
-    html += `
-      <h3>${categoria}</h3>
-      <div class="galeria-comercio">
-        ${items.map(src => {
-          const esVideo = src.endsWith(".mp4") || src.endsWith(".webm");
-
-          return esVideo
-            ? `<video
-  src="${src}"
-  class="galeria-video"
-  muted
-  playsinline
-  preload="metadata"
-  tabindex="-1"
-  data-media='${JSON.stringify(items)}'>
-</video>`
-            : `<img 
-                 src="${src}" 
-                 class="galeria-img" 
-                 data-media='${JSON.stringify(items)}'>`;
-        }).join("")}
-      </div>
-    `;
-  });
-
-  return html;
-    }
-function activarGaleria() {
-  document
-    .querySelectorAll(".galeria-img, .galeria-video")
-    .forEach(el => {
-      el.onclick = () =>
-        abrirLightbox(el.src, JSON.parse(el.dataset.media));
-    });
-}
 // =========================
 // UTIL
 // =========================
@@ -1074,4 +1074,4 @@ WhatsApp:
 Gracias, espero su respuesta. 😊`);
 
   window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, "_blank");
-}
+    }
