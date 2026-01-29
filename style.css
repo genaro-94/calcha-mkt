@@ -592,42 +592,8 @@ margin-bottom: 18px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
   transition: transform 0.2s ease;
 }
-
 .galeria-img:active {
   transform: scale(0.96);
-}
-/* contenedor común para img y video */
-.galeria-item {
-  width: 120px;
-  height: 140px;
-  flex-shrink: 0;
-
-  border-radius: 14px;
-  overflow: hidden;
-
-  scroll-snap-align: start;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  cursor: pointer;
-}
-
-/* imagen */
-.galeria-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* video */
-.galeria-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-   max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-   pointer-events: none;
 }
 .lightbox {
   position: fixed;
