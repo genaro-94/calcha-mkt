@@ -1074,4 +1074,4 @@ WhatsApp:
 Gracias, espero su respuesta. 😊`);
 
   window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, "_blank");
-    }
+}
