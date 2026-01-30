@@ -29,10 +29,6 @@ body {
   max-width: 430px;
   margin: auto;
   padding: 1px 1px;
-   outline: 3px solid red;
-}
-.lightbox {
-  outline: 3px solid blue;
 }
 /* =========================
    TEXTOS
