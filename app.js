@@ -610,33 +610,28 @@ btnTerminos.addEventListener("click", () => {
 
 function aplicarTema(comercio) {
   const t = comercio.theme;
-  if (!t) return;
+  const ui = comercio.ui;
 
   const root = document.documentElement;
 
+  if (!t) return;
+
   // 🎨 Colores base
-  if (t.colors) {
-    Object.entries(t.colors).forEach(([k, v]) => {
-      root.style.setProperty(`--${k}`, v);
-    });
-  } else {
-    // fallback para comercios sin estructura nueva
-    root.style.setProperty("--primary", t.primary || "#c96c3b");
-    root.style.setProperty("--secondary", t.secondary || "#ffffff");
-    root.style.setProperty("--accent", t.accent || "#f5c542");
-    root.style.setProperty("--text", t.text || "#222222");
-    root.style.setProperty("--background", t.background || "#fffaf3");
-  }
+  root.style.setProperty("--primary", t.primary || "#c96c3b");
+  root.style.setProperty("--secondary", t.secondary || "#ffffff");
+  root.style.setProperty("--accent", t.accent || "#f5c542");
+  root.style.setProperty("--text", t.text || "#222222");
+  root.style.setProperty("--background", t.background || "#fffaf3");
 
   // 🎛️ UI específica
-  if (t.ui) {
-    Object.entries(t.ui).forEach(([k, v]) => {
+  if (ui) {
+    Object.entries(ui).forEach(([k, v]) => {
       root.style.setProperty(`--ui-${k}`, v);
     });
   }
 
   // 🔤 Fuente
-  root.style.setProperty("--font", t.font || "system-ui");
+  root.style.setProperty("--font", comercio.font || "system-ui");
 }
 // =========================
 // RESERVA / INFO COMERCIO
