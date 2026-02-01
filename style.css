@@ -37,21 +37,16 @@
   color: var(--ui-deliveryActiveText, var(--secondary));
 }
 
-.btn-continuar {
-  background: var(--ui-buttonContinueBg, var(--accent));
-  color: var(--ui-buttonContinueText, #111);
-}
-
 .carrito strong {
   color: var(--ui-cartTotal, var(--primary));
 }
 
 .btn-continuar {
-  background: var(--accent);
-  color: #111;
-   border: none;
+  background: var(--ui-buttonContinueBg, var(--accent));
+  color: var(--ui-buttonContinueText, #111);
+  border: none;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
-    font-weight: 600;
+  font-weight: 600;
 }
 .btn-continuar:hover,
 .btn-volver:hover {
