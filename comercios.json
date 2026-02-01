@@ -22,8 +22,8 @@
     "destacado": true,
      "theme": {
     "primary": "#E9C46A",
-    "secondary": "#E9C46A",
-    "accent": "#E63946",
+    "secondary": "#CFA44A",
+    "accent": "#CFA44A",
     "text": "#E9C46A",
     "background": "#C1121F",
     "font": "Poppins" }
