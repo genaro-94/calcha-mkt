@@ -609,8 +609,18 @@ btnTerminos.addEventListener("click", () => {
 }
 
 function aplicarTema(comercio) {
-  app.dataset.theme = comercio.theme || "default";
-  // por ahora no hace nada
+  const theme = comercio.theme;
+
+  if (!theme) return;
+
+  const root = document.documentElement;
+
+  root.style.setProperty("--primary", theme.primary || "#c96c3b");
+  root.style.setProperty("--secondary", theme.secondary || "#ffffff");
+  root.style.setProperty("--accent", theme.accent || "#f5c542");
+  root.style.setProperty("--text", theme.text || "#222222");
+  root.style.setProperty("--background", theme.background || "#fffaf3");
+  root.style.setProperty("--font", theme.font || "system-ui");
   }
 // =========================
 // RESERVA / INFO COMERCIO
