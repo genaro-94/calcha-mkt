@@ -503,25 +503,6 @@ margin-bottom: 18px;
   margin: 20px 0 10px;
   color: #8b5a2b;
 }
-
-.item-menu {
-  background: #fff;
-  border-radius: 16px;
-  padding: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item-menu button {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #d67d3e;
-  color: #fff;
-  padding: 0;
-}
-
 /* =========================
    ENTREGA
 ========================= */
