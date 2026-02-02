@@ -80,8 +80,8 @@
     "destacado": true,
 "theme": {
   "primary": "#C8102E",      
-  "secondary": "#FFFFFF",    
-  "accent": "#CFA44A",       
+  "secondary": "#606C38",    
+  "accent": "#0077B6",       
   "text": "#1A1A1A",         
   "background": "#FAFAFA"
   },
