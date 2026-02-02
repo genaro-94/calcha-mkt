@@ -25,8 +25,26 @@
     "secondary": "#CFA44A",
     "accent": "#CFA44A",
     "text": "#E9C46A",
-    "background": "#C1121F",
-    "font": "Poppins" }
+    "background": "#C1121F"
+     },
+         "ui": {
+      "pedido": {
+    "title": "#C8102E",
+    "subtitle": "#E63946",
+    "buttonBackBg": "#7F5539",
+    "buttonBackText": "#7F5539",
+
+    "buttonContinueBg": "#CFA44A",
+    "buttonContinueText": "#111111",
+
+    "deliveryActiveBg": "#C8102E",
+    "deliveryActiveBorder": "#CFA44A",
+    "deliveryActiveText": "#FFFFFF",
+
+    "cartTotal": "#C8102E"
+  },
+  "font": "Poppins"
+         }
   },
   {
     "id": 2,
@@ -110,8 +128,26 @@
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
     "text": "#2B2B2B",
-    "background": "#FFF9F5",
-    "font": "Poppins" }
+    "background": "#FFF9F5"
+     },
+      "ui": {
+      "pedido": {
+    "title": "#C8102E",
+    "subtitle": "#E63946",
+    "buttonBackBg": "#7F5539",
+    "buttonBackText": "#7F5539",
+
+    "buttonContinueBg": "#CFA44A",
+    "buttonContinueText": "#111111",
+
+    "deliveryActiveBg": "#C8102E",
+    "deliveryActiveBorder": "#CFA44A",
+    "deliveryActiveText": "#FFFFFF",
+
+    "cartTotal": "#C8102E"
+  },
+  "font": "Poppins"
+  }
   },
 {
   "id": 4,
@@ -165,8 +201,20 @@
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
     "text": "#2B2B2B",
-    "background": "#FFF9F5",
-    "font": "Poppins" }
+    "background": "#FFF9F5"
+       },
+    "ui": {
+      "info": {
+    "title": "#FFFFFF",
+    "subtitle": "#FFFFFF",
+    "buttonBackBg": "#FFFFFF",
+    "buttonBackText": "#606C38",
+    "buttonConsultaBg": "#FFFFFF",
+    "buttonConsultaText": "#606C38",
+    "sectionBg": "#FFFFFF"
+      },
+    "font": "Poppins"
+    }
   },
   {
     "id": 6,
@@ -186,8 +234,20 @@
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
     "text": "#2B2B2B",
-    "background": "#D4A373",
-    "font": "Poppins" }
+    "background": "#D4A373"   
+    },
+    "ui": {
+      "info": {
+    "title": "#FFFFFF",
+    "subtitle": "#FFFFFF",
+    "buttonBackBg": "#FFFFFF",
+    "buttonBackText": "#606C38",
+    "buttonConsultaBg": "#FFFFFF",
+    "buttonConsultaText": "#606C38",
+    "sectionBg": "#FFFFFF"
+      },
+    "font": "Poppins"
+  }
   },
   {
     "id": 20,
@@ -207,8 +267,20 @@
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
     "text": "#2B2B2B",
-    "background": "#FFF9F5",
-    "font": "Poppins" }
+    "background": "#FFF9F5"
+       },
+    "ui": {
+      "info": {
+    "title": "#FFFFFF",
+    "subtitle": "#FFFFFF",
+    "buttonBackBg": "#FFFFFF",
+    "buttonBackText": "#606C38",
+    "buttonConsultaBg": "#FFFFFF",
+    "buttonConsultaText": "#606C38",
+    "sectionBg": "#FFFFFF"
+      },
+    "font": "Poppins"
+  }
   },
   {
     "id": 21,
@@ -228,8 +300,20 @@
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
     "text": "#2B2B2B",
-    "background": "#FFF9F5",
-    "font": "Poppins" }
+    "background": "#FFF9F5"
+       },
+    "ui": {
+      "info": {
+    "title": "#FFFFFF",
+    "subtitle": "#FFFFFF",
+    "buttonBackBg": "#FFFFFF",
+    "buttonBackText": "#606C38",
+    "buttonConsultaBg": "#FFFFFF",
+    "buttonConsultaText": "#606C38",
+    "sectionBg": "#FFFFFF"
+      },
+    "font": "Poppins"
+  }
   },
   {
     "id": 22,
@@ -249,8 +333,20 @@
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
     "text": "#2B2B2B",
-    "background": "#FFF9F5",
-    "font": "Poppins" }
+    "background": "#FFF9F5"
+     },
+    "ui": {
+      "info": {
+    "title": "#FFFFFF",
+    "subtitle": "#FFFFFF",
+    "buttonBackBg": "#FFFFFF",
+    "buttonBackText": "#606C38",
+    "buttonConsultaBg": "#FFFFFF",
+    "buttonConsultaText": "#606C38",
+    "sectionBg": "#FFFFFF"
+      },
+    "font": "Poppins"
+  }  
   },
 {
   "id": 7,
