@@ -133,19 +133,14 @@
     "background": "#0077B6"
      },
   "ui": {
-    "title": "#FFFFFF",
-    "subtitle": "#E63946",
-    "buttonBackBg": "#FFFFFF",
-    "buttonBackText": "#0077B6",
-
-    "buttonContinueBg": "#FFFFFF",
-    "buttonContinueText": "#0077B6",
-
-    "deliveryActiveBg": "#C8102E",
-    "deliveryActiveBorder": "#CFA44A",
-    "deliveryActiveText": "#FFFFFF",
-
-    "cartTotal": "#C8102E"
+ "reserva": {
+    "title": "#1A73E8",
+    "subtitle": "#4285F4",
+    "buttonBackBg": "#E8F0FE",
+    "buttonBackText": "#1A73E8",
+    "buttonReservaBg": "#34A853",
+    "buttonReservaText": "#FFFFFF",
+    "sectionBg": "#F1F3F4"
   },
   "font": "Poppins"
   },
@@ -286,11 +281,22 @@
   "estado": "activo",
   "destacado": true,
   "theme": {
-    "primary": "#8B1E1E",
+    "primary": "#FFFFFF",
     "secondary": "#F4EDE4",
     "accent": "#CFA44A",
-    "text": "#2B2B2B",
-    "background": "#FFF9F5",
+    "text": "#FFFFFF",
+    "background": "#606C38"
+  },
+    "ui": {
+      "info": {
+    "title": "#FFFFFF",
+    "subtitle": "#FFFFFF",
+    "buttonBackBg": "#FFFFFF",
+    "buttonBackText": "#606C38",
+    "buttonConsultaBg": "#FFFFFF",
+    "buttonConsultaText": "#606C38",
+    "sectionBg": "#FFFFFF"
+      },
     "font": "Poppins"
   }
   }
