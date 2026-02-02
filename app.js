@@ -666,12 +666,11 @@ app.innerHTML = `
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
     ${enlaceConsulta
-      ? `<button class="btn-reservar"
-  onclick="
-    registrarClickContacto('whatsapp');
-    window.open('${enlaceConsulta}','_blank');
-  ">
-  Consultar 💬
+      ? `<button onclick="
+  registrarClickContacto('consulta');
+  window.open('${urlWhatsapp}','_blank');
+">
+  Contactar
 </button>`
       : ""}
     <p>${comercioActivo.descripcion}</p>
@@ -957,14 +956,10 @@ if (window.analytics) {
 
       <h3>Total: $${total}</h3>
 
-<button class="btn-confirmar"
-  onclick="
-    registrarClickContacto('pedido');
-    window.open(
-      'https://wa.me/54${comercioActivo.whatsapp}?text=${encodeURIComponent(msg)}',
-      '_blank'
-    );
-  ">
+<button class="btn-confirmar" onclick="
+  registrarClickContacto('pedido');
+  window.open('https://wa.me/54${comercioActivo.whatsapp}?text=${encodeURIComponent(msg)}','_blank');
+">
   Enviar por WhatsApp
 </button>
     `;
@@ -1063,15 +1058,16 @@ function activarBusqueda() {
 // =========================
 // HELPERS / ANALYTICS
 // =========================
-function registrarClickContacto(tipo) {
-  if (window.analytics && comercioActivo) {
-    logEvent(window.analytics, "click_contacto", {
-      tipo, // reserva / pedido / consulta
-      comercio: comercioActivo.slug || comercioActivo.nombre,
-      rubro: comercioActivo.rubro,
-      vista: vistaActual
-    });
-  }
+window.registrarClickContacto = function (tipo) {
+  if (!window.analytics || !comercioActivo) return;
+
+  logEvent(window.analytics, "click_contacto", {
+    tipo, // "consulta" | "pedido" | "reserva"
+    comercio: comercioActivo.slug || comercioActivo.nombre,
+    rubro: comercioActivo.rubro,
+    vista: vistaActual
+  });
+};
 }
 // =========================
 // LIGHTBOX
