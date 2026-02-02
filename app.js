@@ -208,7 +208,6 @@ if (window.analytics) {
   activarBusqueda();
   activarRubros();
   activarUbicaciones();
-  resetUIHome();
 }
 
 
@@ -637,50 +636,7 @@ function aplicarTema(comercio) {
   // 🔤 Fuente
   root.style.setProperty("--font", comercio.font || "system-ui");
 }
-function aplicarUI(comercio) {
-  // Detecta tipo de UI según tipo de operación
-  let tipoUI = comercio.tipoOperacion; // "pedido", "reserva", "info"
-  let uiData = comercio.ui?.[tipoUI] || {};
 
-  // Contenedor de la vista actual
-  const cont = document.querySelector('.vista-comercio, .vista-reserva, .vista-info');
-  if (!cont) return;
-
-  // Aplicar variables CSS locales al contenedor
-  cont.style.setProperty('--ui-title', uiData.title || comercio.theme?.primary || '#000');
-  cont.style.setProperty('--ui-subtitle', uiData.subtitle || comercio.theme?.secondary || '#666');
-  
-  // Botones generales
-  cont.style.setProperty('--ui-buttonBackBg', uiData.buttonBackBg || comercio.theme?.primary || '#000');
-  cont.style.setProperty('--ui-buttonBackText', uiData.buttonBackText || comercio.theme?.text || '#fff');
-  
-  cont.style.setProperty('--ui-buttonContinueBg', uiData.buttonContinueBg || comercio.theme?.accent || '#000');
-  cont.style.setProperty('--ui-buttonContinueText', uiData.buttonContinueText || comercio.theme?.text || '#fff');
-  
-  // Botones especiales según tipo
-  if (tipoUI === 'reserva') {
-    cont.style.setProperty('--ui-buttonReservaBg', uiData.buttonReservaBg || comercio.theme?.accent || '#000');
-    cont.style.setProperty('--ui-buttonReservaText', uiData.buttonReservaText || comercio.theme?.text || '#fff');
-    cont.style.setProperty('--ui-sectionBg', uiData.sectionBg || comercio.theme?.secondary || '#fff');
-  } else if (tipoUI === 'info') {
-    cont.style.setProperty('--ui-buttonConsultaBg', uiData.buttonConsultaBg || comercio.theme?.secondary || '#fff');
-    cont.style.setProperty('--ui-buttonConsultaText', uiData.buttonConsultaText || comercio.theme?.text || '#000');
-    cont.style.setProperty('--ui-sectionBg', uiData.sectionBg || comercio.theme?.secondary || '#fff');
-  } else if (tipoUI === 'pedido') {
-    cont.style.setProperty('--ui-deliveryActiveBg', uiData.deliveryActiveBg || comercio.theme?.primary || '#000');
-    cont.style.setProperty('--ui-deliveryActiveBorder', uiData.deliveryActiveBorder || comercio.theme?.accent || '#000');
-    cont.style.setProperty('--ui-deliveryActiveText', uiData.deliveryActiveText || comercio.theme?.text || '#fff');
-    cont.style.setProperty('--ui-cartTotal', uiData.cartTotal || comercio.theme?.primary || '#000');
-  }
-
-  // Fuente
-  cont.style.setProperty('--font', comercio.ui?.font || comercio.theme?.font || 'system-ui');
-}
-function resetUIHome() {
-  const cont = document.querySelector('.vista-comercio, .vista-reserva, .vista-info');
-  if (!cont) return;
-  cont.style.cssText = ''; // elimina todas las variables locales
-}
 // =========================
 // RESERVA / INFO COMERCIO
 // =========================
@@ -694,7 +650,6 @@ function renderInfoComercio() {
   });
   }
   aplicarTema(comercioActivo);
-  aplicarUI(comercioActivo);
   let enlaceConsulta = "";
   if (comercioActivo.urlReserva) {
     enlaceConsulta = comercioActivo.urlReserva;
@@ -766,7 +721,6 @@ if (window.analytics) {
   });
 }
   aplicarTema(comercioActivo);
-  aplicarUI(comercioActivo);
   const urlReserva =
     comercioActivo.urlReserva ||
     `https://wa.me/54${comercioActivo.whatsapp}?text=${encodeURIComponent(
@@ -834,7 +788,6 @@ if (window.analytics) {
   });
 }
   aplicarTema(comercioActivo);
- aplicarUI(comercioActivo);
   let menuHTML = "";
   let categoriaActual = "";
 
