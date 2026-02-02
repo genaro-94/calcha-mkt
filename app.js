@@ -1061,6 +1061,19 @@ function activarBusqueda() {
   };
 }
 // =========================
+// HELPERS / ANALYTICS
+// =========================
+function registrarClickContacto(tipo) {
+  if (window.analytics && comercioActivo) {
+    logEvent(window.analytics, "click_contacto", {
+      tipo, // reserva / pedido / consulta
+      comercio: comercioActivo.slug || comercioActivo.nombre,
+      rubro: comercioActivo.rubro,
+      vista: vistaActual
+    });
+  }
+}
+// =========================
 // LIGHTBOX
 // =========================
 let lightboxDiv = null;
