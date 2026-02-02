@@ -28,7 +28,7 @@
     "text": "#FFFFFF",                    
 
     
-    "buttonBackBg": "#E9C46A",          
+    "buttonBackBg": "#C1121F",          
     "buttonBackText": "#FFFFFF",         
     "buttonContinueBg": "#F9C74F",       
     "buttonContinueText": "#111111",     
@@ -44,7 +44,7 @@
     "confirmTotal": "#F9C74F",            
 
    
-    "galleryTitle": "#FFFFFF",            
+    "galleryTitle": "#C1121F",            
     "galleryBorder": "#F9C74F"            
   },
   "font": "Poppins"
