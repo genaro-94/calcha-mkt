@@ -22,10 +22,10 @@
     "destacado": true,
      "theme": {
     "primary": "#E9C46A",
-    "secondary": "#CFA44A",
-    "accent": "#CFA44A",
+    "secondary": "#F9C74F",
+    "accent": "#F9C74F",
     "text": "#E9C46A",
-    "background": "#C1121F",
+    "background": "#F94144",
   "font": "PoppinPoppins" 
      }
   },
