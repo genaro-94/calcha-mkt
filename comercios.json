@@ -27,7 +27,7 @@
     "background": "#F94144",             
     "text": "#FFFFFF",                    
 
-    // Botones
+    
     "buttonBackBg": "#E9C46A",          
     "buttonBackText": "#FFFFFF",         
     "buttonContinueBg": "#F9C74F",       
@@ -36,14 +36,14 @@
     "deliveryActiveBorder": "#F9C74F",   
     "deliveryActiveText": "#FFFFFF",     
 
-    // Carrito y confirmación
+    
     "cartTotal": "#F9C74F",              
     "resumenItemName": "#FFFFFF",         
     "resumenItemPrice": "#F9C74F",       
     "confirmTitle": "#FFFFFF",            
     "confirmTotal": "#F9C74F",            
 
-    // Galerías
+   
     "galleryTitle": "#FFFFFF",            
     "galleryBorder": "#F9C74F"            
   },
