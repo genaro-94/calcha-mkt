@@ -208,6 +208,7 @@ if (window.analytics) {
   activarBusqueda();
   activarRubros();
   activarUbicaciones();
+  resetUIHome();
 }
 
 
@@ -637,44 +638,48 @@ function aplicarTema(comercio) {
   root.style.setProperty("--font", comercio.font || "system-ui");
 }
 function aplicarUI(comercio) {
-  if (!comercio.ui) return;
+  // Detecta tipo de UI según tipo de operación
+  let tipoUI = comercio.tipoOperacion; // "pedido", "reserva", "info"
+  let uiData = comercio.ui?.[tipoUI] || {};
 
-  // Detecta qué tipo de UI tiene: pedido, reserva, info
-  const tipos = ["pedido", "reserva", "info"];
-  let tipoUI = tipos.find(t => comercio.ui[t]);
-  if (!tipoUI) return;
+  // Contenedor de la vista actual
+  const cont = document.querySelector('.vista-comercio, .vista-reserva, .vista-info');
+  if (!cont) return;
 
-  const ui = comercio.ui[tipoUI];
-
-  // Aplica todas las variables CSS
-  const root = document.documentElement;
-
-  // Variables genéricas
-  if (ui.title) root.style.setProperty('--ui-title', ui.title);
-  if (ui.subtitle) root.style.setProperty('--ui-subtitle', ui.subtitle);
-  if (ui.buttonBackBg) root.style.setProperty('--ui-buttonBackBg', ui.buttonBackBg);
-  if (ui.buttonBackText) root.style.setProperty('--ui-buttonBackText', ui.buttonBackText);
-  if (ui.buttonContinueBg) root.style.setProperty('--ui-buttonContinueBg', ui.buttonContinueBg);
-  if (ui.buttonContinueText) root.style.setProperty('--ui-buttonContinueText', ui.buttonContinueText);
-  if (ui.deliveryActiveBg) root.style.setProperty('--ui-deliveryActiveBg', ui.deliveryActiveBg);
-  if (ui.deliveryActiveBorder) root.style.setProperty('--ui-deliveryActiveBorder', ui.deliveryActiveBorder);
-  if (ui.deliveryActiveText) root.style.setProperty('--ui-deliveryActiveText', ui.deliveryActiveText);
-  if (ui.cartTotal) root.style.setProperty('--ui-cartTotal', ui.cartTotal);
-
-  // Variables de reserva
-  if (ui.buttonReservaBg) root.style.setProperty('--ui-buttonReservaBg', ui.buttonReservaBg);
-  if (ui.buttonReservaText) root.style.setProperty('--ui-buttonReservaText', ui.buttonReservaText);
-  if (ui.sectionBg) root.style.setProperty('--ui-sectionBg', ui.sectionBg);
-
-  // Variables de info / consulta
-  if (ui.buttonConsultaBg) root.style.setProperty('--ui-buttonConsultaBg', ui.buttonConsultaBg);
-  if (ui.buttonConsultaText) root.style.setProperty('--ui-buttonConsultaText', ui.buttonConsultaText);
-
-  // Aplica la fuente si está definida
-  if (comercio.ui.font) {
-    root.style.setProperty('--font', comercio.ui.font);
-    document.body.style.fontFamily = comercio.ui.font;
+  // Aplicar variables CSS locales al contenedor
+  cont.style.setProperty('--ui-title', uiData.title || comercio.theme?.primary || '#000');
+  cont.style.setProperty('--ui-subtitle', uiData.subtitle || comercio.theme?.secondary || '#666');
+  
+  // Botones generales
+  cont.style.setProperty('--ui-buttonBackBg', uiData.buttonBackBg || comercio.theme?.primary || '#000');
+  cont.style.setProperty('--ui-buttonBackText', uiData.buttonBackText || comercio.theme?.text || '#fff');
+  
+  cont.style.setProperty('--ui-buttonContinueBg', uiData.buttonContinueBg || comercio.theme?.accent || '#000');
+  cont.style.setProperty('--ui-buttonContinueText', uiData.buttonContinueText || comercio.theme?.text || '#fff');
+  
+  // Botones especiales según tipo
+  if (tipoUI === 'reserva') {
+    cont.style.setProperty('--ui-buttonReservaBg', uiData.buttonReservaBg || comercio.theme?.accent || '#000');
+    cont.style.setProperty('--ui-buttonReservaText', uiData.buttonReservaText || comercio.theme?.text || '#fff');
+    cont.style.setProperty('--ui-sectionBg', uiData.sectionBg || comercio.theme?.secondary || '#fff');
+  } else if (tipoUI === 'info') {
+    cont.style.setProperty('--ui-buttonConsultaBg', uiData.buttonConsultaBg || comercio.theme?.secondary || '#fff');
+    cont.style.setProperty('--ui-buttonConsultaText', uiData.buttonConsultaText || comercio.theme?.text || '#000');
+    cont.style.setProperty('--ui-sectionBg', uiData.sectionBg || comercio.theme?.secondary || '#fff');
+  } else if (tipoUI === 'pedido') {
+    cont.style.setProperty('--ui-deliveryActiveBg', uiData.deliveryActiveBg || comercio.theme?.primary || '#000');
+    cont.style.setProperty('--ui-deliveryActiveBorder', uiData.deliveryActiveBorder || comercio.theme?.accent || '#000');
+    cont.style.setProperty('--ui-deliveryActiveText', uiData.deliveryActiveText || comercio.theme?.text || '#fff');
+    cont.style.setProperty('--ui-cartTotal', uiData.cartTotal || comercio.theme?.primary || '#000');
   }
+
+  // Fuente
+  cont.style.setProperty('--font', comercio.ui?.font || comercio.theme?.font || 'system-ui');
+}
+function resetUIHome() {
+  const cont = document.querySelector('.vista-comercio, .vista-reserva, .vista-info');
+  if (!cont) return;
+  cont.style.cssText = ''; // elimina todas las variables locales
 }
 // =========================
 // RESERVA / INFO COMERCIO
