@@ -12,12 +12,36 @@
    VARIABLES BASE
 ========================= */
 :root {
---primary: #c96c3b;
---secondary: #ffffff;
---accent: #f5c542;
---text: #222222;
---background: #fffaf3;
---font: system-ui;
+  /* Colores base */
+  --primary: #c96c3b;
+  --secondary: #ffffff;
+  --accent: #f5c542;
+  --text: #222222;
+  --background: #fffaf3;
+
+  /* Tipografía */
+  --font: system-ui;
+
+  /* UI defaults (fallbacks) */
+  --buttonBackBg: var(--primary);
+  --buttonBackText: var(--secondary);
+
+  --buttonContinueBg: var(--accent);
+  --buttonContinueText: #111;
+
+  --deliveryActiveBg: var(--primary);
+  --deliveryActiveBorder: var(--accent);
+  --deliveryActiveText: var(--secondary);
+
+  --cartTotal: var(--primary);
+
+  --galleryTitle: var(--primary);
+
+  --confirmTitle: var(--primary);
+  --confirmTotal: var(--primary);
+
+  --resumenItemName: var(--text);
+  --resumenItemPrice: var(--primary);
 }
 .vista-comercio {
   background: var(--background);
