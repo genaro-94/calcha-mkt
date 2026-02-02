@@ -24,6 +24,7 @@ let lightbox;
 const WHATSAPP_ADMIN = "5493875181644";
 const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 
+import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
 
 // =========================
 // INIT APP
@@ -198,7 +199,9 @@ if (mensajeRubro) {
     history.pushState({ vista: "menu" }, "", "#menu");
     renderMenu();
   };
-
+if (window.analytics) {
+  logEvent(window.analytics, "ver_home");
+}
   renderSelectorUbicacion();
   renderDestacados();
   renderListaComercios();
