@@ -126,26 +126,11 @@
     "estado": "activo",
     "destacado": false,
      "theme": {
-    "primary": "#8B1E1E",
-    "secondary": "#F4EDE4",
+    "primary": "#FFFFFF",
+    "secondary": "#FFFFFF",
     "accent": "#CFA44A",
-    "text": "#2B2B2B",
+    "text": "#FFFFFF",
     "background": "#0077B6",
-    "ui": {
-    "title": "#C8102E",
-    "subtitle": "#E63946",
-    "buttonBackBg": "#7F5539",
-    "buttonBackText": "#0077B6",
-
-    "buttonContinueBg": "#CFA44A",
-    "buttonContinueText": "#111111",
-
-    "deliveryActiveBg": "#C8102E",
-    "deliveryActiveBorder": "#CFA44A",
-    "deliveryActiveText": "#FFFFFF",
-
-    "cartTotal": "#C8102E"
-  },
   "font": "Poppins"
   },
   {
