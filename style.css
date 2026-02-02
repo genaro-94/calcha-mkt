@@ -52,6 +52,23 @@
 .btn-volver:hover {
   filter: brightness(0.95);
 }
+.btn-reservar {
+  background-color: var(--ui-buttonReservaBg);
+  color: var(--ui-buttonReservaText);
+}
+
+.btn-consulta {
+  background-color: var(--ui-buttonConsultaBg);
+  color: var(--ui-buttonConsultaText);
+}
+
+h2 {
+  color: var(--ui-title);
+}
+
+h3 {
+  color: var(--ui-subtitle);
+}
 /* =========================
    BASE
 ========================= */
