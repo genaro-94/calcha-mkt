@@ -892,17 +892,20 @@ function renderPedido() {
         ex ? ex.cantidad++ : carrito.push({ ...prod, cantidad: 1 });
       }
 
-      if (b.dataset.a === "restar" && ex) {
-        if (b.dataset.a === "restar" && ex) {
+if (b.dataset.a === "sumar") {
+  ex ? ex.cantidad++ : carrito.push({ ...prod, cantidad: 1 });
+}
+
+if (b.dataset.a === "restar" && ex) {
   ex.cantidad--;
+
   if (ex.cantidad === 0) {
     const c = getCarritoActual();
     carritos[comercioActivo.id] = c.filter(p => p !== ex);
   }
-        
-      }
+}
 
-      renderPedido();
+renderPedido();
     };
   });
 
