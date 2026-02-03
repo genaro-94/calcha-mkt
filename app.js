@@ -657,7 +657,9 @@ app.innerHTML = `
     <button class="btn-volver">←</button>
     <img src="${comercioActivo.imagen}" class="comercio-portada">
     <h2>${comercioActivo.nombre}</h2>
-${enlaceConsulta
+    <p>${comercioActivo.descripcion}</p>
+    ${renderLinksComercio(comercioActivo)}
+    ${enlaceConsulta
   ? `<button onclick="
       registrarClickContacto('consulta');
       window.open('${enlaceConsulta}','_blank');
@@ -665,8 +667,6 @@ ${enlaceConsulta
       Contactar
     </button>`
   : ""}
-    <p>${comercioActivo.descripcion}</p>
-    ${renderLinksComercio(comercioActivo)}
   `;
 
   // Insertar galerías
