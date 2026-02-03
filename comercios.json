@@ -42,9 +42,9 @@
     "cartTotal": "#000000",
 
     "resumenItemName": "#606C38",
-    "resumenItemPrice": "#669BBC",
+    "resumenItemPrice": "#000000",
 
-    "confirmTitle": "#D62828",
+    "confirmTitle": "#000000",
     "confirmTotal": "#F9C74F",
 
     "galleryTitle": "#212529",
