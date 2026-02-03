@@ -315,7 +315,7 @@ card.innerHTML += `
 `;
 card.onclick = () => {
   comercioActivo = c;
-  carrito = [];
+  resetCarritoActual();
   tipoEntrega = null;
   direccionEntrega = "";
 
