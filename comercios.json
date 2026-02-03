@@ -24,10 +24,10 @@
   "colors": {
     "primary": "#006D77",
     "secondary": "#132A13",
-    "accent": "#F9C74F",
+    "accent": "#D62828",
 
     "background": "#F5EBE0",
-    "text": "#FFFFFF",
+    "text": "#000814",
 
     "buttonBackBg": "#C1121F",
     "buttonBackText": "#FFFFFF",
