@@ -475,7 +475,6 @@ function volverHome() {
   rubroActivo = "todos";
   ubicacionActiva = null;
   comercioActivo = null;
-  carrito = [];
   tipoEntrega = null;
   direccionEntrega = "";
 
@@ -894,9 +893,13 @@ function renderPedido() {
       }
 
       if (b.dataset.a === "restar" && ex) {
-        ex.cantidad--;
-        if (ex.cantidad === 0)
-          carrito = carrito.filter(p => p !== ex);
+        if (b.dataset.a === "restar" && ex) {
+  ex.cantidad--;
+  if (ex.cantidad === 0) {
+    const c = getCarritoActual();
+    carritos[comercioActivo.id] = c.filter(p => p !== ex);
+  }
+        
       }
 
       renderPedido();
@@ -936,6 +939,7 @@ function getCarritoActual() {
   }
 
   return carritos[comercioActivo.id];
+}
 }
   // ------------------------
   // CONFIRMAR
