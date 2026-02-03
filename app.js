@@ -468,6 +468,8 @@ document.addEventListener("click", (e) => {
   volverHome();
 });
 function volverHome() {
+  const vista = document.querySelector('.vista-comercio');
+  if (vista) vista.removeAttribute('style');
   // 🔹 reset total del estado
   vistaActual = "home";
   rubroActivo = "todos";
@@ -611,33 +613,21 @@ btnTerminos.addEventListener("click", () => {
   document.querySelector(".btn-volver").onclick = () => history.back();
 }
 
-function aplicarTema(comercio) {
-  const t = comercio.theme;
-  if (!t) return;
+function aplicarThemeComercio(comercio) {
+function aplicarThemeComercio(comercio) {
+  const vista = document.querySelector('.vista-comercio');
+  if (!vista || !comercio?.theme) return;
 
-  const contenedor = document.querySelector(".vista-comercio");
-  if (!contenedor) return;
+  vista.removeAttribute('style');
 
-  // Resetear primero (importantísimo)
-  contenedor.removeAttribute("style");
+  const colors = comercio.theme.colors || comercio.theme;
 
-  // Colores base
-  if (t.primary) contenedor.style.setProperty("--primary", t.primary);
-  if (t.secondary) contenedor.style.setProperty("--secondary", t.secondary);
-  if (t.accent) contenedor.style.setProperty("--accent", t.accent);
-  if (t.text) contenedor.style.setProperty("--text", t.text);
-  if (t.background) contenedor.style.setProperty("--background", t.background);
+  Object.entries(colors).forEach(([key, value]) => {
+    vista.style.setProperty(`--${key}`, value);
+  });
 
-  // UI específica
-  if (t.ui) {
-    Object.entries(t.ui).forEach(([k, v]) => {
-      contenedor.style.setProperty(`--${k}`, v);
-    });
-  }
-
-  // Fuente
-  if (t.font) {
-    contenedor.style.setProperty("--font", t.font);
+  if (comercio.theme.font) {
+    vista.style.setProperty('--font', comercio.theme.font);
   }
 }
 
@@ -653,7 +643,7 @@ function renderInfoComercio() {
     rubro: comercioActivo.rubro
   });
   }
-  aplicarTema(comercioActivo);
+  aplicarThemeComercio(comercioActivo);
   let enlaceConsulta = "";
   if (comercioActivo.urlReserva) {
     enlaceConsulta = comercioActivo.urlReserva;
@@ -724,7 +714,7 @@ if (window.analytics) {
     rubro: comercioActivo.rubro
   });
 }
-  aplicarTema(comercioActivo);
+  aplicarThemeComercio(comercioActivo);
   const urlReserva =
     comercioActivo.urlReserva ||
     `https://wa.me/54${comercioActivo.whatsapp}?text=${encodeURIComponent(
@@ -791,7 +781,7 @@ if (window.analytics) {
     rubro: comercioActivo.rubro
   });
 }
-  aplicarTema(comercioActivo);
+  aplicarThemeComercio(comercioActivo);
   let menuHTML = "";
   let categoriaActual = "";
 
