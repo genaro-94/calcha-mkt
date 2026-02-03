@@ -37,7 +37,7 @@
 
     "deliveryActiveBg": "#E9C46A",
     "deliveryActiveBorder": "#F9C74F",
-    "deliveryActiveText": "#111111",
+    "deliveryActiveText": "#212529",
 
     "cartTotal": "#F9C74F",
 
@@ -47,7 +47,7 @@
     "confirmTitle": "#D62828",
     "confirmTotal": "#F9C74F",
 
-    "galleryTitle": "#FFFFFF",
+    "galleryTitle": "#212529",
     "galleryBorder": "#F9C74F"
   },
   "font": "Poppins"
