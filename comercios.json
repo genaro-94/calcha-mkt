@@ -20,36 +20,38 @@
     "whatsapp": "3874000001",
     "estado": "activo",
     "destacado": true,
-     "theme": {
+  "theme": {
   "colors": {
-    "primary": "#E9C46A",                
-    "secondary": "#F9C74F",              
-    "background": "#F94144",             
-    "text": "#F94144",                    
+    "primary": "#E9C46A",
+    "secondary": "#F9C74F",
+    "accent": "#F9C74F",
 
-    
-    "buttonBackBg": "#C1121F",          
-    "buttonBackText": "#FFFFFF",         
-    "buttonContinueBg": "#F9C74F",       
-    "buttonContinueText": "#111111",     
-    "deliveryActiveBg": "#E9C46A",       
-    "deliveryActiveBorder": "#F9C74F",   
-    "deliveryActiveText": "#FFFFFF",     
+    "background": "#F94144",
+    "text": "#FFFFFF",
 
-    
-    "cartTotal": "#F9C74F",              
-    "resumenItemName": "#FFAFCC",         
-    "resumenItemPrice": "#F9C74F",       
-    "confirmTitle": "#FFAFCC",            
-    "confirmTotal": "#F9C74F",            
+    "buttonBackBg": "#C1121F",
+    "buttonBackText": "#FFFFFF",
 
-   
-    "galleryTitle": "#C1121F",            
-    "galleryBorder": "#F9C74F"            
+    "buttonContinueBg": "#F9C74F",
+    "buttonContinueText": "#111111",
+
+    "deliveryActiveBg": "#E9C46A",
+    "deliveryActiveBorder": "#F9C74F",
+    "deliveryActiveText": "#111111",
+
+    "cartTotal": "#F9C74F",
+
+    "resumenItemName": "#FFFFFF",
+    "resumenItemPrice": "#F9C74F",
+
+    "confirmTitle": "#FFFFFF",
+    "confirmTotal": "#F9C74F",
+
+    "galleryTitle": "#FFFFFF",
+    "galleryBorder": "#F9C74F"
   },
   "font": "Poppins"
-}
-  },
+  }
   {
     "id": 2,
     "nombre": "Artesanias Greco",
