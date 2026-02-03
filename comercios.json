@@ -20,38 +20,38 @@
     "whatsapp": "3874000001",
     "estado": "activo",
     "destacado": true,
-  "theme": {
+"theme": {
   "colors": {
-    "primary": "#006D77",
-    "secondary": "#132A13",
-    "accent": "#D62828",
+    "primary": "#DD2D4A",
+    "secondary": "#000000",
+    "accent": "#F6BD60",
 
-    "background": "#F77F00",
-    "text": "#000814",
+    "background": "#EDEDE9",
+    "text": "#000000",
 
-    "buttonBackBg": "#EAE2B7",
-    "buttonBackText": "#000000",
+    "buttonBackBg": "#000000",
+    "buttonBackText": "#EDEDE9",
 
-    "buttonContinueBg": "#F9C74F",
-    "buttonContinueText": "#111111",
+    "buttonContinueBg": "#DD2D4A",
+    "buttonContinueText": "#EDEDE9",
 
-    "deliveryActiveBg": "#E9C46A",
-    "deliveryActiveBorder": "#F9C74F",
-    "deliveryActiveText": "#212529",
+    "deliveryActiveBg": "#F6BD60",
+    "deliveryActiveBorder": "#DD2D4A",
+    "deliveryActiveText": "#000000",
 
-    "cartTotal": "#000000",
+    "cartTotal": "#DD2D4A",
 
-    "resumenItemName": "#606C38",
-    "resumenItemPrice": "#000000",
+    "resumenItemName": "#000000",
+    "resumenItemPrice": "#DD2D4A",
 
     "confirmTitle": "#000000",
-    "confirmTotal": "#000000",
+    "confirmTotal": "#DD2D4A",
 
-    "galleryTitle": "#212529",
-    "galleryBorder": "#F9C74F"
+    "galleryTitle": "#000000",
+    "galleryBorder": "#F6BD60"
   },
   "font": "Poppins"
-  } 
+}
   },
   {
     "id": 2,
