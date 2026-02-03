@@ -30,7 +30,7 @@
     "text": "#000814",
 
     "buttonBackBg": "#EAE2B7",
-    "buttonBackText": "#D62828",
+    "buttonBackText": "#000000",
 
     "buttonContinueBg": "#F9C74F",
     "buttonContinueText": "#111111",
@@ -39,7 +39,7 @@
     "deliveryActiveBorder": "#F9C74F",
     "deliveryActiveText": "#212529",
 
-    "cartTotal": "#FB6F92",
+    "cartTotal": "#000000",
 
     "resumenItemName": "#606C38",
     "resumenItemPrice": "#669BBC",
