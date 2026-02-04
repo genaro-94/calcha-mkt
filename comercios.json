@@ -29,6 +29,7 @@
     "estado": "activo",
     "destacado": true,
 "theme": {
+"theme": {
   "colors": {
     "primary": "#DD2D4A",
     "secondary": "#000000",
@@ -58,39 +59,24 @@
     "gallery-title": "#000000",
     "gallery-border": "#F6BD60",
 
-    
-    "title-bg": "#FFFFFF",
-    "title-text": "#DD2D4A",
-    "title-shadow": "0 6px 16px rgba(0,0,0,0.08)",
-
-    "subtitle-bg": "#FFFFFF",
-    "subtitle-text": "#555555",
-    "subtitle-shadow": "0 6px 16px rgba(0,0,0,0.08)",
-
-    "section-title-text": "#000000",
-
-    
     "menu-bg": "#F6BD60",
+
     "tab-bg": "#EDEDE9",
     "tab-text": "#000000",
     "tab-active-bg": "#DD2D4A",
     "tab-active-text": "#FFFFFF",
 
-    
     "item-bg": "#FFFFFF",
     "item-text": "#000000",
     "item-price": "#DD2D4A",
     "item-shadow": "0 4px 14px rgba(0,0,0,0.08)",
 
-
     "item-button-bg": "#DD2D4A",
     "item-button-text": "#FFFFFF",
-
 
     "item-qty-btn-bg": "#DD2D4A",
     "item-qty-btn-text": "#FFFFFF",
     "item-qty-btn-bg-active": "#b9233c",
-
 
     "confirm-bg": "#EDEDE9",
 
@@ -100,13 +86,11 @@
     "confirm-item-text": "#000000",
     "confirm-item-price": "#DD2D4A",
 
-    "confirm-total-text": "#DD2D4A",
-
     "confirm-button-bg": "#DD2D4A",
     "confirm-button-text": "#FFFFFF"
   },
   "font": "Poppins"
-  }
+}
   },
   {
     "id": 2,
