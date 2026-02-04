@@ -467,9 +467,6 @@ function volverHome(forzar = false) {
     return;
   }
 
-  const vista = document.querySelector('.vista-comercio');
-  if (vista) vista.removeAttribute('style');
-
   vistaActual = "home";
   rubroActivo = "todos";
   ubicacionActiva = null;
@@ -477,31 +474,15 @@ function volverHome(forzar = false) {
   tipoEntrega = null;
   direccionEntrega = "";
 
-  if (!navegandoPorHistorial) {
-    history.replaceState({ vista: "home" }, "", "#home");
-  }
-
   renderHome();
-
   app.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".btn-home")) return;
 
-  const estoyEnHome = vistaActual === "home";
-  const hayFiltros =
-    rubroActivo !== "todos" ||
-    ubicacionActiva !== null;
-
-  if (estoyEnHome && !hayFiltros) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-
   volverHome(true);
 });
-
 
 
 // =========================
