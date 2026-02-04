@@ -447,6 +447,31 @@ function activarUbicaciones() {
 // =========================
 // BOTÓN HOME
 // =========================
+function volverHome(forzar = false) {
+  if (vistaActual === "home" && !forzar) {
+    app.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  const vista = document.querySelector('.vista-comercio');
+  if (vista) vista.removeAttribute('style');
+
+  // reset estado
+  vistaActual = "home";
+  rubroActivo = "todos";
+  ubicacionActiva = null;
+  comercioActivo = null;
+  tipoEntrega = null;
+  direccionEntrega = "";
+
+  
+  history.replaceState({ vista: "home" }, "", "#home");
+
+  renderHome();
+
+  app.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".btn-home")) return;
 
@@ -456,41 +481,12 @@ document.addEventListener("click", (e) => {
     ubicacionActiva !== null;
 
   if (estoyEnHome && !hayFiltros) {
-    // 👉 solo subir al inicio
-    window.scrollTo({
-  top: 0,
-  behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
     return;
   }
 
-  // 👉 comportamiento normal
   volverHome();
 });
-function volverHome() {
-  const vista = document.querySelector('.vista-comercio');
-  if (vista) vista.removeAttribute('style');
-  // 🔹 reset total del estado
-  vistaActual = "home";
-  rubroActivo = "todos";
-  ubicacionActiva = null;
-  comercioActivo = null;
-  tipoEntrega = null;
-  direccionEntrega = "";
-
-  // 🔹 reemplazamos el estado actual (no apilamos)
-  history.replaceState({ vista: "home" }, "", "#home");
-
-  renderHome();
-
-  // 🔹 aseguramos scroll arriba
-  app.scrollTo({
-  top: 0,
-  behavior: "smooth"
-});
-}
-
-
 // =========================
 // INFO
 // =========================
