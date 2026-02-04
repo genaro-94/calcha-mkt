@@ -11,79 +11,7 @@
 /* =========================
    VARIABLES BASE
 ========================= */
-:root { 
---primary: #c96c3b; 
---secondary: #ffffff; 
---accent: #f5c542; 
---text: #222222; 
---background: #fffaf3; 
---font: system-ui; }
 
-.vista-comercio {
-  background: var(--background);
-  color: var(--text);
-  font-family: var(--font);
-}
-
-
-.vista-comercio h2 {
-  color: var(--primary);
-}
-.vista-comercio h3 {
-  color: var(--galleryTitle);
-}
-
-/* Botón volver */
-.btn-volver {
-  background: var(--button-back-bg);
-  color: var(--button-back-text);
-  border-radius: 12px;
-  font-weight: 600;
-}
-
-/* Botón activo "Retiro personalmente" / Delivery */
-.entrega button.activo {
-  background: var(--deliveryActiveBg);
-  border: 2px solid var(--deliveryActiveBorder);
-  color: var(--deliveryActiveText);
-}
-
-/* Botón continuar */
-.btn-continuar {
-  background: var(--button-continue-bg);
-  color: var(--buttonContinueText);
-  border: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,.15);
-  font-weight: 600;
-}
-
-/* Carrito */
-.carrito strong {
-  color: var(--cart-total);
-}
-
-/* Resumen en pantalla de confirmar */
-.item-confirmacion span:first-child {
-  color: var(--resumenItemName);
-}
-.item-confirmacion span:last-child {
-  color: var(--resumenItemPrice);
-}
-
-/* Total final en confirmación */
-h3 {
-var(--confirm-total);
-}
-
-/* Título confirmación */
-h2 {
-  color: var(--confirm-title);
-}
-
-/* Galería */
-.galeria-comercio h3 {
-  color: var(--galleryTitle);
-}
 .galeria-comercio img {
   border: 2px solid var(--galleryBorder);
   border-radius: 8px;
@@ -582,76 +510,16 @@ margin-bottom: 18px;
   margin: 20px 0 10px;
   color: #8b5a2b;
 }
-/* =========================
-   ENTREGA
-========================= */
 
-.entrega {
-  display: flex;
-  gap: 10px;
-  margin: 12px 0;
-}
-
-.entrega button {
-  flex: 1;
-  border: 2px solid #d67d3e;
-}
-
-.entrega button.activo {
-  background: linear-gradient(135deg, #a14a1a, #d67d3e);
-  color: #fff;
-}
-
-/* =========================
-   CARRITO
-========================= */
-
-.carrito {
-  margin-top: 22px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.item-cantidad button {
-  background: var(--item-qty-btn-bg);
-  color: var(--item-qty-btn-text);
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 20px;
-}
-
-.item-cantidad button:active {
-  background: var(--item-qty-btn-bg-active);
-}
 .btn-agregar-item {
   background: var(--item-button-bg);
   color: var(--item-button-text);
 }
-/* =========================
-   CONFIRMACIÓN
-========================= */
 
-.resumen {
-  background: var(--conf-resumen-bg);
-  color: var(--conf-resumen-text);
-  border-radius: var(--conf-radius);
-  padding: 16px;
-}
 
 .total-confirmacion {
   color: var(--conf-total-text);
 }
-
-.btn-confirmar {
-background: var(--confirm-button-bg);
-  color: var(--confirm-button-text);
-  border-radius: var(--conf-radius);
-}
-
 /* =========================
    GALERÍA / LIGHTBOX
 ========================= */
@@ -668,14 +536,6 @@ background: var(--confirm-button-bg);
   display: none;
 }
 
-.galeria-img {
-  height: 130px;
-  min-width: 120px;
-  border-radius: 16px;
-  object-fit: cover;
-  scroll-snap-align: start;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
 .galeria-img:active {
   transform: scale(0.96);
 }
@@ -882,121 +742,6 @@ body {
   margin-bottom: 10px;
 }
 
-
-.menu .item-menu {
-  background: var(--card-bg, #fff);
-  margin: 10px 12px;
-  padding: 14px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--card-shadow, 0 4px 14px rgba(0,0,0,0.08));
-}
-
-.menu .item-menu span {
-  font-size: 0.95rem;
-  color: var(--card-text, #333);
-}
-
-.menu .item-menu button {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--item-btn-bg, #c96a2c);
-  color: var(--item-btn-text, #fff);
-  font-size: 18px;
-  padding: 0;
-  margin-left: 4px;
-}
-.rubro-gastronomia {
-  /* --------------------
-     MENÚ / TABS
-  -------------------- */
-  --menu-bg: #F6BD60;
-
-  --tab-bg: #EDEDE9;
-  --tab-text: #000000;
-  --tab-active-bg: #DD2D4A;
-  --tab-active-text: #FFFFFF;
-/* --------------------
-   BOTONES + / -
--------------------- */
---item-qty-btn-bg: #DD2D4A;
---item-qty-btn-text: #FFFFFF;
---item-qty-btn-bg-active: #b9233c;
-  /* --------------------
-     CARDS GENERALES
-  -------------------- */
-  --card-bg: #FFFFFF;
-  --card-text: #000000;
-  --card-shadow: 0 4px 14px rgba(0,0,0,0.08);
-
-  --title-bg: #FFFFFF;
-  --title-text: #DD2D4A;
-  --title-shadow: 0 6px 16px rgba(0,0,0,0.08);
-
-  --subtitle-bg: #FFFFFF;
-  --subtitle-text: #555555;
-  --subtitle-shadow: 0 6px 16px rgba(0,0,0,0.08);
-
-  --section-title-text: #000000;
-
-  /* --------------------
-     ITEMS PRODUCTO
-  -------------------- */
-  --item-bg: #FFFFFF;
-  --item-text: #000000;
-  --item-price: #DD2D4A;
-  --item-shadow: 0 4px 14px rgba(0,0,0,0.08);
-
-  --item-button-bg: #DD2D4A;
-  --item-button-text: #FFFFFF;
-
-  /* --------------------
-     CONFIRMAR PEDIDO
-  -------------------- */
-  --confirm-bg: #EDEDE9;
-
-  --confirm-card-bg: #FFFFFF;
-  --confirm-card-shadow: 0 6px 16px rgba(0,0,0,0.08);
-
-  --confirm-item-text: #000000;
-  --confirm-item-price: #DD2D4A;
-
-  --confirm-total-text: #DD2D4A;
-
-  --confirm-button-bg: #DD2D4A;
-  --confirm-button-text: #FFFFFF;
-}
-.menu-tabs {
-  display: flex;
-  gap: 8px;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  background: var(--menu-bg, #f3f3f3);
-}
-
-.menu-tab {
-  flex: 1;
-  padding: 10px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-
-  background: var(--tab-bg, #ddd);
-  color: var(--tab-text, #333);
-}
-
-.menu-tab.active {
-  background: var(--tab-active-bg, #000);
-  color: var(--tab-active-text, #fff);
-}
-
-
 .btn-reservar {
   display: block;
   width: calc(100% - 24px);
@@ -1008,25 +753,218 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.18);
    }
 
-.resumen {
-  background: var(--background, #fff); 
-  border-radius: 18px;
+/* ======================================================
+   BASE COMERCIO (TEMA DESDE JSON)
+====================================================== */
+
+.vista-comercio {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+/* ======================================================
+   BOTÓN VOLVER
+====================================================== */
+
+.btn-volver {
+  background: var(--button-back-bg);
+  color: var(--button-back-text);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+/* ======================================================
+   TÍTULOS
+====================================================== */
+
+.vista-comercio h2 {
+  color: var(--confirm-title);
+}
+
+.vista-confirmacion h3 {
+  color: var(--confirm-total);
+}
+
+/* ======================================================
+   GALERÍA
+====================================================== */
+
+.galeria-comercio h3 {
+  color: var(--gallery-title);
+}
+
+.galeria-img {
+  height: 130px;
+  min-width: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  scroll-snap-align: start;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* ======================================================
+   MENÚ / TABS
+====================================================== */
+
+.menu-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--menu-bg);
+}
+
+.menu-tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  background: var(--tab-bg);
+  color: var(--tab-text);
+}
+
+.menu-tab.active {
+  background: var(--tab-active-bg);
+  color: var(--tab-active-text);
+}
+
+/* ======================================================
+   ITEMS DEL MENÚ
+====================================================== */
+
+.menu .item-menu {
+  background: var(--item-bg);
+  box-shadow: var(--item-shadow);
+  border-radius: 16px;
+  padding: 14px;
+  margin: 10px 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu .item-menu span {
+  color: var(--item-text);
+  font-size: 0.95rem;
+}
+
+.menu .item-menu button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  background: var(--item-button-bg);
+  color: var(--item-button-text);
+}
+
+/* ======================================================
+   BOTONES + / -
+====================================================== */
+
+.item-cantidad button {
+  background: var(--item-qty-btn-bg);
+  color: var(--item-qty-btn-text);
+}
+
+.item-cantidad button:active {
+  background: var(--item-qty-btn-bg-active);
+}
+
+/* ======================================================
+   ENTREGA
+====================================================== */
+
+.entrega {
+  display: flex;
+  gap: 10px;
+  margin: 12px;
+}
+
+.entrega button {
+  flex: 1;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  padding: 10px;
+}
+
+.entrega button.activo {
+  background: var(--delivery-active-bg);
+  border-color: var(--delivery-active-border);
+  color: var(--delivery-active-text);
+}
+
+/* ======================================================
+   CARRITO (PEDIDO)
+====================================================== */
+
+.carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 16px;
+  margin-top: 20px;
+}
+
+.carrito strong {
+  color: var(--cart-total);
+  font-size: 1.1rem;
+}
+
+.btn-continuar {
+  background: var(--button-continue-bg);
+  color: var(--button-continue-text);
+  border: none;
+  border-radius: 16px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+/* ======================================================
+   CONFIRMAR PEDIDO
+====================================================== */
+
+.vista-confirmacion {
+  background: var(--confirm-bg);
+}
+
+.resumen {
+  background: var(--confirm-card-bg);
+  box-shadow: var(--confirm-card-shadow);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px 12px;
+}
+
+.item-confirmacion {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .item-confirmacion span:first-child {
-  color: var(--resumenItemName, #000);
+  color: var(--resumen-item-name);
 }
 
 .item-confirmacion span:last-child {
-  color: var(--resumenItemPrice, #669BBC);
+  color: var(--resumen-item-price);
 }
 
-h2 {
-  color: var(--confirmTitle, #333);
-}
+/* ======================================================
+   BOTÓN CONFIRMAR (WHATSAPP)
+====================================================== */
 
 .btn-confirmar {
-  background-color: var(--buttonContinueBg, #F9C74F);
-  color: var(--buttonContinueText, #111111);
+  background: var(--confirm-button-bg);
+  color: var(--confirm-button-text);
+  border: none;
+  border-radius: 18px;
+  padding: 14px;
+  margin: 20px 12px;
+  font-weight: 700;
+  font-size: 1rem;
 }
