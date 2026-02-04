@@ -58,35 +58,44 @@
     "galleryTitle": "#000000",
     "galleryBorder": "#F6BD60",
 
-
     "title-bg": "#FFFFFF",
     "title-text": "#DD2D4A",
     "title-shadow": "0 6px 16px rgba(0,0,0,0.08)",
 
-    
     "subtitle-bg": "#FFFFFF",
     "subtitle-text": "#555555",
     "subtitle-shadow": "0 6px 16px rgba(0,0,0,0.08)",
 
-    
     "section-title-text": "#000000",
 
-    
     "menu-bg": "#F6BD60",
     "tab-bg": "#EDEDE9",
     "tab-text": "#000000",
     "tab-active-bg": "#DD2D4A",
     "tab-active-text": "#FFFFFF",
 
-    
+
     "item-bg": "#FFFFFF",
     "item-text": "#000000",
     "item-price": "#DD2D4A",
     "item-shadow": "0 4px 14px rgba(0,0,0,0.08)",
 
-    
     "item-button-bg": "#DD2D4A",
-    "item-button-text": "##000000F"
+    "item-button-text": "#000000",
+
+  
+    "confirm-bg": "#EDEDE9",
+
+    "confirm-card-bg": "#FFFFFF",
+    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.08)",
+
+    "confirm-item-text": "#000000",
+    "confirm-item-price": "#DD2D4A",
+
+    "confirm-total-text": "#DD2D4A",
+
+    "confirm-button-bg": "#DD2D4A",
+    "confirm-button-text": "#FFFFFF"
   },
   "font": "Poppins"
 }
