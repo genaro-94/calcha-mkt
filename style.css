@@ -525,7 +525,7 @@ margin-bottom: 18px;
 ========================= */
 .galeria,
 .seccion-galeria {
-  background: var(--gallery-bg, var(--background));
+  background: var(--background);
 }
 .galeria-comercio {
   display: flex;
