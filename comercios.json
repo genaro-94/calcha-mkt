@@ -124,11 +124,82 @@
     "estado": "activo",
     "destacado": true,
 "theme": {
-  "primary": "#C8102E",      
-  "secondary": "#606C38",    
-  "accent": "#0077B6",       
-  "text": "#1A1A1A",         
-  "background": "#FAFAFA",
+  "colors": {
+    "primary": "#9C6644",
+    "secondary": "#BB9457",
+    "accent": "#E6CCB2",
+
+    "background": "#E6CCB2",
+    "text": "#0A0908",
+
+    
+
+    "button-back-bg": "#9C6644",
+    "button-back-text": "#FFFFFF",
+
+    "button-continue-bg": "#BB9457",
+    "button-continue-text": "#0A0908",
+
+    
+
+    "delivery-active-bg": "#E6CCB2",
+    "delivery-active-border": "#9C6644",
+    "delivery-active-text": "#0A0908",
+
+    
+
+    "cart-total": "#9C6644",
+
+
+
+    "resumen-item-name": "#0A0908",
+    "resumen-item-price": "#9C6644",
+
+
+
+    "confirm-title": "#0A0908",
+    "confirm-total": "#9C6644",
+
+    "confirm-bg": "#E6CCB2",
+
+    "confirm-card-bg": "#FFFFFF",
+    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.10)",
+
+    "confirm-item-text": "#0A0908",
+    "confirm-item-price": "#9C6644",
+
+    "confirm-button-bg": "#9C6644",
+    "confirm-button-text": "#FFFFFF",
+
+
+
+    "gallery-title": "#0A0908",
+    "gallery-border": "#BB9457",
+
+    "menu-bg": "#BB9457",
+
+    "tab-bg": "#FFFFFF",
+    "tab-text": "#0A0908",
+    "tab-active-bg": "#9C6644",
+    "tab-active-text": "#FFFFFF",
+
+
+
+    "item-bg": "#FFFFFF",
+    "item-text": "#0A0908",
+    "item-price": "#9C6644",
+    "item-shadow": "0 4px 14px rgba(0,0,0,0.08)",
+
+    "item-button-bg": "#9C6644",
+    "item-button-text": "#FFFFFF",
+
+    
+
+    "item-qty-btn-bg": "#BB9457",
+    "item-qty-btn-text": "#0A0908",
+    "item-qty-btn-bg-active": "#9C6644"
+  },
+
   "font": "Poppins"
   }
   },
