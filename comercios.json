@@ -204,31 +204,102 @@
   }
   },
   {
-    "id": 3,
-    "nombre": "Ferretería El Martillo",
-    "rubro": "servicios",
-    "ubicacion": "santa maria",
-    "descripcion": "Todo para el hogar, herramientas y materiales.",
-    "imagen": "images/Pika.jpeg",
-    "tipoOperacion": "pedido",
-    "permiteDelivery": false,
-    "menu": [
-      { "nombre": "Martillo", "precio": 1200 },
-      { "nombre": "Taladro eléctrico", "precio": 5500 },
-      { "nombre": "Clavos x 1kg", "precio": 450 }
-    ],
-    "galerias": [],
-    "whatsapp": "3874000003",
-    "estado": "activo",
-    "destacado": false,
-     "theme": {
-    "primary": "#8B1E1E",
-    "secondary": "#BC6C25",
-    "accent": "#BC6C25",
-    "text": "#2B2B2B",
-    "background": "#BC6C25",
+"id": 3,  
+"nombre": "Sandwichería El pancho",  
+"rubro": "gastronomia",  
+"ubicacion": "santa maria",  
+"descripcion": "proba la calidad de nuestros sándwiches elaborados con pasion.",  
+"imagen": "images/Pika.jpeg",  
+"tipoOperacion": "pedido",  
+"permiteDelivery": true,  
+"menu": [  
+  {"categoria": "milanesas", "nombre": "Milanesa completa (JyQ, huevo, c/papas fritas)", "precio": 6000 },  
+  {"categoria": "milanesas", "nombre": "milanesa simple (JyQ, huevo)", "precio": 4500 },  
+  {"categoria": "hamburguesas", "nombre": "Hamburguesa completa (JyQ, huevo, c/ papas fritas)", "precio": 6000 },  
+  {"categoria": "hamburguesas", "nombre": "Hamburguesa simple (JyQ, huevo)", "precio": 4500 }  
+],  
+"galerias": [],  
+"whatsapp": "3874000003",  
+"estado": "activo",  
+"destacado": false,  
+  "theme": {
+  "colors": {
+    "primary": "#B76935",
+    "secondary": "#A4AC86",
+    "accent": "#FBF2C0",
+
+    "background": "#FBF2C0",
+    "text": "#000000",
+
+    "button-back-bg": "#000000",
+    "button-back-text": "#FFFFFF",
+
+    "button-continue-bg": "#B76935",
+    "button-continue-text": "#FFFFFF",
+
+
+
+    "delivery-active-bg": "#A4AC86",
+    "delivery-active-border": "#B76935",
+    "delivery-active-text": "#000000",
+
+    
+
+    "cart-total": "#B76935",
+
+
+
+    "resumen-item-name": "#000000",
+    "resumen-item-price": "#B76935",
+
+
+    "confirm-title": "#000000",
+    "confirm-total": "#B76935",
+
+    "confirm-bg": "#FBF2C0",
+
+    "confirm-card-bg": "#FFFFFF",
+    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.08)",
+
+    "confirm-item-text": "#000000",
+    "confirm-item-price": "#B76935",
+
+    "confirm-button-bg": "#B76935",
+    "confirm-button-text": "#FFFFFF",
+
+
+
+    "gallery-title": "#000000",
+    "gallery-border": "#A4AC86",
+
+
+
+    "menu-bg": "#A4AC86",
+
+    "tab-bg": "#FFFFFF",
+    "tab-text": "#000000",
+    "tab-active-bg": "#B76935",
+    "tab-active-text": "#FFFFFF",
+
+
+
+    "item-bg": "#FFFFFF",
+    "item-text": "#000000",
+    "item-price": "#B76935",
+    "item-shadow": "0 4px 14px rgba(0,0,0,0.08)",
+
+    "item-button-bg": "#B76935",
+    "item-button-text": "#FFFFFF",
+
+
+
+    "item-qty-btn-bg": "#A4AC86",
+    "item-qty-btn-text": "#000000",
+    "item-qty-btn-bg-active": "#B76935"
+  },
+
   "font": "Poppins"
-  }
+}
   },
 {
   "id": 4,
