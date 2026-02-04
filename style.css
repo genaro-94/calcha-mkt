@@ -35,7 +35,7 @@
 
 /* Botón volver */
 .btn-volver {
-  background: var(--buttonBackBg);
+  background: var(--button-back-bg);
   color: var(--buttonBackText);
   border-radius: 12px;
   font-weight: 600;
@@ -50,7 +50,7 @@
 
 /* Botón continuar */
 .btn-continuar {
-  background: var(--buttonContinueBg);
+  background: var(--button-continue-bg);
   color: var(--buttonContinueText);
   border: none;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
@@ -59,7 +59,7 @@
 
 /* Carrito */
 .carrito strong {
-  color: var(--cartTotal);
+  color: var(--cart-total);
 }
 
 /* Resumen en pantalla de confirmar */
@@ -72,12 +72,12 @@
 
 /* Total final en confirmación */
 h3 {
-  color: var(--confirmTotal);
+var(--confirm-total);
 }
 
 /* Título confirmación */
 h2 {
-  color: var(--confirmTitle);
+  color: var(--confirm-title);
 }
 
 /* Galería */
