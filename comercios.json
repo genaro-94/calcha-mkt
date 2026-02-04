@@ -54,7 +54,16 @@
     "confirmTotal": "#DD2D4A",
 
     "galleryTitle": "#000000",
-    "galleryBorder": "#F6BD60"
+    "galleryBorder": "#F6BD60",
+
+    
+    "menuTabsBg": "#EDEDE9",
+
+    "menuTabBg": "#EDEDE9",
+    "menuTabText": "#000000",
+
+    "menuTabActiveBg": "#DD2D4A",
+    "menuTabActiveText": "#EDEDE9"
   },
   "font": "Poppins"
 }
