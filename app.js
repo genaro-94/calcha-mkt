@@ -465,7 +465,9 @@ function volverHome(forzar = false) {
   direccionEntrega = "";
 
   
+  if (location.hash !== "#home") {
   history.replaceState({ vista: "home" }, "", "#home");
+}
 
   renderHome();
 
@@ -485,7 +487,7 @@ document.addEventListener("click", (e) => {
     return;
   }
 
-  volverHome();
+  volverHome(true);
 });
 // =========================
 // INFO
