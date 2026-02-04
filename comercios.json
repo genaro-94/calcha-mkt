@@ -55,6 +55,17 @@
     "confirm-title": "#000000",
     "confirm-total": "#DD2D4A",
 
+    "confirm-bg": "#EDEDE9",
+
+    "confirm-card-bg": "#FFFFFF",
+    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.08)",
+
+    "confirm-item-text": "#000000",
+    "confirm-item-price": "#DD2D4A",
+
+    "confirm-button-bg": "#DD2D4A",
+    "confirm-button-text": "#FFFFFF",
+
     "gallery-title": "#000000",
     "gallery-border": "#F6BD60",
 
@@ -75,18 +86,7 @@
 
     "item-qty-btn-bg": "#DD2D4A",
     "item-qty-btn-text": "#FFFFFF",
-    "item-qty-btn-bg-active": "#b9233c",
-
-    "confirm-bg": "#EDEDE9",
-
-    "confirm-card-bg": "#FFFFFF",
-    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.08)",
-
-    "confirm-item-text": "#000000",
-    "confirm-item-price": "#DD2D4A",
-
-    "confirm-button-bg": "#DD2D4A",
-    "confirm-button-text": "#FFFFFF"
+    "item-qty-btn-bg-active": "#b9233c"
   },
   "font": "Poppins"
 }
