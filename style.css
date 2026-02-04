@@ -635,7 +635,7 @@ margin-bottom: 18px;
    CONFIRMACIÓN
 ========================= */
 
-..resumen {
+.resumen {
   background: var(--conf-resumen-bg);
   color: var(--conf-resumen-text);
   border-radius: var(--conf-radius);
