@@ -81,7 +81,7 @@
     "item-shadow": "0 4px 14px rgba(0,0,0,0.08)",
 
     "item-button-bg": "#DD2D4A",
-    "item-button-text": "#000000",
+    "item-button-text": "#DD2D4A",
 
   
     "confirm-bg": "#EDEDE9",
