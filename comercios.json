@@ -18,7 +18,9 @@
 { "categoria": "Bebidas", "nombre": "Gaseosa 500ml", "precio": 2500 },
 { "categoria": "Bebidas", "nombre": "Gaseosa 1lt", "precio": 4500 },
 { "categoria": "Bebidas", "nombre": "Gaseosa 1,5lt", "precio": 5500 },
-{ "categoria": "Bebidas", "nombre": "Gaseosa 3lt", "precio": 6500 }
+{ "categoria": "Bebidas", "nombre": "Gaseosa 3lt", "precio": 6500 },
+{ "categoria": "pizzas", "nombre": "pizza comun (salsa, queso, tomate)", "precio": 6500 },
+{ "categoria": "pizzas", "nombre": "pizza especial (salsa, queso, tomate, jamon, huevo)", "precio": 8000 }
     ],
     "galerias": {
       "platos": ["images/fritas.png", "images/lomo.jpg", "images/mila.jpeg"]
