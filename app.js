@@ -797,9 +797,15 @@ function renderPedido() {
     const enCarrito = carrito.find(p => p.nombre === item.nombre);
 
     menuHTML += `
-      <div class="item-menu">
-        <span>${item.nombre} - $${item.precio}</span>
-        <div>
+      <div class="menu-tabs">
+  ${categorias.map(cat => `
+    <button 
+      class="menu-tab ${cat === categoriaActiva ? "active" : ""}" 
+      data-cat="${cat}">
+      ${cat}
+    </button>
+  `).join("")}
+</div>
           ${enCarrito ? `
             <button data-i="${i}" data-a="restar">−</button>
             <strong>${enCarrito.cantidad}</strong>
