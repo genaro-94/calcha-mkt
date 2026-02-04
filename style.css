@@ -523,7 +523,10 @@ margin-bottom: 18px;
 /* =========================
    GALERÍA / LIGHTBOX
 ========================= */
-
+.galeria,
+.seccion-galeria {
+  background: var(--gallery-bg, var(--background));
+}
 .galeria-comercio {
   display: flex;
   gap: 12px;
