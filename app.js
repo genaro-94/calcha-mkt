@@ -631,7 +631,7 @@ function aplicarThemeComercio(comercio) {
 // RESERVA / INFO COMERCIO
 // =========================
 function renderInfoComercio() {
-  if (!comercioActivo) return volverHome();
+if (!comercioActivo) return;
   if (window.analytics) {
   logEvent(window.analytics, "ver_comercio", {
     tipo: "info",
@@ -703,7 +703,7 @@ aplicarThemeComercio(comercioActivo);
 }
 
 function renderReserva() {
-  if (!comercioActivo) return volverHome();
+if (!comercioActivo) return;
 if (window.analytics) {
   logEvent(window.analytics, "ver_comercio", {
     tipo: "reserva",
@@ -770,7 +770,7 @@ aplicarThemeComercio(comercioActivo);
 // PEDIDO / CONFIRMAR
 // =========================
 function renderPedido() {
-  if (!comercioActivo) return renderHome();
+  if (!comercioActivo) return;
 
   if (window.analytics) {
     logEvent(window.analytics, "ver_comercio", {
