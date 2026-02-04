@@ -86,7 +86,7 @@
 
     
     "item-button-bg": "#DD2D4A",
-    "item-button-text": "#FFFFFF"
+    "item-button-text": "##000000F"
   },
   "font": "Poppins"
 }
