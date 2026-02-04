@@ -873,6 +873,39 @@ body {
   font-size: 18px;
   padding: 0;
   margin-left: 4px;
+},
+.rubro-gastronomia {
+  --tab-bg: #EDEDE9;
+  --tab-text: #000;
+  --tab-active-bg: #DD2D4A;
+  --tab-active-text: #fff;
+  --menu-bg: #F6BD60;
+},
+.menu-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--menu-bg, #f3f3f3);
+}
+
+.menu-tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+
+  background: var(--tab-bg, #ddd);
+  color: var(--tab-text, #333);
+}
+
+.menu-tab.active {
+  background: var(--tab-active-bg, #000);
+  color: var(--tab-active-text, #fff);
 }
 .btn-reservar {
   display: block;
