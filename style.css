@@ -36,7 +36,7 @@
 /* Botón volver */
 .btn-volver {
   background: var(--button-back-bg);
-  color: var(--buttonBackText);
+  color: var(--button-back-text);
   border-radius: 12px;
   font-weight: 600;
 }
@@ -647,8 +647,8 @@ margin-bottom: 18px;
 }
 
 .btn-confirmar {
-  background: var(--conf-btn-bg);
-  color: var(--conf-btn-text);
+background: var(--confirm-button-bg);
+  color: var(--confirm-button-text);
   border-radius: var(--conf-radius);
 }
 
