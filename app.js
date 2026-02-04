@@ -11,7 +11,7 @@ let vistaActual = "home";
 let ubicacionActiva = null;
 let rubroActivo = "todos";
 let comercioActivo = null;
-
+let categoriaActiva = null;
 let carritos = {}; 
 let tipoEntrega = null;
 let direccionEntrega = "";
