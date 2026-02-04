@@ -15,7 +15,7 @@ let categoriaActiva = null;
 let carritos = {}; 
 let tipoEntrega = null;
 let direccionEntrega = "";
-
+let navegandoPorHistorial = false;
 let comercios = [];
 let app = null;
 let lightbox;
@@ -26,6 +26,20 @@ const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 
 import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
 
+
+window.addEventListener("popstate", (e) => {
+  navegandoPorHistorial = true;
+
+  const vista = e.state?.vista || "home";
+  vistaActual = vista;
+
+  if (vista === "home") renderHome();
+  if (vista === "info") renderInfoComercio();
+  if (vista === "pedido") renderPedido();
+  if (vista === "reserva") renderReserva();
+
+  navegandoPorHistorial = false;
+});
 // =========================
 // INIT APP
 // =========================
@@ -456,7 +470,6 @@ function volverHome(forzar = false) {
   const vista = document.querySelector('.vista-comercio');
   if (vista) vista.removeAttribute('style');
 
-  // reset estado
   vistaActual = "home";
   rubroActivo = "todos";
   ubicacionActiva = null;
@@ -464,10 +477,9 @@ function volverHome(forzar = false) {
   tipoEntrega = null;
   direccionEntrega = "";
 
-  
-  if (location.hash !== "#home") {
-  history.replaceState({ vista: "home" }, "", "#home");
-}
+  if (!navegandoPorHistorial) {
+    history.replaceState({ vista: "home" }, "", "#home");
+  }
 
   renderHome();
 
