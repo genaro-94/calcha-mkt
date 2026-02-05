@@ -69,6 +69,11 @@ document.addEventListener("click", (e) => {
 // =========================
 
 function renderApp() {
+  
+  if (vistaActual !== "home") {
+    window.scrollTo(0, 0);
+  }
+  
   switch (vistaActual) {
     case "home": renderHome(); break;
     case "menu": renderMenu(); break;
