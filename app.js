@@ -500,7 +500,7 @@ function volverHome() {
   tipoEntrega = null;
   direccionEntrega = "";
 
-  history.pushState({ vista: "home" }, "", "#home");
+  history.replaceState({ vista: "home" }, "", "#home");
   renderHome();
 
   // scroll inmediato después del render
