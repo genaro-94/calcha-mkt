@@ -378,11 +378,11 @@
     "secondary": "#43291F",
     "accent": "#43291F",
 
-    "background": "#168AAD",
-    "text": "#FFFFFF",
+    "background": "#FFFFFF",
+    "text": "#168AAD",
 
     "title": {
-      "bg": "#43291F",
+      "bg": "#168AAD",
       "text": "#FFFFFF"
     },
 
