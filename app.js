@@ -85,28 +85,26 @@ setInterval(() => {
 // =========================
 function manejarBackButton() {
   window.addEventListener("popstate", e => {
+    if (lightboxDiv && lightboxDiv.style.display === "flex") {
+      cerrarLightbox(false);
+      return;
+    }
 
-  if (lightboxDiv && lightboxDiv.style.display === "flex") {
-    cerrarLightbox(false);
-    return;
-  }
+    if (!e.state || e.state.vista === "home") {
+      vistaActual = "home";
+      rubroActivo = e.state?.rubro ?? "todos";
+      ubicacionActiva = e.state?.ubicacion ?? null;
+      comercioActivo = null;
+    } else {
+      const s = e.state;
+      vistaActual = s.vista;
+      rubroActivo = s.homeRubro ?? rubroActivo;
+      ubicacionActiva = s.homeUbicacion ?? ubicacionActiva;
+      comercioActivo = s.comercioId ? comercios.find(c => c.id === s.comercioId) : null;
+    }
 
-  // si no hay state o es home
-  if (!e.state || e.state.vista === "home") {
-    vistaActual = "home";
-    comercioActivo = null;
-    rubroActivo = "todos";
-    ubicacionActiva = null;
-  } else {
-    const s = e.state;
-    vistaActual = s.vista;
-    rubroActivo = s.rubro ?? rubroActivo;
-    ubicacionActiva = s.ubicacion ?? ubicacionActiva;
-    comercioActivo = s.comercioId ? comercios.find(c => c.id === s.comercioId) : null;
-  }
-
-  renderApp();  // 🔥 ahora Home también pasa por renderApp
-});
+    renderApp();
+  });
 }
 // =========================
 // DATA
@@ -274,19 +272,19 @@ card.innerHTML += `
       "🔴 Cerrado"}
   </div>
 `;
+      
 card.onclick = () => {
   comercioActivo = c;
+  vistaActual = c.tipoOperacion === "reserva" ? "reserva" :
+                c.tipoOperacion === "info" ? "infoComercio" :
+                "pedido";
 
-  vistaActual =
-    c.tipoOperacion === "reserva" ? "reserva" :
-    c.tipoOperacion === "info" ? "infoComercio" :
-    "pedido";
-
-history.pushState(
-  { vista: vistaActual, comercioId: c.id },
-  "",
-  "#" + vistaActual
-);
+  history.pushState({
+    vista: vistaActual,
+    comercioId: c.id,
+    homeRubro: rubroActivo,
+    homeUbicacion: ubicacionActiva
+  }, "", "#" + vistaActual);
 
   renderApp();
 };
@@ -322,19 +320,17 @@ card.innerHTML += `
 `;
 card.onclick = () => {
   comercioActivo = c;
-  getCarritoActual();
-  tipoEntrega = null;
-  direccionEntrega = "";
+  vistaActual = c.tipoOperacion === "reserva" ? "reserva" :
+                c.tipoOperacion === "info" ? "infoComercio" :
+                "pedido";
 
-  vistaActual =
-    c.tipoOperacion === "reserva" ? "reserva" :
-    c.tipoOperacion === "info" ? "infoComercio" :
-    "pedido";
-history.pushState(
-  { vista: vistaActual, comercioId: c.id },
-  "",
-  "#" + vistaActual
-);
+  history.pushState({
+    vista: vistaActual,
+    comercioId: c.id,
+    homeRubro: rubroActivo,
+    homeUbicacion: ubicacionActiva
+  }, "", "#" + vistaActual);
+
   renderApp();
 };
     lista.appendChild(card);
@@ -455,23 +451,28 @@ function activarUbicaciones() {
 // BOTÓN HOME
 // =========================
 function volverHome() {
+  // Si ya estamos en Home con los mismos filtros, solo scroll top
+  if (vistaActual === "home") {
+    app.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
   vistaActual = "home";
-  rubroActivo = "todos";
-  ubicacionActiva = null;
   comercioActivo = null;
-  tipoEntrega = null;
-  direccionEntrega = "";
+  // Mantener filtros si vienen de comercio
+  rubroActivo = history.state?.rubro ?? rubroActivo ?? "todos";
+  ubicacionActiva = history.state?.ubicacion ?? ubicacionActiva ?? null;
 
-  history.go(-(history.length - 1)); // ← vuelve al primer home
+  // Push/replaceState a Home
+  history.pushState({
+    vista: "home",
+    rubro: rubroActivo,
+    ubicacion: ubicacionActiva
+  }, "", "#home");
+
   renderHome();
-
-
   app.scrollTo({ top: 0, behavior: "smooth" });
 }
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".btn-home")) return;
-  volverHome();
-});
 
 // =========================
 // INFO
