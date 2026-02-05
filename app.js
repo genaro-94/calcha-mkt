@@ -684,39 +684,42 @@ if (!comercioActivo) return;
 
 app.innerHTML = `
 <div class="vista-comercio vista-pedido rubro-${comercioActivo.rubro}">
-    <button class="btn-volver">←</button>
-    <img src="${comercioActivo.imagen}" class="comercio-portada">
-    <h2>${comercioActivo.nombre}</h2>
-    <p>${comercioActivo.descripcion}</p>
-    ${renderLinksComercio(comercioActivo)}
-    ${enlaceConsulta
-  ? `<button onclick="
-      registrarClickContacto('consulta');
-      window.open('${enlaceConsulta}','_blank');
-    ">
-      Contactar
-    </button>`
-  : ""}
-  `;
+  <button class="btn-volver">←</button>
+  <img src="${comercioActivo.imagen}" class="comercio-portada">
+  <h2>${comercioActivo.nombre}</h2>
+  <p>${comercioActivo.descripcion}</p>
 
-  // Insertar galerías
-  if (comercioActivo.galerias) {
-    Object.entries(comercioActivo.galerias).forEach(([categoria, fotos]) => {
-      const galeriaHTML = `
-        <h3>${categoria}</h3>
-        <div class="galeria-comercio">
-          ${fotos.map((img, index) =>
-  `<img 
-     src="${img}" 
-     class="galeria-img" 
-     data-fotos='${JSON.stringify(fotos)}'
-     data-index="${index}"
-   >`
-)
-            .join("")}
-        </div>
-        </div>
-      `;
+  ${renderLinksComercio(comercioActivo)}
+
+  ${enlaceConsulta
+    ? `<button onclick="
+        registrarClickContacto('consulta');
+        window.open('${enlaceConsulta}','_blank');
+      ">
+        Contactar
+      </button>`
+    : ""
+  }
+
+  ${
+    comercioActivo.galerias
+      ? Object.entries(comercioActivo.galerias).map(([categoria, fotos]) => `
+          <h3>${categoria}</h3>
+          <div class="galeria-comercio">
+            ${fotos.map((img, index) => `
+              <img 
+                src="${img}" 
+                class="galeria-img" 
+                data-fotos='${JSON.stringify(fotos)}'
+                data-index="${index}"
+              >
+            `).join("")}
+          </div>
+        `).join("")
+      : ""
+  }
+</div>
+`;
       
       app.insertAdjacentHTML("beforeend", galeriaHTML);
     });
