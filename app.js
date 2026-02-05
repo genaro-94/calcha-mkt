@@ -510,7 +510,14 @@ document.addEventListener("click", (e) => {
   if (!e.target.closest(".btn-home")) return;
 
   vengoDeHome = true;
-  volverHome(true);
+
+  if (vistaActual === "home") {
+    // 👉 ya estoy en home → solo subir
+    volverHome(false);
+  } else {
+    // 👉 vengo de otra vista → reset completo
+    volverHome(true);
+  }
 });
 
 // =========================
