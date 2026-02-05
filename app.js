@@ -28,19 +28,6 @@ const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
 
 
-window.addEventListener("popstate", (e) => {
-  navegandoPorHistorial = true;
-
-  const vista = e.state?.vista || "home";
-  vistaActual = vista;
-
-  if (vista === "home") renderHome();
-  if (vista === "info") renderInfoComercio();
-  if (vista === "pedido") renderPedido();
-  if (vista === "reserva") renderReserva();
-
-  navegandoPorHistorial = false;
-});
 // =========================
 // INIT APP
 // =========================
@@ -216,7 +203,7 @@ if (mensajeRubro) {
 }
   document.getElementById("btn-menu").onclick = () => {
     vistaActual = "menu";
-    history.history.replaceState({ vista: "menu" }, "", "#menu");
+    history.replaceState({ vista: "menu" }, "", "#menu");
     renderMenu();
   };
 if (window.analytics) {
@@ -502,7 +489,7 @@ function volverHome() {
 
   history.replaceState({ vista: "home" }, "", "#home");
   renderHome();
-
+vengoDeHome = false;
   // scroll inmediato después del render
   requestAnimationFrame(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
