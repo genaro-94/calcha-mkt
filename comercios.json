@@ -33,7 +33,10 @@
     "primary": "#DD2D4A",
     "secondary": "#000000",
     "accent": "#F6BD60",
-
+    "title": {
+      "bg": "#BB9457",
+      "text": "#000000"
+    }
     "background": "#EDEDE9",
     "text": "#000000",
 
