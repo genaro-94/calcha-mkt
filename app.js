@@ -462,8 +462,9 @@ function volverHome() {
   tipoEntrega = null;
   direccionEntrega = "";
 
-  history.replaceState({ vista: "home" }, "", "#home");
-renderHome();
+  history.go(-(history.length - 1)); // ← vuelve al primer home
+  renderHome();
+
 
   app.scrollTo({ top: 0, behavior: "smooth" });
 }
