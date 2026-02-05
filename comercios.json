@@ -372,14 +372,71 @@
   "whatsapp": "3875181644",
   "estado": "activo",
   "destacado": false,
-  "theme": {
-    "primary": "#FFFFFF",
-    "secondary": "#FFFFFF",
-    "accent": "#0077B6",
+"theme": {
+  "colors": {
+    "primary": "#168AAD",
+    "secondary": "#43291F",
+    "accent": "#43291F",
+
+    "background": "#168AAD",
     "text": "#FFFFFF",
-    "background": "#0077B6",
-    "font": "Poppins"
-  }
+
+    "tittle-bg": "#168AAD",
+    "tittle-text": "#FFFFFF",
+
+    "button-back-bg": "#43291F",
+    "button-back-text": "#FFFFFF",
+
+    "button-continue-bg": "#43291F",
+    "button-continue-text": "#FFFFFF",
+
+    "delivery-active-bg": "#43291F",
+    "delivery-active-border": "#FFFFFF",
+    "delivery-active-text": "#FFFFFF",
+
+    "cart-total": "#FFFFFF",
+
+    "resumen-item-name": "#FFFFFF",
+    "resumen-item-price": "#FFFFFF",
+
+    "confirm-title": "#FFFFFF",
+    "confirm-total": "#FFFFFF",
+
+    "confirm-bg": "#168AAD",
+
+    "confirm-card-bg": "#FFFFFF",
+    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.18)",
+
+    "confirm-item-text": "#43291F",
+    "confirm-item-price": "#43291F",
+
+    "confirm-button-bg": "#43291F",
+    "confirm-button-text": "#FFFFFF",
+
+    "gallery-title": "#FFFFFF",
+    "gallery-border": "#43291F",
+
+    "menu-bg": "#168AAD",
+
+    "tab-bg": "#FFFFFF",
+    "tab-text": "#43291F",
+    "tab-active-bg": "#43291F",
+    "tab-active-text": "#FFFFFF",
+
+    "item-bg": "#FFFFFF",
+    "item-text": "#43291F",
+    "item-price": "#43291F",
+    "item-shadow": "0 4px 14px rgba(0,0,0,0.15)",
+
+    "item-button-bg": "#43291F",
+    "item-button-text": "#FFFFFF",
+
+    "item-qty-btn-bg": "#43291F",
+    "item-qty-btn-text": "#FFFFFF",
+    "item-qty-btn-bg-active": "#2E1C14"
+  },
+  "font": "Poppins"
+}
 },
   {
     "id": 5,
