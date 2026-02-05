@@ -486,15 +486,16 @@ function activarUbicaciones() {
 // BOTÓN HOME
 // =========================
 function volverHome(forzar = false) {
-  // si ya estoy en home → solo subir
+  // SI YA ESTOY EN HOME → SOLO SCROLL ARRIBA
   if (vistaActual === "home" && !forzar) {
-    window.scrollTo({
+    app.scrollTo({
       top: 0,
       behavior: "smooth"
     });
     return;
   }
 
+  // SI NO ESTOY EN HOME → RESET + RENDER
   vistaActual = "home";
   rubroActivo = "todos";
   ubicacionActiva = null;
@@ -504,12 +505,10 @@ function volverHome(forzar = false) {
 
   renderHome();
 
-  // esperar a que el DOM del home esté renderizado
-  requestAnimationFrame(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+  // cuando vuelve al home, también arrancar arriba
+  app.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
 }
 
