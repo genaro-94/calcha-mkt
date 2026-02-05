@@ -86,6 +86,13 @@ setInterval(() => {
 function manejarBackButton() {
   window.addEventListener("popstate", e => {
 
+      if (!e.state) {
+    vistaActual = "home";
+    comercioActivo = null;
+    renderHome();
+    return;
+      }
+    
     // 🔥 1. Lightbox tiene prioridad absoluta
     if (lightboxDiv && lightboxDiv.style.display === "flex") {
       cerrarLightbox(false); // no tocar history
