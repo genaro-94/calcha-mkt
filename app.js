@@ -86,30 +86,27 @@ setInterval(() => {
 function manejarBackButton() {
   window.addEventListener("popstate", e => {
 
-      if (!e.state) {
-    vistaActual = "home";
-    comercioActivo = null;
-    renderHome();
-    return;
-      }
-    
-    // 🔥 1. Lightbox tiene prioridad absoluta
+    // 🖼️ Lightbox tiene prioridad absoluta
     if (lightboxDiv && lightboxDiv.style.display === "flex") {
-      cerrarLightbox(false); // no tocar history
+      cerrarLightbox(false);
       return;
     }
 
-    // 🔴 2. Si no hay estado o es HOME → salir de la app
+    // 👉 SI NO HAY STATE → HOME DURO
     if (!e.state || e.state.vista === "home") {
-      return; // Android cierra la app
+      vistaActual = "home";
+      comercioActivo = null;
+      rubroActivo = "todos";
+      ubicacionActiva = null;
+
+      renderHome();   // 🔥 CLAVE
+      return;
     }
 
-    // 🧭 3. Navegación normal controlada
+    // 👉 resto de vistas
     const s = e.state;
 
     vistaActual = s.vista;
-    rubroActivo = s.rubro ?? rubroActivo;
-    ubicacionActiva = s.ubicacion ?? ubicacionActiva;
 
     if (s.comercioId) {
       comercioActivo = comercios.find(c => c.id === s.comercioId) || null;
