@@ -95,7 +95,9 @@ function manejarBackButton() {
     // 2️⃣ Sin state → Android / primer back
     if (!e.state) {
       if (vistaActual !== "home") {
-        volverHome(); // usamos la función limpia
+        vistaActual = "home";
+        comercioActivo = null;
+        renderHome();
         return;
       }
       // ya estamos en home → dejamos salir de la app
