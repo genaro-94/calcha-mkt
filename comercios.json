@@ -37,62 +37,95 @@
     "background": "#EDEDE9",
     "text": "#000000",
 
-    "button-back-bg": "#000000",
-    "button-back-text": "#DD2D4A",
-
-    "button-continue-bg": "#DD2D4A",
-    "button-continue-text": "#EDEDE9",
-
-    "delivery-active-bg": "#F6BD60",
-    "delivery-active-border": "#DD2D4A",
-    "delivery-active-text": "#000000",
-
-    "cart-total": "#DD2D4A",
-
-    "resumen-item-name": "#000000",
-    "resumen-item-price": "#DD2D4A",
-
-    "confirm-title": "#000000",
-    "confirm-total": "#DD2D4A",
-
-    "confirm-bg": "#EDEDE9",
-
-    "confirm-card-bg": "#FFFFFF",
-    "confirm-card-shadow": "0 6px 16px rgba(0,0,0,0.08)",
-
-    "confirm-item-text": "#000000",
-    "confirm-item-price": "#DD2D4A",
-
-    "confirm-button-bg": "#DD2D4A",
-    "confirm-button-text": "#FFFFFF",
-
-    "gallery-title": "#000000",
-    "gallery-border": "#F6BD60",
-
-    "menu-bg": "#F6BD60",
-
-    "tab-bg": "#EDEDE9",
-    "tab-text": "#000000",
-    "tab-active-bg": "#DD2D4A",
-    "tab-active-text": "#FFFFFF",
-
-    "item-bg": "#FFFFFF",
-    "item-text": "#000000",
-    "item-price": "#DD2D4A",
-    "item-shadow": "0 4px 14px rgba(0,0,0,0.08)",
-
-    "item-button-bg": "#DD2D4A",
-    "item-button-text": "#FFFFFF",
-
-    "item-qty-btn-bg": "#DD2D4A",
-    "item-qty-btn-text": "#FFFFFF",
-    "item-qty-btn-bg-active": "#b9233c"
-  },
-  "font": "Poppins"
-      "title": {
-      "bg": "#BB9457",
+    "title": {
+      "bg": "#F6BD60",
       "text": "#000000"
+    },
+
+    "button-back": {
+      "bg": "#000000",
+      "text": "#DD2D4A"
+    },
+
+    "button-continue": {
+      "bg": "#DD2D4A",
+      "text": "#EDEDE9"
+    },
+
+    "delivery-active": {
+      "bg": "#F6BD60",
+      "border": "#DD2D4A",
+      "text": "#000000"
+    },
+
+    "cart": {
+      "total": "#DD2D4A"
+    },
+
+    "resumen": {
+      "item-name": "#000000",
+      "item-price": "#DD2D4A"
+    },
+
+    "confirm": {
+      "title": "#000000",
+      "total": "#DD2D4A",
+      "bg": "#EDEDE9",
+
+      "card": {
+        "bg": "#FFFFFF",
+        "shadow": "0 6px 16px rgba(0,0,0,0.08)"
       },
+
+      "item": {
+        "text": "#000000",
+        "price": "#DD2D4A"
+      },
+
+      "button": {
+        "bg": "#DD2D4A",
+        "text": "#FFFFFF"
+      }
+    },
+
+    "gallery": {
+      "title": "#000000",
+      "border": "#F6BD60"
+    },
+
+    "menu": {
+      "bg": "#F6BD60"
+    },
+
+    "tab": {
+      "bg": "#EDEDE9",
+      "text": "#000000",
+      "active": {
+        "bg": "#DD2D4A",
+        "text": "#FFFFFF"
+      }
+    },
+
+    "item": {
+      "bg": "#FFFFFF",
+      "text": "#000000",
+      "price": "#DD2D4A",
+      "shadow": "0 4px 14px rgba(0,0,0,0.08)",
+
+      "button": {
+        "bg": "#DD2D4A",
+        "text": "#FFFFFF"
+      },
+
+      "qty-btn": {
+        "bg": "#DD2D4A",
+        "text": "#FFFFFF",
+        "bg-active": "#b9233c"
+      }
+    }
+  },
+
+  "font": "Poppins"
 }
   },
   {
