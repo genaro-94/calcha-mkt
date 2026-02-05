@@ -86,24 +86,39 @@ setInterval(() => {
 function manejarBackButton() {
   window.addEventListener("popstate", e => {
 
-    // Lightbox primero
+    // 1️⃣ Lightbox primero
     if (lightboxDiv && lightboxDiv.style.display === "flex") {
       cerrarLightbox(false);
       return;
     }
 
-    // Si no hay estado o es Home → dejamos que Android / navegador cierre
-    if (!e.state || e.state.vista === "home") {
+    // 2️⃣ Sin state (Android / primer back)
+    if (!e.state) {
+      if (vistaActual !== "home") {
+        vistaActual = "home";
+        comercioActivo = null;
+        renderHome();
+        return;
+      }
+
+      // ya estamos en home → dejamos cerrar la app
+      return;
+    }
+
+    // 3️⃣ Volver a Home desde historial
+    if (e.state.vista === "home") {
       vistaActual = "home";
       comercioActivo = null;
-      rubroActivo = e.state?.rubro ?? rubroActivo;
-      ubicacionActiva = e.state?.ubicacion ?? ubicacionActiva;
+      rubroActivo = e.state.rubro ?? rubroActivo;
+      ubicacionActiva = e.state.ubicacion ?? ubicacionActiva;
       renderHome();
       return;
     }
 
-    // Estados de comercio
+    // 4️⃣ Restaurar cualquier otra vista (pedido, info, reserva, etc)
     vistaActual = e.state.vista;
+    rubroActivo = e.state.rubro ?? rubroActivo;
+    ubicacionActiva = e.state.ubicacion ?? ubicacionActiva;
     comercioActivo = e.state.comercioId
       ? comercios.find(c => c.id === e.state.comercioId)
       : null;
