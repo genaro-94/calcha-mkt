@@ -514,9 +514,6 @@ function volverHome() {
   vistaActual = "home";
   comercioActivo = null;
 
-  // El Home vuelve a ser raíz
-  homeEsRoot = true;
-
   history.replaceState(
     {
       vista: "home",
