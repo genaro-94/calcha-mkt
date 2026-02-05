@@ -499,7 +499,11 @@ function volverHome(forzar = false) {
   direccionEntrega = "";
 
   renderHome();
-  app.scrollTo({ top: 0, behavior: "smooth" });
+
+  // ⚠️ importante: esperar al render
+  requestAnimationFrame(() => {
+    app.scrollTo({ top: 0, behavior: "smooth" });
+  });
 }
 
 document.addEventListener("click", (e) => {
