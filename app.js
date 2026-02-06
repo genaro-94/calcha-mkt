@@ -678,11 +678,11 @@ function renderInfo() {
       ? "📄 Términos y Condiciones"
       : "❌ Ocultar Términos y Condiciones";
   };
-}
+
 document.querySelector(".btn-volver").onclick = () => {
   history.back();
 };
-
+}
 function aplicarThemeComercio(comercio) {
   const vista = document.querySelector(".vista-comercio");
   if (!vista || !comercio?.theme) return;
