@@ -534,7 +534,6 @@ function volverHome() {
       "#home"
     );
     renderHome();
-renderApp();
   }
 
   app.scrollTo({ top: 0, behavior: "smooth" });
@@ -542,6 +541,7 @@ renderApp();
 document.addEventListener("click", e => {
   if (!e.target.closest(".btn-home")) return;
   volverHome();
+  renderApp();
 });
 // =========================
 // INFO
