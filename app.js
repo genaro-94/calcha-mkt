@@ -46,6 +46,10 @@ window.addEventListener("popstate", (e) => {
       renderInfo();
       break;
 
+    case "infocomercio":
+      renderInfoComercio();
+      break;
+
     case "pedido":
       renderPedido();
       break;
@@ -62,7 +66,6 @@ window.addEventListener("popstate", (e) => {
       volverHome();
   }
 });
-
 // =========================
 // INIT APP
 // =========================
