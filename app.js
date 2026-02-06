@@ -258,8 +258,7 @@ if (mensajeRubro) {
 
   document.getElementById("btn-menu").onclick = () => {
     vistaActual = "menu";
-    history.replaceState({ vista: "menu" }, "", "#menu");
-    renderMenu();
+renderMenu();
   };
   
 if (window.analytics) {
@@ -292,6 +291,7 @@ function renderMenu() {
   );
 
   app.innerHTML = `
+  <button class="btn-home">🏠</button>
     <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
     <button id="btn-sumar">➕ Sumar comercio</button>
   `;
