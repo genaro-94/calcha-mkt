@@ -36,10 +36,6 @@ const ES_PWA =
 
 let deferredInstallPrompt = null;
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredInstallPrompt = e;
-});
 
 window.addEventListener("popstate", (e) => {
   if (!e.state || !e.state.vista) {
