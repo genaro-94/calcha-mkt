@@ -773,5 +773,141 @@
 
   "font": "Poppins"
 }
+  },
+  {
+  "id": 9,
+  "nombre": "Sandwichería Los Módulos Víctor",
+  "ubicacion": "cafayate",
+  "rubro": "gastronomia",
+  "descripcion": "Sandwichería tradicional con lomitos, milanesas, pizzas caseras y comidas al plato.",
+  "imagen": "images/mila.jpeg",
+  "tipoOperacion": "pedido",
+  "permiteDelivery": true,
+
+  "menu": [
+    { "categoria": "Sandwich", "nombre": "Milanesa Simple", "precio": 5000 },
+    { "categoria": "Sandwich", "nombre": "Milanesa Simple c/papas", "precio": 6000 },
+    { "categoria": "Sandwich", "nombre": "Milanesa JyQ", "precio": 5500 },
+    { "categoria": "Sandwich", "nombre": "Milanesa Especial", "precio": 6500 },
+    { "categoria": "Sandwich", "nombre": "Super Milanesa", "precio": 7000 },
+
+    { "categoria": "Lomitos", "nombre": "Lomito Simple", "precio": 6000 },
+    { "categoria": "Lomitos", "nombre": "Lomito Simple c/papas", "precio": 7000 },
+    { "categoria": "Lomitos", "nombre": "Lomito JyQ", "precio": 6500 },
+    { "categoria": "Lomitos", "nombre": "Lomito Especial", "precio": 7500 },
+    { "categoria": "Lomitos", "nombre": "Super Lomito", "precio": 8000 },
+
+    { "categoria": "Hamburguesa", "nombre": "Hamburguesa Simple", "precio": 5000 },
+    { "categoria": "Hamburguesa", "nombre": "Hamburguesa Simple c/papas", "precio": 6000 },
+    { "categoria": "Hamburguesa", "nombre": "Hamburguesa JyQ", "precio": 5500 },
+    { "categoria": "Hamburguesa", "nombre": "Hamburguesa Especial", "precio": 6500 },
+    { "categoria": "Hamburguesa", "nombre": "Hamburguesa Super", "precio": 7000 },
+
+    { "categoria": "Matambres", "nombre": "Matambre Simple", "precio": 8000 },
+    { "categoria": "Matambres", "nombre": "Matambre Simple c/papas", "precio": 8500 },
+    { "categoria": "Matambres", "nombre": "Matambre JyQ", "precio": 8500 },
+    { "categoria": "Matambres", "nombre": "Matambre Especial", "precio": 9000 },
+    { "categoria": "Matambres", "nombre": "Matambre Super", "precio": 9500 },
+
+    { "categoria": "Comidas al Plato", "nombre": "Milanesa Napolitana c/fritas o ensalada", "precio": 8500 },
+    { "categoria": "Comidas al Plato", "nombre": "Milanesa al Plato c/fritas o ensaladas + 2 huevos", "precio": 8000 },
+    { "categoria": "Comidas al Plato", "nombre": "Costeleta c/papas o ensalada + 2 huevos", "precio": 9000 },
+    { "categoria": "Comidas al Plato", "nombre": "Matambre + 2 huevos", "precio": 10000 },
+    { "categoria": "Comidas al Plato", "nombre": "Matambre a la Pizza c/fritas", "precio": 10000 },
+    { "categoria": "Comidas al Plato", "nombre": "Matambre a la Napolitana", "precio": 10000 },
+
+    { "categoria": "Papuchas", "nombre": "Papucha Grande", "precio": 3500 },
+    { "categoria": "Papuchas", "nombre": "Papucha Chica", "precio": 2500 },
+    { "categoria": "Papuchas", "nombre": "Porción de Papas", "precio": 5000 },
+
+    { "categoria": "Pizza", "nombre": "Pizza Casera", "precio": 6500 },
+    { "categoria": "Pizza", "nombre": "Pizza Común", "precio": 5500 },
+    { "categoria": "Pizza", "nombre": "Pizza Especial", "precio": 7000 },
+    { "categoria": "Pizza", "nombre": "Pizza c/Choclo", "precio": 7500 },
+    { "categoria": "Pizza", "nombre": "Pizza Napolitana", "precio": 7000 },
+    { "categoria": "Pizza", "nombre": "Pizza Calabresa", "precio": 7500 },
+    { "categoria": "Pizza", "nombre": "Pizza Fugazzeta", "precio": 7000 },
+    { "categoria": "Pizza", "nombre": "Pizza c/Paleta y Huevo", "precio": 8000 },
+    { "categoria": "Pizza", "nombre": "Pizza Caballo", "precio": 8500 },
+    { "categoria": "Pizza", "nombre": "Pizza Mila", "precio": 9500 },
+
+    { "categoria": "Gaseosa linea Coca-cola", "nombre": "Coca/Fanta/Sprite x 3 Lts", "precio": 8000 },
+    { "categoria": "Gaseosa linea Coca-cola", "nombre": "Coca/Fanta/Sprite x 2 1/2 Lts", "precio": 7000 },
+    { "categoria": "Gaseosa linea Coca-cola", "nombre": "Coca/Fanta/Sprite x 1 1/2 Lts", "precio": 6000 },
+    { "categoria": "Gaseosa linea Coca-cola", "nombre": "Coca/Fanta/Sprite x 500 ml", "precio": 2500 },
+    { "categoria": "Gaseosa linea Coca-cola", "nombre": "Coca/Fanta/Sprite x 375 ml", "precio": 2000 },
+
+    { "categoria": "Bebidas", "nombre": "Torasso x 3 Lts", "precio": 3000 },
+    { "categoria": "Bebidas", "nombre": "Torasso x 1 1/2 Lts", "precio": 2000 },
+    { "categoria": "Bebidas", "nombre": "Torasso x 500 ml", "precio": 1000 },
+    { "categoria": "Bebidas", "nombre": "Jugos Placer x 1 1/2 Lts", "precio": 3000 },
+    { "categoria": "Bebidas", "nombre": "Jugo Frees x 1 1/2 Lts", "precio": 3000 },
+    { "categoria": "Bebidas", "nombre": "Secco Etiqueta Negra x 3 Lts", "precio": 4000 },
+    { "categoria": "Bebidas", "nombre": "Cerveza Salta x 1 Lts", "precio": 6000 },
+    { "categoria": "Bebidas", "nombre": "Salta Lata", "precio": 3500 },
+    { "categoria": "Bebidas", "nombre": "Schneider x 710", "precio": 4500 }
+  ],
+"galerias": {
+"platos": ["images/fritas.png", "images/lomo.jpg", "images/mila.jpeg"]
+},
+  "whatsapp": "3874000000",
+  "estado": "activo",
+  "destacado": false,
+
+  "theme": {
+    "colors": {
+      "primary": "#C0392B",
+      "secondary": "#2B2B2B",
+      "accent": "#F1C40F",
+
+      "background": "#EFE5D0",
+      "text": "#2B2B2B",
+
+      "title": {
+        "bg": "#F1C40F",
+        "text": "#C0392B"
+      },
+
+      "button-back": {
+        "bg": "#2B2B2B",
+        "text": "#F1C40F"
+      },
+
+      "button-continue": {
+        "bg": "#C0392B",
+        "text": "#FFFFFF"
+      },
+
+      "cart": {
+        "total": "#C0392B"
+      },
+
+      "menu": {
+        "bg": "#F1C40F"
+      },
+
+      "tab": {
+        "bg": "#EFE5D0",
+        "text": "#2B2B2B",
+        "active": {
+          "bg": "#C0392B",
+          "text": "#FFFFFF"
+        }
+      },
+
+      "item": {
+        "bg": "#FFFFFF",
+        "text": "#2B2B2B",
+        "price": "#C0392B",
+        "shadow": "0 4px 14px rgba(0,0,0,0.1)",
+
+        "button": {
+          "bg": "#C0392B",
+          "text": "#FFFFFF"
+        }
+      }
+    },
+    "font": "Poppins"
+  }
   }
 ]
