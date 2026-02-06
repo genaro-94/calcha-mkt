@@ -85,14 +85,6 @@ window.addEventListener("popstate", (e) => {
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  // 🚫 BLOQUEO EN NAVEGADOR
-  if (!ES_PWA) {
-    renderBloqueoInstalacion();
-    return; // 🔥 NO se inicializa la app
-  }
-
-  // ✅ PWA NORMAL
   app = document.getElementById("app");
 
   cargarComercios();
@@ -102,16 +94,25 @@ document.addEventListener("DOMContentLoaded", () => {
   renderApp();
 });
 
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".btn-volver")) {
-    if (vistaActual === "infoComercio") {
-      vistaActual = "home";
-      history.replaceState({ vista: "home" }, "", "#home");
-      renderHome();
-    }
-  }
+// =========================
+// LISTENER DE INSTALACIÓN
+// =========================
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+
+  // 🔥 cuando el navegador confirma que es instalable
+  setTimeout(intentarBloqueoNavegador, 300);
 });
 
+
+
+function intentarBloqueoNavegador() {
+  if (ES_PWA) return;
+  if (!deferredInstallPrompt) return;
+
+  renderBloqueoInstalacion();
+}
 
 
 function renderBloqueoInstalacion() {
