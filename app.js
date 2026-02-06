@@ -32,7 +32,7 @@ window.addEventListener("popstate", (e) => {
     volverHome();
     return;
   }
-
+ navegandoPorHistorial = true;
   switch (e.state.vista) {
     case "home":
       volverHome();
@@ -194,7 +194,8 @@ function renderHome() {
     <div class="header-logo">
   <img src="images/calcha1.png" alt="Calcha Market" />
 </div>
-    <button id="btn-menu">ℹ️</button>
+  
+    
   
     <div id="selector-ubicacion"></div>
 
@@ -256,10 +257,6 @@ if (mensajeRubro) {
   }
 }
 
-  document.getElementById("btn-menu").onclick = () => {
-    vistaActual = "menu";
-renderMenu();
-  };
   
 if (window.analytics) {
   logEvent(window.analytics, "ver_home");
@@ -273,28 +270,9 @@ if (window.analytics) {
 }
 
 
+// =========================//MENÚ
 // =========================
-// MENÚ
-// =========================
 
-function renderMenu() {
-
-  // ✅ GUARDAMOS ESTADO DEL MENÚ
-  history.pushState(
-    {
-      vista: "menu",
-      rubro: rubroActivo,
-      ubicacion: ubicacionActiva
-    },
-    "",
-    "#menu"
-  );
-
-  app.innerHTML = `
-  <button class="btn-home">🏠</button>
-    <button id="btn-info">ℹ️ ¿Qué es Calcha?</button>
-    <button id="btn-sumar">➕ Sumar comercio</button>
-  `;
 
   document.getElementById("btn-info").onclick = () => {
     vistaActual = "info";
@@ -314,7 +292,7 @@ function renderMenu() {
 
   document.getElementById("btn-sumar").onclick = sumarMiComercio;
 }
-
+}
 // =========================
 // LISTA COMERCIOS
 // =========================
