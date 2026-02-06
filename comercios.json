@@ -953,5 +953,213 @@
 
   "font": "Poppins"
 }
-    }
+    },
+  {
+    "id": 10,
+  "nombre": "Sandwichería Los Módulos Víctor",
+  "ubicacion": "cafayate",
+  "rubro": "gastronomia",
+  "descripcion": "Sandwichería tradicional con lomitos, milanesas, pizzas caseras y comidas al plato.",
+  "imagen": "images/mila.jpeg",
+  "tipoOperacion": "pedido",
+  "permiteDelivery": true,
+  "menu": [
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Lomito (lechuga, tomate y huevo)",
+    "precio": 160
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Lomito (lechuga, tomate, huevo, jamón y queso)",
+    "precio": 180
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Lomito (lechuga, tomate, huevo, jamón, queso y papas)",
+    "precio": 200
+  },
+
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Milanesa (lechuga, tomate y huevo)",
+    "precio": 150
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Milanesa (lechuga, tomate, huevo, jamón y queso)",
+    "precio": 170
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Milanesa (lechuga, tomate, huevo, jamón, queso y papas)",
+    "precio": 190
+  },
+
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Suprema (lechuga, tomate y huevo)",
+    "precio": 160
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Suprema (lechuga, tomate, huevo, jamón y queso)",
+    "precio": 180
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Suprema (lechuga, tomate, huevo, jamón, queso y papas)",
+    "precio": 200
+  },
+
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Hamburguesa (lechuga, tomate y huevo)",
+    "precio": 150
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Hamburguesa (lechuga, tomate, huevo, jamón y queso)",
+    "precio": 170
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Hamburguesa (lechuga, tomate, huevo, jamón, queso y papas)",
+    "precio": 190
+  },
+
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Patynesa (lechuga, tomate y huevo)",
+    "precio": 160
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Patynesa (lechuga, tomate, huevo, jamón y queso)",
+    "precio": 180
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Patynesa (lechuga, tomate, huevo, jamón, queso y papas)",
+    "precio": 200
+  },
+
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Hamburguesa Paty (lechuga, tomate y huevo)",
+    "precio": 160
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Hamburguesa Paty (lechuga, tomate, huevo, jamón y queso)",
+    "precio": 180
+  },
+  {
+    "categoria": "Sándwiches",
+    "nombre": "Hamburguesa Paty (lechuga, tomate, huevo, jamón, queso y papas)",
+    "precio": 200
+  },
 ]
+  "whatsapp": "3874000000",
+  "estado": "activo",
+  "destacado": false,
+"theme": {
+  "colors": {
+    "primary": "#4CAF50",
+    "secondary": "#000000",
+    "accent": "#2E7D32",
+
+    "background": "#F5F5F5",
+    "text": "#000000",
+
+    "title": {
+      "bg": "#FFFFFF",
+      "text": "#4CAF50"
+    },
+
+    "button-back": {
+      "bg": "#000000",
+      "text": "#4CAF50"
+    },
+
+    "button-continue": {
+      "bg": "#2E7D32",
+      "text": "#FFFFFF"
+    },
+
+    "delivery-active": {
+      "bg": "#4CAF50",
+      "border": "#2E7D32",
+      "text": "#FFFFFF"
+    },
+
+    "cart": {
+      "total": "#2E7D32"
+    },
+
+    "resumen": {
+      "item-name": "#000000",
+      "item-price": "#2E7D32"
+    },
+
+    "confirm": {
+      "title": "#000000",
+      "total": "#2E7D32",
+      "bg": "#F5F5F5",
+
+      "card": {
+        "bg": "#FFFFFF",
+        "shadow": "0 4px 12px rgba(0,0,0,0.1)"
+      },
+
+      "item": {
+        "text": "#000000",
+        "price": "#2E7D32"
+      },
+
+      "button": {
+        "bg": "#2E7D32",
+        "text": "#FFFFFF"
+      }
+    },
+
+    "gallery": {
+      "title": "#000000",
+      "border": "#4CAF50"
+    },
+
+    "menu": {
+      "bg": "#FFFFFF"
+    },
+
+    "tab": {
+      "bg": "#FFFFFF",
+      "text": "#000000",
+      "active": {
+        "bg": "#4CAF50",
+        "text": "#FFFFFF"
+      }
+    },
+
+    "item": {
+      "bg": "#FFFFFF",
+      "text": "#000000",
+      "price": "#2E7D32",
+      "shadow": "0 3px 10px rgba(0,0,0,0.1)",
+
+      "button": {
+        "bg": "#4CAF50",
+        "text": "#FFFFFF"
+      },
+
+      "qty-btn": {
+        "bg": "#E0E0E0",
+        "text": "#000000",
+        "bg-active": "#4CAF50"
+      }
+    }
+  },
+
+  "font": "Poppins"
+}
+    ]
