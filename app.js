@@ -26,7 +26,29 @@ const WHATSAPP_ADMIN = "5493875181644";
 const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 
 import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+window.addEventListener("popstate", (e) => {
+  if (!e.state) {
+    volverHome();
+    return;
+  }
 
+  switch (e.state.vista) {
+    case "home":
+      volverHome();
+      break;
+
+    case "menu":
+      renderMenu();
+      break;
+
+    case "info":
+      renderInfo();
+      break;
+
+    default:
+      volverHome();
+  }
+});
 
 // =========================
 // INIT APP
@@ -252,14 +274,14 @@ function renderMenu() {
   document.getElementById("btn-info").onclick = () => {
     vistaActual = "info";
     history.pushState(
-      {
-        vista: "info",
-        rubro: rubroActivo,
-        ubicacion: ubicacionActiva
-      },
-      "",
-      "#info"
-    );
+  {
+    vista: "menu",
+    rubro: rubroActivo,
+    ubicacion: ubicacionActiva
+  },
+  "",
+  "#menu"
+);
     renderInfo();
   };
 
