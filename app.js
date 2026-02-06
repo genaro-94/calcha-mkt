@@ -256,11 +256,21 @@ if (mensajeRubro) {
 📦 Para mayor tranquilidad, sugerimos solicitar la ubicación en tiempo real por WhatsApp`;
   }
 }
+
   document.getElementById("btn-menu").onclick = () => {
     vistaActual = "menu";
     history.replaceState({ vista: "menu" }, "", "#menu");
     renderMenu();
   };
+  history.pushState(
+  {
+    vista: "menu"
+  },
+  "",
+  "#menu"
+);
+
+renderMenu();
 if (window.analytics) {
   logEvent(window.analytics, "ver_home");
 }
@@ -678,10 +688,6 @@ function renderInfo() {
       ? "📄 Términos y Condiciones"
       : "❌ Ocultar Términos y Condiciones";
   };
-
-document.querySelector(".btn-volver").onclick = () => {
-  history.back();
-};
 }
 function aplicarThemeComercio(comercio) {
   const vista = document.querySelector(".vista-comercio");
