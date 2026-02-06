@@ -72,41 +72,28 @@ h3 {
   width: 90%;
   height: auto;
 }
-#btn-info,
-#btn-sumar {
-  position: absolute;
-  top: -10px;                 /* ajusta la altura fina */
-  padding: 6px 10px;
+.header-logo #btn-info,
+.header-logo #btn-sumar {
   font-size: 12px;
-  border-radius: 14px;
+  padding: 6px 12px;
+  border-radius: 16px;
   border: none;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.22);
   color: #3a1d0f;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
   backdrop-filter: blur(4px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-  display: flex;
-  align-items: center;
-  gap: 6px;
   white-space: nowrap;
 }
 
-/* Posición individual */
-#btn-info {
-  left: 50%;
-  transform: translateX(-110%);
+/* Botones en fila */
+.header-logo #btn-info + #btn-sumar {
+  margin-left: 8px;
 }
 
-#btn-sumar {
-  left: 50%;
-  transform: translateX(10%);
+/* Ajuste visual al tocar */
+.header-logo button:active {
+  transform: scale(0.96);
 }
-
-/* Feedback táctil */
-#btn-info:active,
-#btn-sumar:active {
-  transform: scale(0.95) translateX(var(--tx, 0));
-}
-
 /* =========================
    BOTONES
 ========================= */
