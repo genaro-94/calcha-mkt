@@ -535,13 +535,11 @@ function volverHome() {
     );
     renderHome();
   }
-
   app.scrollTo({ top: 0, behavior: "smooth" });
 }
 document.addEventListener("click", e => {
   if (!e.target.closest(".btn-home")) return;
   volverHome();
-  renderApp();
 });
 // =========================
 // INFO
