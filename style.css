@@ -557,7 +557,12 @@ margin-bottom: 18px;
   gap: 10px;
 }
 
-
+.menu-item {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
 .btn-agregar-item {
   background: var(--item-button-bg);
