@@ -655,6 +655,7 @@ btnTerminos.addEventListener("click", () => {
     ? "📄 Términos y Condiciones"
     : "❌ Ocultar Términos y Condiciones";
 });
+}
 document.querySelector(".btn-volver").onclick = () => {
   history.back();
 };
