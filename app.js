@@ -543,7 +543,7 @@ document.addEventListener("click", e => {
 
 function renderInfo() {
 app.innerHTML = `
-<button class="btn-volver" onclick="volver()">←</button>
+<button class="btn-volver">←</button>
   <h2>ℹ️ ¿Qué es Calcha?</h2>
 
   <p>
@@ -655,8 +655,9 @@ btnTerminos.addEventListener("click", () => {
     ? "📄 Términos y Condiciones"
     : "❌ Ocultar Términos y Condiciones";
 });
-  document.querySelector(".btn-volver").onclick = () => history.back();
-}
+document.querySelector(".btn-volver").onclick = () => {
+  history.back();
+};
 
 function aplicarThemeComercio(comercio) {
   const vista = document.querySelector(".vista-comercio");
