@@ -269,7 +269,9 @@ function renderMenu() {
     <button id="btn-sumar">➕ Sumar comercio</button>
   `;
 
-  document.querySelector(".btn-volver").onclick = volverHome;
+  document.querySelector(".btn-volver").onclick = () => {
+  history.back();
+};
 
   document.getElementById("btn-info").onclick = () => {
     vistaActual = "info";
