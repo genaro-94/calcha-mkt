@@ -516,7 +516,7 @@ margin-bottom: 18px;
 /* =========================
    MENÚ / PEDIDO
 ========================= */
-.menu-categorias {
+.menu-categoria {
   display: flex;
   gap: 12px;
   overflow-x: auto;
@@ -526,7 +526,7 @@ margin-bottom: 18px;
   -webkit-overflow-scrolling: touch;
 }
 
-.menu-categorias::-webkit-scrollbar {
+.menu-categoria::-webkit-scrollbar {
   display: none;
 }
 .menu-categoria {
@@ -557,13 +557,7 @@ margin-bottom: 18px;
   gap: 10px;
 }
 
-.menu-categoria {
-  text-align: center;
-  font-weight: bold;
-  font-size: 15px;
-  margin: 20px 0 10px;
-  color: #8b5a2b;
-}
+
 
 .btn-agregar-item {
   background: var(--item-button-bg);
