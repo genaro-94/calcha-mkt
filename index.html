@@ -63,15 +63,14 @@
   <!-- Contenedor principal de la SPA -->
   <div id="app"></div>
 
-  <script>
-    // Registrar service worker
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js");
-      });
-    }
-  </script>
-
+ <script>
+  // 🔥 EMERGENCIA: matar service workers viejos
+  if ("serviceWorker" in navigator") {
+    navigator.serviceWorker.getRegistrations().then(regs => {
+      regs.forEach(r => r.unregister());
+    });
+  }
+ </script>
   
   <script type="module" src="app.js"></script>
 </body>
