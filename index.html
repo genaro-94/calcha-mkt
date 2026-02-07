@@ -36,12 +36,12 @@
 <body>
 
 <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/calcha/sw.js", {
-  scope: "/calcha/"
-});
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js");
+    });
+  }
 </script>
-
   
   <!-- Botón Home normal, dentro de la SPA -->
   <button id="btnHome" class="btn-home">🏠</button>
