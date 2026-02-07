@@ -35,16 +35,14 @@
 </head>
 <body>
 
-  <script>
+<script>
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.getRegistrations().then(regs => {
-    regs.forEach(r => {
-      console.log("Unregister SW:", r.scope);
-      r.unregister();
-    });
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw-v1.js");
   });
 }
-  </script>
+</script>
+  
   <!-- Botón Home normal, dentro de la SPA -->
   <button id="btnHome" class="btn-home">🏠</button>
 <script type="module">
