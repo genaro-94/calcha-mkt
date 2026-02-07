@@ -1,6 +1,6 @@
 
 
-const CACHE_NAME = "calcha-pwa-v3";
+const CACHE_NAME = "calcha-mkt-clean-1";
 
 const FILES_TO_CACHE = [
   "/",
