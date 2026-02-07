@@ -27,8 +27,6 @@ const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 
 import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
 
-
-
 window.addEventListener("popstate", (e) => {
   if (!e.state || !e.state.vista) {
     volverHome();
@@ -73,9 +71,7 @@ window.addEventListener("popstate", (e) => {
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
-
   app = document.getElementById("app");
-
 
   cargarComercios();
   manejarBackButton();
@@ -93,14 +89,6 @@ document.addEventListener("click", (e) => {
     }
   }
 });
-
-// =========================
-// bloqueo navegador
-// =========================
-
-
-
-
 // =========================
 // ROUTER CENTRAL
 // =========================
@@ -1381,4 +1369,4 @@ WhatsApp:
 Gracias, espero su respuesta. 😊`);
 
   window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, "_blank");
-        }
+  }
