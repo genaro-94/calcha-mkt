@@ -27,55 +27,6 @@ const tiposOperacion = ["pedido", "reserva", "info", "mixto"];
 
 import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
 
-// =========================
-// PWA / BLOQUEO NAVEGADOR
-// =========================
-let deferredPrompt = null;
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
-function esPWAInstalada() {
-  return (
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.navigator.standalone === true ||
-    document.referrer.startsWith("android-app://")
-  );
-}
-
-function intentarBloqueoNavegador() {
-  if (esPWAInstalada()) return false;
-
-  // 🔥 cortar TODO
-  document.documentElement.innerHTML = `
-    <head>
-      <meta charset="utf-8">
-      <title>Instalar Calcha</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-      <div class="bloqueo-pwa">
-        <h2>Calcha funciona como app</h2>
-        <p>Instalá la aplicación para continuar</p>
-        <button id="btn-instalar">📲 Instalar app</button>
-      </div>
-    </body>
-  `;
-
-  // 🔥 limpiar estado global
-  comercios = [];
-  comercioActivo = null;
-  carritos = {};
-  categoriaActiva = null;
-  tipoEntrega = null;
-  direccionEntrega = "";
-
-  return true;
-}
-
-
 window.addEventListener("popstate", (e) => {
   if (!e.state || !e.state.vista) {
     volverHome();
@@ -120,16 +71,8 @@ window.addEventListener("popstate", (e) => {
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  if (esPWAInstalada() && !sessionStorage.getItem("calcha-loaded")) {
-    sessionStorage.setItem("calcha-loaded", "1");
-    location.reload();
-    return;
-  }
-
-  if (intentarBloqueoNavegador()) return;
-
   app = document.getElementById("app");
+
   cargarComercios();
   manejarBackButton();
 
@@ -1426,4 +1369,4 @@ WhatsApp:
 Gracias, espero su respuesta. 😊`);
 
   window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, "_blank");
-  }
+        }
