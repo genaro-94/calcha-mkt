@@ -62,15 +62,14 @@
 </script>
   <!-- Contenedor principal de la SPA -->
   <div id="app"></div>
-
- <script>
-  // 🔥 EMERGENCIA: matar service workers viejos
-  if ("serviceWorker" in navigator") {
+<script>
+  // EMERGENCIA: eliminar service workers viejos
+  if ("serviceWorker" in navigator) {
     navigator.serviceWorker.getRegistrations().then(regs => {
       regs.forEach(r => r.unregister());
     });
   }
- </script>
+</script>
   
   <script type="module" src="app.js"></script>
 </body>
