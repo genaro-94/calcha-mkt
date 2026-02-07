@@ -128,7 +128,11 @@ window.addEventListener("popstate", (e) => {
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
+
+if (intentarBloqueoNavegador()) return;
+
   app = document.getElementById("app");
+
 
   cargarComercios();
   manejarBackButton();
