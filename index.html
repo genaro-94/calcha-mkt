@@ -35,6 +35,16 @@
 </head>
 <body>
 
+  <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(r => {
+      console.log("Unregister SW:", r.scope);
+      r.unregister();
+    });
+  });
+}
+  </script>
   <!-- Botón Home normal, dentro de la SPA -->
   <button id="btnHome" class="btn-home">🏠</button>
 <script type="module">
@@ -62,14 +72,7 @@
 </script>
   <!-- Contenedor principal de la SPA -->
   <div id="app"></div>
-<script>
-  // EMERGENCIA: eliminar service workers viejos
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.getRegistrations().then(regs => {
-      regs.forEach(r => r.unregister());
-    });
-  }
-</script>
+
   
   <script type="module" src="app.js"></script>
 </body>
