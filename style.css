@@ -29,14 +29,14 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
+
   background: linear-gradient(
     180deg,
-    #F4A261 0%,   /* naranja rojizo */
-    #F4A261 45%,  /* terracota clara nueva */
-    #f6efe7 100%  /* claro abajo */
+    #F4A261 0%,    /* terracota */
+    #F4A261 45%,   /* mantiene cuerpo de color */
+    #f6efe7 100%   /* claro abajo */
   );
 }
-
 
 #app {
   max-width: 430px;
