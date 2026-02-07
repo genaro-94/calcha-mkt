@@ -35,6 +35,13 @@
 </head>
 <body>
 
+  <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/calcha-mkt/sw-v1.js");
+}
+  </script>
+
+  
   <!-- Botón Home normal, dentro de la SPA -->
   <button id="btnHome" class="btn-home">🏠</button>
 <script type="module">
@@ -62,11 +69,6 @@
 </script>
   <!-- Contenedor principal de la SPA -->
   <div id="app"></div>
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/calcha-mkt/calcha-sw-v1.js");
-}
-</script>
 
   
   <script type="module" src="app.js"></script>
