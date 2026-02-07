@@ -35,23 +35,11 @@
 </head>
 <body>
 
-  <script>
-(async () => {
-  if ('serviceWorker' in navigator) {
-    const regs = await navigator.serviceWorker.getRegistrations();
-    for (let reg of regs) {
-      await reg.unregister();
-    }
-
-    const keys = await caches.keys();
-    for (let key of keys) {
-      await caches.delete(key);
-    }
-
-    console.log("Service Workers y caches eliminados");
-  }
-})();
-  </script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/calcha-mkt/sw.js");
+}
+</script>
 
   
   <!-- Botón Home normal, dentro de la SPA -->
