@@ -32,7 +32,15 @@ self.addEventListener("activate", e => {
 });
 
 self.addEventListener("fetch", e => {
+
+  // 🔥 JSON SIEMPRE DESDE LA RED
+  if (e.request.url.endsWith(".json")) {
+    e.respondWith(fetch(e.request));
+    return;
+  }
+
+  // resto de los archivos: cache first
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request))
+    caches.match(e.request).then(res => res || fetch(e.request))
   );
 });
